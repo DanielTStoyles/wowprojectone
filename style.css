@@ -1,0 +1,80 @@
+*{
+    margin: 4px;
+    padding: 0.4px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
+	"Font name" */
+    letter-spacing: 0.8px;
+}
+
+
+
+body {  
+	font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
+	"Font name" */
+
+	background-color:#d3a748;
+
+	}
+
+.fullraid-table{
+    border-collapse: collapse;
+    width:25em;
+    background-color:antiquewhite;
+    border-radius:5px;
+    box-shadow:0px 10px 30px 5px rgba(0,0,0,.15);
+    margin:25px auto;
+
+}
+
+.fullraid-table thead tr{
+    border-bottom: 2px solid black;
+}
+
+.fullraid-table thead tr td{
+    font-size:16px;
+    letter-spacing: 1px;
+    color:black;
+    padding: 8px;
+
+}
+
+.fullraid-table tbody tr{
+    border-bottom: 1px solid black;
+}
+
+.fullraid-table tbody tr td{
+    font-size:16px;
+    letter-spacing: 0.7px;
+    color:black;
+    padding: 7px;
+
+}
+
+
+.bench-table{
+    border-collapse: collapse;
+    width:25em;
+    background-color:antiquewhite;
+    border-radius:5px;
+    box-shadow:0px 10px 30px 5px rgba(0,0,0,.15);
+    margin:25px auto;
+
+}
+
+.bench-table thead tr{
+    border-bottom: 2px solid black;
+}
+
+.bench-table tbody tr{
+    border-bottom: 1px solid black;
+}
+
+.bench-table tbody tr td{
+    font-size:16px;
+    letter-spacing: 0.7px;
+    color:black;
+    padding: 7px;
+
+}
+
