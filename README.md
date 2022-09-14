@@ -1,2 +1,3 @@
 # wowprojectone
- ProfessionHUB for WoW Classic
+ Raid Management Tool for WoW Classic: Wrath of the Lich King
+ 
