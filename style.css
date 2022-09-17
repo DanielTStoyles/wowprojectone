@@ -16,6 +16,7 @@ html {
 
 
 body {  
+    position: relative;
 	font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
 	"Font name" */
 
@@ -23,8 +24,17 @@ body {
 
 	}
 
+    .title{
+
+        text-align:center;
+        font-size:xx-large;
+        font-weight:bold;
+        
+    }
+
     .groupone{
 
+        position:absolute;
         border-collapse:collapse;
         color:rgb(136, 15, 15);
         padding:1rem 2rem;
@@ -36,9 +46,9 @@ body {
         border-style:solid;
         border-width:0.1rem;
         border-color:black;
-        margin-left:auto;
-        margin-right:auto;
-
+        left:36%;
+        top:25rem;
+        
     }
 
     .groupone tbody tr td{
@@ -49,12 +59,11 @@ body {
         border-right:0.1rem solid black;
         padding:1.6rem;
 
-
     }
 
     .grouptwo{
 
-        
+        position:absolute;
         border-collapse:collapse;
         color:rgb(136, 15, 15);
         padding:1rem 2rem;
@@ -65,10 +74,10 @@ body {
         text-align:left;
         border-style:solid;
         border-width:0.1rem;
-        border-color:black;
+        border-color:black;        
+        left:46%;
+        top:25rem;
        
-
-
     }
 
     .grouptwo tbody tr td{
@@ -84,7 +93,7 @@ body {
 
     .groupthree{
 
-        
+        position:absolute;
         border-collapse:collapse;
         color:rgb(136, 15, 15);
         padding:1rem 2rem;
@@ -96,6 +105,9 @@ body {
         border-style:solid;
         border-width:0.1rem;
         border-color:black;
+        left:56%;
+        top:25rem;
+        
 
     }
 
@@ -112,7 +124,7 @@ body {
 
     .groupfour{
 
-        
+        position:absolute;
         border-collapse:collapse;
         color:rgb(136, 15, 15);
         padding:1rem 2rem;
@@ -124,6 +136,9 @@ body {
         border-style:solid;
         border-width:0.1rem;
         border-color:black;
+        left:41%;
+        top:58rem;
+       
 
     }
 
@@ -140,7 +155,7 @@ body {
 
     .groupfive{
 
-    
+        position:absolute;
         border-collapse:collapse;
         color:rgb(136, 15, 15);
         padding:1rem 2rem;
@@ -152,6 +167,9 @@ body {
         border-style:solid;
         border-width:0.1rem;
         border-color:black;
+        left:51%;
+        top:58rem;
+
 
     }
 
@@ -167,9 +185,7 @@ body {
     }
 
     
-
-
-#container{
+.tables{
 
     margin:auto;
     border: 0.3rem solid black;
