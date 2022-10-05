@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF=8">
 <title>Raid Roster</title>
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" rel="import" rel="mytabletemplate.html" />
+<script src="./component.js"></script>
 </head>
 
 <body>
@@ -77,31 +78,149 @@
                     
                     <tr>
 
-                        <td>Player 1</td>
+                        <td>
+                            <form>
+                                <label for="Class/Spec" id="classspec"></label>
+                                <input type="text" id="cname" name="cname">
+                                <select name="class" id="class">
+                                
+                                    <option value="holder">Select Class & Spec</option>
+
+                                    <optgroup label="Death Knight">
+                                        <option value="blood">Blood</option>
+                                        <option value="frost">Frost</option>
+                                        <option value="unholy">Unholy</option>
+                                    </optgroup>
+                                   
+
+                                    <optgroup label="Druid">
+                                        <option value="bear">Bear</option>
+                                        <option value="cat">Cat</option>
+                                        <option value="balance">Balance</option>
+                                        <option value="resto">Resto</option>
+                                    </optgroup>
+
+                                    <optgroup label="Hunter">
+                                        <option value="beast">Beast Master</option>
+                                        <option value="marks">Marksman</option>
+                                        <option value="survival">Survival</option>
+                                    </optgroup>
+
+                                    <optgroup label="Mage">
+                                        <option value="arcane">arcane</option>
+                                        <option value="fire">Fire</option>
+                                        <option value="frost">Frost</option>
+                                    </optgroup>
+
+                                    <optgroup label="Paladin">
+                                        <option value="holy">Holy</option>
+                                        <option value="prot">Prot</option>
+                                        <option value="ret">Ret</option>
+                                    </optgroup>
+
+                                    <optgroup label="Priest">
+                                        <option value="disc">Disc</option>
+                                        <option value="holy">Holy</option>
+                                        <option value="shadow">Shadow</option>
+                                    </optgroup>
+
+                                    <optgroup label="Rogue">
+                                        <option value="assasin">Assasin</option>
+                                        <option value="combat">Combat</option>
+                                        <option value="sub">Sub</option>
+                                    </optgroup>
+
+                                    <optgroup label="Shaman">
+                                        <option value="enhace">Enhancement</option>
+                                        <option value="ele">Ele</option>
+                                        <option value="restor">Resto</option>
+                                    </optgroup>
+
+                                    <optgroup label="Warlock">
+                                        <option value="affliction">Affliction</option>
+                                        <option value="demon">Demonology</option>
+                                        <option value="destro">Destruction</option>
+                                    </optgroup>
+                                    
+
+                                    <optgroup label="Warrior">
+                                        <option value="arms">Arms</option>
+                                        <option value="fury">Fury</option>
+                                        <option value="protec">Prot</option>
+
+                                    </optgroup>
+                                                                  
+                                </select>
+                                <input type="submit" value="Submit" />
+                            </form>
+                        </td>
                         
                     </tr>
 
                     <tr>
 
-                        <td>Player 2</td>
+                        <td>
+                          <div class="dropdown">
+                            <button class="btn btn-success
+                            dropdown-toggle"
+                             type="button"
+                              id="dropbutton"
+                               data-toggle="dropdown"
+                                aria-haspopup="true"
+                                 aria-expanded="false">Class/Specs</button>
+                            <ul 
+                            class="dropdown-menu"
+                            aria-labelledby="dropbutton">
+                            <li class="dropdown-item">
+                                <img src="images/afflicitonlock.png" width="20" height="20">Affliction
+                            </li>
+
+                        </ul>
+                          </div>  
+
+                        </td>
                 
                     </tr>
 
                     <tr>
 
-                        <td>Player 3</td>
+                        <td>
+                            <form>
+                                <input type="text" id="cname" name="cname">
+                            </form>
+                            <div class="dropdown">
+                                <button class="Dropbtn">Dropdown</button>
+                                <div class="drop-content">
+                           <ul>
+                            <li>
+                                <img src="images/blooddk.png" width="30" height="30">
+                            </li>
+                            <li>
+                                <img src="images/frostdk.png" width="30" height="30">
+                            </li>
+                            <li>
+                                <img src="images/unholydk.png" width="30" height="30">
+                            </li>
+                           </ul>
+                        </div>
+                        </div>
+                        </td>
                 
                     </tr>
 
                     <tr>
 
-                        <td>Player 4</td>
+                        <td>
+
+                        </td>
                 
                     </tr>
 
                     <tr>
 
-                        <td>Player 5</td>
+                        <td>
+
+                        </td>
                 
                     </tr>
 
@@ -111,49 +230,7 @@
        
 
 
-        <table id="two" class="grouptwo">
-
-            <caption>Group 2</caption>
-
-            <thead>
-
-                    <tbody>
-            
-                        <tr>
-            
-                            <td>Player 1</td>
-            
-                        </tr>
-            
-                        <tr>
-            
-                            <td>Player 2</td>
-                    
-                        </tr>
-            
-                        <tr>
-            
-                            <td>Player 3</td>
-                    
-                        </tr>
-            
-                        <tr>
-            
-                            <td>Player 4</td>
-                    
-                        </tr>
-            
-                        <tr>
-            
-                            <td>Player 5</td>
-                    
-                        </tr>
-            
-                    </tbody>
-
-            </thead>
-            
-        </table>
+        
 
             
         <table id="three" class="groupthree">

@@ -46,7 +46,7 @@ body {
         border-style:solid;
         border-width:0.1rem;
         border-color:black;
-        left:36%;
+        left:30%;
         top:25rem;
         
     }
@@ -184,6 +184,24 @@ body {
 
     }
 
+    #apptables{
+
+        position:absolute;
+        border-collapse:collapse;
+        color:rgb(136, 15, 15);
+        padding:1rem 2rem;
+        text-transform:uppercase;
+        letter-spacing:0.1rem;
+        font-size:2.0rem;
+        font-weight:bold;
+        text-align:left;
+        border-style:solid;
+        border-width:0.1rem;
+        border-color:black;
+        left:60%;
+        top:25rem;
+    
+    }
     
 .tables{
 
@@ -192,3 +210,39 @@ body {
 
 }
 
+.dropbtn{
+background-color:rgb(136, 15, 15);
+color:white;
+padding: 0.2rem;
+font-size: 0.14rem;
+border: none;
+cursor:pointer;
+
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+
+}
+
+.drop-content{
+    display: none;
+    position: absolute;
+    background-color:#f9f9f9;
+    min-width:5rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.drop-content img{
+    display:block;
+    size:1rem;
+
+    
+}
+
+.dropdown:hover .dropbtn{
+    background-color:#3e8e41;
+
+}
