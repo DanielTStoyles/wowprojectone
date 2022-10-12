@@ -209,7 +209,7 @@ body {
     border: 0.3rem solid black;
 
 }
-
+/* 
 .dropbtn {
     background-color: #3498DB;
     color: white;
@@ -247,7 +247,7 @@ body {
   
   .dropdown a:hover {background-color: #ddd;}
   
-  .show {display: block;}
+  .show {display: block;} */
 
 select.icon-menu option {
     background-repeat:no-repeat;
@@ -255,6 +255,6 @@ select.icon-menu option {
     padding-left:30px;
     }
     select#classSpec option[value="dk"] {
-    background:url(images/blooddk.png);
+    background-image:url(images/blooddk.png);
     }
 
