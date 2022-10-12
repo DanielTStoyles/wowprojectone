@@ -79,7 +79,7 @@
                     <tr>
 
                         <td>
-                            <form>
+                            
                                 <label for="Class/Spec" id="classspec"></label>
                                 <input type="text" id="cname" name="cname">
                                 <select name="class" id="class">
@@ -152,7 +152,7 @@
                                                                   
                                 </select>
                                 <input type="submit" value="Submit" />
-                            </form>
+                            
                         </td>
                         
                     </tr>
@@ -185,25 +185,14 @@
                     <tr>
 
                         <td>
-                            <form>
-                                <input type="text" id="cname" name="cname">
-                            </form>
-                            <div class="dropdown">
-                                <button class="Dropbtn">Dropdown</button>
-                                <div class="drop-content">
-                           <ul>
-                            <li>
-                                <img src="images/blooddk.png" width="30" height="30">
-                            </li>
-                            <li>
-                                <img src="images/frostdk.png" width="30" height="30">
-                            </li>
-                            <li>
-                                <img src="images/unholydk.png" width="30" height="30">
-                            </li>
-                           </ul>
-                        </div>
-                        </div>
+                         <div class="dropdown">
+                            <button onclick="dropMenu()"
+                            class="dropbtn">Class/Spec</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                
+                            </div>
+                         </div>
+                            
                         </td>
                 
                     </tr>
@@ -211,7 +200,10 @@
                     <tr>
 
                         <td>
-
+                            <select name="classSpec" id="classSpec" class="icon-menu">
+                                <option value="holder">Select Class/Spec</option>
+                                <option value="dk">Blood</option>
+                            </select>
                         </td>
                 
                     </tr>
@@ -233,7 +225,7 @@
         
 
             
-        <table id="three" class="groupthree">
+        <!-- <table id="three" class="groupthree">
 
         <caption>Group 3</caption>
 
@@ -364,7 +356,7 @@
                         
         </table>
 
-    </div>
+    </div> -->
 
 </div>
 
