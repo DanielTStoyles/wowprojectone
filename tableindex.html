@@ -4,7 +4,7 @@
 <meta charset="UTF=8">
 <title>Raid Roster</title>
 <link rel="stylesheet" href="style.css" type="text/css" rel="import" rel="mytabletemplate.html" />
-<script src="./component.js"></script>
+<script src="./component.js" defer></script>
 </head>
 
 <body>
@@ -167,7 +167,8 @@
                               id="dropbutton"
                                data-toggle="dropdown"
                                 aria-haspopup="true"
-                                 aria-expanded="false">Class/Specs</button>
+                                 aria-expanded="false"
+                                 onclick="btnImage()">Class/Specs</button>
                             <ul 
                             class="dropdown-menu"
                             aria-labelledby="dropbutton">
@@ -185,18 +186,30 @@
                     <tr>
 
                         <td>
-                         <div class="dropdown">
-                            <button onclick="dropMenu()"
+                        <input type="text" id="charName" name="charName" placeholder="Character Name">
+                            <div class="dropdown">
+                                <button onclick="dropMenu()"
                             class="dropbtn">Class/Spec</button>
-                            <div id="myDropdown" class="dropdown-content">
+                                <div id="myDropdown" class="dropdown-content">
+                                    <ul class="menu">
+                                        <li class="dkbutton">
+                                            <img id='image' src="images/blooddk.png" width="30" height="30">Unicorn
+                                    </li> 
+                                        <li value="starwars" ><img class="specImage" src="images/unholydk.png" width="30" height="30">Unicorn
+                                    </li>
+                                    <li value="jaba">Blood DK</li>
+                                    <li value="getcoding">Blood DK</li>
+                                    <li value="wannacode">Blood DK</li>
+                                </ul>
                                 
+                                </div>
                             </div>
-                         </div>
                             
                         </td>
                 
                     </tr>
-
+                    <script>function dropMenu()</script>
+                    <script>btnImage</script>
                     <tr>
 
                         <td>
@@ -218,143 +231,136 @@
 
                 </tbody>
 
-            </thead>
-       
+            </thead>           
+        // <!-- <table id="three" class="groupthree">
+        // <caption>Group 3</caption>
 
-
-        
-
-            
-        <!-- <table id="three" class="groupthree">
-
-        <caption>Group 3</caption>
-
-            <thead>
-                    <tbody>
+        //     <thead>
+        //             <tbody>
                 
-                        <tr>
+        //                 <tr>
                 
-                            <td>Player 1</td>
+        //                     <td>Player 1</td>
                 
-                        </tr>
+        //                 </tr>
                 
-                        <tr>
+        //                 <tr>
                 
-                            <td>Player 2</td>
+        //                     <td>Player 2</td>
                         
-                        </tr>
+        //                 </tr>
                 
-                        <tr>
+        //                 <tr>
                 
-                            <td>Player 3</td>
+        //                     <td>Player 3</td>
                         
-                        </tr>
+        //                 </tr>
                 
-                        <tr>
+        //                 <tr>
                 
-                            <td>Player 4</td>
+        //                     <td>Player 4</td>
                         
-                        </tr>
+        //                 </tr>
                 
-                        <tr>
+        //                 <tr>
                 
-                            <td>Player 5</td>
+        //                     <td>Player 5</td>
                         
-                        </tr>
+        //                 </tr>
                 
-                    </tbody>
+        //             </tbody>
 
-            </thead>
+        //     </thead>
                 
-        </table>
+        // </table>
 
-        <table id="four" class="groupfour">
+        // <table id="four" class="groupfour">
 
-        <caption>Group 4</caption>
+        // <caption>Group 4</caption>
                         
-            <thead>
+        //     <thead>
                 
-                <tbody>
+        //         <tbody>
                     
-                        <tr>
+        //                 <tr>
                     
-                            <td>Player 1</td>
+        //                     <td>Player 1</td>
                     
-                        </tr>
+        //                 </tr>
                     
-                        <tr>
+        //                 <tr>
                     
-                            <td>Player 2</td>
+        //                     <td>Player 2</td>
                             
-                        </tr>
+        //                 </tr>
                     
-                        <tr>
+        //                 <tr>
                     
-                            <td>Player 3</td>
+        //                     <td>Player 3</td>
                             
-                        </tr>
+        //                 </tr>
                     
-                        <tr>
+        //                 <tr>
                     
-                            <td>Player 4</td>
+        //                     <td>Player 4</td>
                             
-                        </tr>
+        //                 </tr>
                     
-                        <tr>
+        //                 <tr>
                     
-                            <td>Player 5</td>
+        //                     <td>Player 5</td>
                             
-                        </tr>
+        //                 </tr>
                     
-                </tbody>
+        //         </tbody>
 
-            </thead>
+        //     </thead>
                     
-        </table>
+        // </table>
 
-        <table id="five" class="groupfive">
+        // <table id="five" class="groupfive">
 
-        <caption>Group 5</caption>
+        // <caption>Group 5</caption>
 
-            <thead>
+        //     <thead>
                                 
-                <tbody>
+        //         <tbody>
                         
-                    <tr>
+        //             <tr>
                         
-                        <td>Player 1</td>
+        //                 <td>Player 1</td>
                         
-                    </tr>
+        //             </tr>
                         
-                    <tr>
+        //             <tr>
                         
-                        <td>Player 2</td>
+        //                 <td>Player 2</td>
                                 
-                    </tr>
+        //             </tr>
                         
-                    <tr>
+        //             <tr>
                         
-                        <td>Player 3</td>
+        //                 <td>Player 3</td>
                                 
-                    </tr>
+        //             </tr>
                         
-                    <tr>
+        //             <tr>
                         
-                        <td>Player 4</td>
+        //                 <td>Player 4</td>
                                 
-                    </tr>
+        //             </tr>
                         
-                    <tr>
+        //             <tr>
                         
-                        <td>Player 5</td>
+        //                 <td>Player 5</td>
                                 
-                    </tr>
+        //             </tr>
                         
-                </tbody>
+        //         </tbody>
 
-            </thead>
+        //     </thead>
                         
-        </table>
+        // </table>
 
     </div> -->
 

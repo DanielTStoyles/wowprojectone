@@ -1,255 +1,228 @@
-
+/** @format */
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
-*table{
-    margin: 0.4rem;
-    padding: 0.1rem;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
+*table {
+  margin: 0.4rem;
+  padding: 0.1rem;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
 	"Font name" */
-    overflow:hidden
-
+  overflow: hidden;
 }
 
-
-body {  
-    position: relative;
-	font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
+body {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
 	"Font name" */
 
-	background-color:antiquewhite;
-
-	}
-
-    .title{
-
-        text-align:center;
-        font-size:xx-large;
-        font-weight:bold;
-        
-    }
-
-    .groupone{
-
-        position:absolute;
-        border-collapse:collapse;
-        color:rgb(136, 15, 15);
-        padding:1rem 2rem;
-        text-transform:uppercase;
-        letter-spacing:0.1rem;
-        font-size:2.0rem;
-        font-weight:bold;
-        text-align:left;
-        border-style:solid;
-        border-width:0.1rem;
-        border-color:black;
-        left:30%;
-        top:25rem;
-        
-    }
-
-    .groupone tbody tr td{
-
-        border-bottom:0.1rem solid black;
-        border-top:0.1rem solid black;
-        border-left:0.1rem solid black;
-        border-right:0.1rem solid black;
-        padding:1.6rem;
-
-    }
-
-    .grouptwo{
-
-        position:absolute;
-        border-collapse:collapse;
-        color:rgb(136, 15, 15);
-        padding:1rem 2rem;
-        text-transform:uppercase;
-        letter-spacing:0.1rem;
-        font-size:2.0rem;
-        font-weight:bold;
-        text-align:left;
-        border-style:solid;
-        border-width:0.1rem;
-        border-color:black;        
-        left:46%;
-        top:25rem;
-       
-    }
-
-    .grouptwo tbody tr td{
-
-        border-bottom:0.1rem solid black;
-        border-top:0.1rem solid black;
-        border-left:0.1rem solid black;
-        border-right:0.1rem solid black;
-        padding:1.6rem;
-
-
-    }
-
-    .groupthree{
-
-        position:absolute;
-        border-collapse:collapse;
-        color:rgb(136, 15, 15);
-        padding:1rem 2rem;
-        text-transform:uppercase;
-        letter-spacing:0.1rem;
-        font-size:2.0rem;
-        font-weight:bold;
-        text-align:left;
-        border-style:solid;
-        border-width:0.1rem;
-        border-color:black;
-        left:56%;
-        top:25rem;
-        
-
-    }
-
-    .groupthree tbody tr td{
-
-        border-bottom:0.1rem solid black;
-        border-top:0.1rem solid black;
-        border-left:0.1rem solid black;
-        border-right:0.1rem solid black;
-        padding:1.6rem;
-
-
-    }
-
-    .groupfour{
-
-        position:absolute;
-        border-collapse:collapse;
-        color:rgb(136, 15, 15);
-        padding:1rem 2rem;
-        text-transform:uppercase;
-        letter-spacing:0.1rem;
-        font-size:2.0rem;
-        font-weight:bold;
-        text-align:left;
-        border-style:solid;
-        border-width:0.1rem;
-        border-color:black;
-        left:41%;
-        top:58rem;
-       
-
-    }
-
-    .groupfour tbody tr td{
-
-        border-bottom:0.1rem solid black;
-        border-top:0.1rem solid black;
-        border-left:0.1rem solid black;
-        border-right:0.1rem solid black;
-        padding:1.6rem;
-
-
-    }
-
-    .groupfive{
-
-        position:absolute;
-        border-collapse:collapse;
-        color:rgb(136, 15, 15);
-        padding:1rem 2rem;
-        text-transform:uppercase;
-        letter-spacing:0.1rem;
-        font-size:2.0rem;
-        font-weight:bold;
-        text-align:left;
-        border-style:solid;
-        border-width:0.1rem;
-        border-color:black;
-        left:51%;
-        top:58rem;
-
-
-    }
-
-    .groupfive tbody tr td{
-
-        border-bottom:0.1rem solid black;
-        border-top:0.1rem solid black;
-        border-left:0.1rem solid black;
-        border-right:0.1rem solid black;
-        padding:1.6rem;
-
-
-    }
-
-    #apptables{
-
-        position:absolute;
-        border-collapse:collapse;
-        color:rgb(136, 15, 15);
-        padding:1rem 2rem;
-        text-transform:uppercase;
-        letter-spacing:0.1rem;
-        font-size:2.0rem;
-        font-weight:bold;
-        text-align:left;
-        border-style:solid;
-        border-width:0.1rem;
-        border-color:black;
-        left:60%;
-        top:25rem;
-    
-    }
-    
-.tables{
-
-    margin:auto;
-    border: 0.3rem solid black;
-
+  background-color: antiquewhite;
 }
-/* 
+
+.title {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.groupone {
+  position: absolute;
+  border-collapse: collapse;
+  color: rgb(136, 15, 15);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: black;
+  left: 30%;
+  top: 25rem;
+}
+
+.groupone tbody tr td {
+  border-bottom: 0.1rem solid black;
+  border-top: 0.1rem solid black;
+  border-left: 0.1rem solid black;
+  border-right: 0.1rem solid black;
+  padding: 1.6rem;
+}
+
+.grouptwo {
+  position: absolute;
+  border-collapse: collapse;
+  color: rgb(136, 15, 15);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: black;
+  left: 46%;
+  top: 25rem;
+}
+
+.grouptwo tbody tr td {
+  border-bottom: 0.1rem solid black;
+  border-top: 0.1rem solid black;
+  border-left: 0.1rem solid black;
+  border-right: 0.1rem solid black;
+  padding: 1.6rem;
+}
+
+.groupthree {
+  position: absolute;
+  border-collapse: collapse;
+  color: rgb(136, 15, 15);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: black;
+  left: 56%;
+  top: 25rem;
+}
+
+.groupthree tbody tr td {
+  border-bottom: 0.1rem solid black;
+  border-top: 0.1rem solid black;
+  border-left: 0.1rem solid black;
+  border-right: 0.1rem solid black;
+  padding: 1.6rem;
+}
+
+.groupfour {
+  position: absolute;
+  border-collapse: collapse;
+  color: rgb(136, 15, 15);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: black;
+  left: 41%;
+  top: 58rem;
+}
+
+.groupfour tbody tr td {
+  border-bottom: 0.1rem solid black;
+  border-top: 0.1rem solid black;
+  border-left: 0.1rem solid black;
+  border-right: 0.1rem solid black;
+  padding: 1.6rem;
+}
+
+.groupfive {
+  position: absolute;
+  border-collapse: collapse;
+  color: rgb(136, 15, 15);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: black;
+  left: 51%;
+  top: 58rem;
+}
+
+.groupfive tbody tr td {
+  border-bottom: 0.1rem solid black;
+  border-top: 0.1rem solid black;
+  border-left: 0.1rem solid black;
+  border-right: 0.1rem solid black;
+  padding: 1.6rem;
+}
+
+#apptables {
+  position: absolute;
+  border-collapse: collapse;
+  color: rgb(136, 15, 15);
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: black;
+  left: 60%;
+  top: 25rem;
+}
+
+.tables {
+  margin: auto;
+  border: 0.3rem solid black;
+}
+
 .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown a:hover {background-color: #ddd;}
-  
-  .show {display: block;} */
+  background-color: #3498db;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
 
-select.icon-menu option {
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #2980b9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+li {
+  cursor: pointer;
+}
+
+/* select.icon-menu option {
     background-repeat:no-repeat;
     background-position:bottom left;
     padding-left:30px;
@@ -257,4 +230,4 @@ select.icon-menu option {
     select#classSpec option[value="dk"] {
     background-image:url(images/blooddk.png);
     }
-
+ */
