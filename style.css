@@ -18,30 +18,56 @@ body {
   font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
 	"Font name" */
 
-  background-color: antiquewhite;
+  background-color: #1f8cd4;
 }
-
+.navbar {
+  height: 100%;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.959);
+}
 .title {
   text-align: center;
   font-size: xx-large;
   font-weight: bold;
 }
 
+.banner {
+  width: 100%;
+  border-style: solid;
+  border-color: black;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(59, 54, 54);
+}
+
+.banner img {
+  object-fit: fill;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-style: solid;
+  border-color: rgb(19, 18, 18);
+}
+
+.tcontainer {
+  display: flex;
+  width: 100%;
+  border-style: solid;
+  border-color: black;
+  justify-content: center;
+  align-items: center;
+}
 .groupone {
-  position: absolute;
+  position: relative;
   border-collapse: collapse;
-  color: rgb(136, 15, 15);
+  color: whitesmoke;
   padding: 1rem 2rem;
-  text-transform: uppercase;
   letter-spacing: 0.1rem;
   font-size: 2rem;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
   border-style: solid;
   border-width: 0.1rem;
   border-color: black;
-  left: 30%;
-  top: 25rem;
 }
 
 .groupone tbody tr td {
@@ -52,7 +78,7 @@ body {
   padding: 1.6rem;
 }
 
-.grouptwo {
+/* .grouptwo {
   position: absolute;
   border-collapse: collapse;
   color: rgb(136, 15, 15);
@@ -150,9 +176,9 @@ body {
   border-left: 0.1rem solid black;
   border-right: 0.1rem solid black;
   padding: 1.6rem;
-}
+} */
 
-#apptables {
+/* #apptables {
   position: absolute;
   border-collapse: collapse;
   color: rgb(136, 15, 15);
@@ -167,7 +193,7 @@ body {
   border-color: black;
   left: 60%;
   top: 25rem;
-}
+} */
 
 .tables {
   margin: auto;
@@ -183,7 +209,6 @@ body {
   cursor: pointer;
 }
 
-.dropbtn:hover,
 .dropbtn:focus {
   background-color: #2980b9;
 }
@@ -222,6 +247,31 @@ li {
   cursor: pointer;
 }
 
+.selector {
+  width: 150px;
+}
+
+#selectfield {
+  width: 18%;
+  padding: 2px 2px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 6px;
+  font-size: 100%;
+}
+
+.tcontainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(#1e57d1, #3968ce);
+  align-items: center;
+  justify-content: center;
+}
+
+.cell {
+  display: flex;
+}
 /* select.icon-menu option {
     background-repeat:no-repeat;
     background-position:bottom left;
