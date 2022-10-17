@@ -9,7 +9,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="navbar">
 
     <button type="button" onclick="alert('New roster function will be here')"
     >+New Roster</button>
@@ -24,56 +24,48 @@
     >Export Roster</button>
 
 <p class="title">Raid Roster</p>
+</div>
+    <div class="banner">
 
-    <div class="tables">
-
-        <table class="groupone">
-
-            <caption>Group 1</caption>
-
-    <thead>
-
-                <div class="images">
-                    <div draggable="true" class="images">
-
-
-                <img src="images/catform.png" width="48" height="48" alt="Druid Cat Form Transormation Spell Icon">
-                <img src="images/bearform.png" width="48" height="48" alt="">
-                <img src="images/moonfire.png" width="48" height="48" alt="">
-                <img src="images/HealingTouch.png" width="48" height="48" alt="">
-                <img src="images/afflicitonlock.png" width="48" height="48" alt="">
-                <img src="images/demonlock.png" width="48" height="48" alt="">
-                <img src="images/destrolock.png" width="48" height="48" alt="">
-                <img src="images/arcanemage.png" width="48" height="48" alt="">
-                <img src="images/firemage.png" width="48" height="48" alt="">
-                <img src="images/frostmage.png" width="48" height="48" alt="">
-                <img src="images/armswarrior.png" width="48" height="48" alt="">
-                <img src="images/furywarrior.png" width="48" height="48" alt="">
-                <img src="images/protwarrior.png" width="48" height="48" alt="">
-                <img src="images/combat.png" width="48" height="48" alt="">
-                <img src="images/subtletyrogue.png" width="48" height="48" alt="">
-                <img src="images/assasinationrogue.png" width="48" height="48" alt="">
-                <img src="images/ProtPaladin.png" width="48" height="48" alt="">
-                <img src="images/RetPaladin.png" width="48" height="48" alt="">
-                <img src="images/holypaladin.png" width="48" height="48" alt="">
-                <img src="images/HolyPriest.png" width="48" height="48" alt="">
-                <img src="images/discpriest.png" width="48" height="48" alt="">
-                <img src="images/shadowpriest.png" width="48" height="48" alt="">
-                <img src="images/restoshaman.png" width="48" height="48" alt="">
-                <img src="images/enhanceshaman.png" width="48" height="48" alt="">
-                <img src="images/eleshaman.png" width="48" height="48" alt="">
-                <img src="images/marksmanhunter.png" width="48" height="48" alt="">
-                <img src="images/beasthunter.png" width="48" height="48" alt="">
-                <img src="images/survivalhunter.png" width="48" height="48" alt="">
-                <img src="images/frostdk.png" width="48" height="48" alt="">
-                <img src="images/unholydk.png" width="48" height="48" alt="">
-                <img src="images/blooddk.png" width="48" height="48" alt="">
-                
-                    </div>
+                    <img src="images/catform.png" >
+                    <img src="images/bearform.png" >
+                    <img src="images/moonfire.png" >
+                    <img src="images/HealingTouch.png" >
+                    <img src="images/afflicitonlock.png" >
+                    <img src="images/demonlock.png" >
+                    <img src="images/destrolock.png" >
+                    <img src="images/arcanemage.png" >
+                    <img src="images/firemage.png" >
+                    <img src="images/frostmage.png" >
+                    <img src="images/armswarrior.png" >
+                    <img src="images/furywarrior.png" >
+                    <img src="images/protwarrior.png" >
+                    <img src="images/combat.png" >
+                    <img src="images/subtletyrogue.png" >
+                    <img src="images/assasinationrogue.png" >
+                    <img src="images/ProtPaladin.png" >
+                    <img src="images/RetPaladin.png" >
+                    <img src="images/holypaladin.png" >
+                    <img src="images/HolyPriest.png" >
+                    <img src="images/discpriest.png" >
+                    <img src="images/shadowpriest.png" >
+                    <img src="images/restoshaman.png" >
+                    <img src="images/enhanceshaman.png" >
+                    <img src="images/eleshaman.png" >
+                    <img src="images/marksmanhunter.png" >
+                    <img src="images/beasthunter.png" >
+                    <img src="images/survivalhunter.png" >
+                    <img src="images/frostdk.png" >
+                    <img src="images/unholydk.png" >
+                    <img src="images/blooddk.png" >
+ 
                 </div>
             
-        
+        <div class="tcontainer">
 
+    <table class="groupone">
+    <caption>Group 1</caption>
+    <thead>
                 <tbody>
                     
                     <tr>
@@ -208,17 +200,22 @@
                         </td>
                 
                     </tr>
-                    <script>function dropMenu()</script>
-                    <script>btnImage</script>
-                    <tr>
 
-                        <td>
-                            <select name="classSpec" id="classSpec" class="icon-menu">
-                                <option value="holder">Select Class/Spec</option>
-                                <option value="dk">Blood</option>
-                            </select>
+                    <script>function dropMenu()</script>
+
+                    <script>btnImage</script>
+
+                    <tr id="testrow">
+<div class="cell">
+                        <td id="testcell">
+                           
+                            <div id="selector">
+                                <div id="selectfield">
+                                    <p>Class/Spec</p>
+                                </div>
+                            </div>
                         </td>
-                
+                    </div>
                     </tr>
 
                     <tr>
@@ -231,139 +228,9 @@
 
                 </tbody>
 
-            </thead>           
-        // <!-- <table id="three" class="groupthree">
-        // <caption>Group 3</caption>
-
-        //     <thead>
-        //             <tbody>
-                
-        //                 <tr>
-                
-        //                     <td>Player 1</td>
-                
-        //                 </tr>
-                
-        //                 <tr>
-                
-        //                     <td>Player 2</td>
-                        
-        //                 </tr>
-                
-        //                 <tr>
-                
-        //                     <td>Player 3</td>
-                        
-        //                 </tr>
-                
-        //                 <tr>
-                
-        //                     <td>Player 4</td>
-                        
-        //                 </tr>
-                
-        //                 <tr>
-                
-        //                     <td>Player 5</td>
-                        
-        //                 </tr>
-                
-        //             </tbody>
-
-        //     </thead>
-                
-        // </table>
-
-        // <table id="four" class="groupfour">
-
-        // <caption>Group 4</caption>
-                        
-        //     <thead>
-                
-        //         <tbody>
-                    
-        //                 <tr>
-                    
-        //                     <td>Player 1</td>
-                    
-        //                 </tr>
-                    
-        //                 <tr>
-                    
-        //                     <td>Player 2</td>
-                            
-        //                 </tr>
-                    
-        //                 <tr>
-                    
-        //                     <td>Player 3</td>
-                            
-        //                 </tr>
-                    
-        //                 <tr>
-                    
-        //                     <td>Player 4</td>
-                            
-        //                 </tr>
-                    
-        //                 <tr>
-                    
-        //                     <td>Player 5</td>
-                            
-        //                 </tr>
-                    
-        //         </tbody>
-
-        //     </thead>
-                    
-        // </table>
-
-        // <table id="five" class="groupfive">
-
-        // <caption>Group 5</caption>
-
-        //     <thead>
-                                
-        //         <tbody>
-                        
-        //             <tr>
-                        
-        //                 <td>Player 1</td>
-                        
-        //             </tr>
-                        
-        //             <tr>
-                        
-        //                 <td>Player 2</td>
-                                
-        //             </tr>
-                        
-        //             <tr>
-                        
-        //                 <td>Player 3</td>
-                                
-        //             </tr>
-                        
-        //             <tr>
-                        
-        //                 <td>Player 4</td>
-                                
-        //             </tr>
-                        
-        //             <tr>
-                        
-        //                 <td>Player 5</td>
-                                
-        //             </tr>
-                        
-        //         </tbody>
-
-        //     </thead>
-                        
-        // </table>
-
-    </div> -->
-
+            </thead>     
+           
+    </div>        
 </div>
 
 </body>
