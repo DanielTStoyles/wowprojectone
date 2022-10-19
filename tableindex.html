@@ -177,21 +177,25 @@
 
                     <tr>
 
-                        <td>
+                        <td id="tdone">
                         <input type="text" id="charName" name="charName" placeholder="Character Name">
+                        <input id='yeah' type="text" onclick="grab()">
+                        
+                        
+                        
                             <div class="dropdown">
                                 <button onclick="dropMenu()"
                             class="dropbtn">Class/Spec</button>
                                 <div id="myDropdown" class="dropdown-content">
-                                    <ul class="menu">
-                                        <li class="dkbutton">
-                                            <img id='image' src="images/blooddk.png" width="30" height="30">Unicorn
+                                    <ul id="menu">
+                                        <li id="listItemOne" onclick="specImgDis()">
+                                            <img id='imageInList' src="images/blooddk.png" width="30" height="30">Unicorn
                                     </li> 
-                                        <li value="starwars" ><img class="specImage" src="images/unholydk.png" width="30" height="30">Unicorn
+                                        <li id="listItem" ><img class="specImage" src="images/unholydk.png" width="30" height="30">Unicorn
                                     </li>
-                                    <li value="jaba">Blood DK</li>
-                                    <li value="getcoding">Blood DK</li>
-                                    <li value="wannacode">Blood DK</li>
+                                    <li id="listItem">Blood DK</li>
+                                    <li id="listItem">Blood DK</li>
+                                    <li id="listItem">Blood DK</li>
                                 </ul>
                                 
                                 </div>
@@ -202,20 +206,17 @@
                     </tr>
 
                     <script>function dropMenu()</script>
+                    <script>function imgSources()</script>
 
-                    <script>btnImage</script>
+                   
 
-                    <tr id="testrow">
-<div class="cell">
-                        <td id="testcell">
+                    <tr>
+
+                        <td>
+                                
                            
-                            <div id="selector">
-                                <div id="selectfield">
-                                    <p>Class/Spec</p>
-                                </div>
-                            </div>
                         </td>
-                    </div>
+                    
                     </tr>
 
                     <tr>
@@ -232,7 +233,7 @@
            
     </div>        
 </div>
-
+ 
 </body>
 
 </html>
