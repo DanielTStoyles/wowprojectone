@@ -22,15 +22,32 @@ window.onclick = function (event) {
   }
 };
 
-/* creates onclick event for list items */
+// const element = document.getElementById("dropbtn");
+// element.addEventListener("click", imgSources);
 
-function btnImage() {
-  getElementByClassName("dropbtn");
+let image = document.createElement("img");
+image.src = "images/unholydk.png";
+document.querySelector(".dropbtn").appendChild(image);
+
+const buttonElement = document.getElementById("listItemOne");
+buttonElement.addEventListener("click", imgSources);
+
+function grab() {
+  document.getElementById("listItemOne");
 }
 
-// /*Custom event for onClick return in list item*/
+function imgSources() {
+  document.getElementById("yeah").innerHTML = grab();
+}
 
-/* Making the on click function for the event*/
+// document.getElementById("imageInList").onclick = function () {
+//   specImageDisplay();
+// };
+
+// function specImageDisplay() {
+//   document.getElementById("imageInList").src = "blooddk.png";
+// }
+/* creates onclick event for list items */
 
 // /* MAKE OPTIONS SELECTABLE THROUGH POTENTIALLY ON CLICK EVENTS INSIDE THE DROPDOWN MENU
 // (STOP THINKING ABOUT THE DAMN IMAGES)

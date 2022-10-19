@@ -18,7 +18,7 @@ body {
   font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
 	"Font name" */
 
-  background-color: #1f8cd4;
+  background-color: #133c94;
 }
 .navbar {
   height: 100%;
@@ -34,10 +34,13 @@ body {
 .banner {
   width: 100%;
   border-style: solid;
-  border-color: black;
+  border-width: 0.1rem;
+  border-color: goldenrod;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(59, 54, 54);
+  background-color: rgb(34, 32, 32);
+  padding: 0.2rem;
+  padding-right: 0.2rem;
 }
 
 .banner img {
@@ -52,9 +55,10 @@ body {
   display: flex;
   width: 100%;
   border-style: solid;
-  border-color: black;
+  border-color: goldenrod;
   justify-content: center;
   align-items: center;
+  border-top: 0.3rem;
 }
 .groupone {
   position: relative;
@@ -200,8 +204,8 @@ body {
   border: 0.3rem solid black;
 }
 
-.dropbtn {
-  background-color: #3498db;
+/* .dropbtn {
+  background-color: #1671ad;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -210,8 +214,8 @@ body {
 }
 
 .dropbtn:focus {
-  background-color: #2980b9;
-}
+  background-color: #2871a1;
+} */
 
 .dropdown {
   position: relative;
@@ -221,7 +225,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: whitesmoke;
   min-width: 160px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -247,17 +251,8 @@ li {
   cursor: pointer;
 }
 
-.selector {
-  width: 150px;
-}
-
-#selectfield {
-  width: 18%;
-  padding: 2px 2px;
-  box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 6px;
-  font-size: 100%;
+#listItem {
+  color: black;
 }
 
 .tcontainer {
