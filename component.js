@@ -8,7 +8,7 @@ function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-/* close dropdown menu if user clicks outside of it */
+// /* close dropdown menu if user clicks outside of it */
 window.onclick = function (event) {
   if (!event.target.matches(".dropbtn")) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
@@ -22,31 +22,18 @@ window.onclick = function (event) {
   }
 };
 
-// const element = document.getElementById("dropbtn");
-// element.addEventListener("click", imgSources);
-
 let image = document.createElement("img");
 image.src = "images/unholydk.png";
 document.querySelector(".dropbtn").appendChild(image);
 
-const buttonElement = document.getElementById("listItemOne");
-buttonElement.addEventListener("click", imgSources);
+let inputSelect = document.getElementById("selection");
+inputSelect.addEventListener("mousedown", selection);
 
-function grab() {
-  document.getElementById("listItemOne");
+function selection() {
+  document.getElementById("selection").innerHTML =
+    getElementById("listItem").text;
 }
 
-function imgSources() {
-  document.getElementById("yeah").innerHTML = grab();
-}
-
-// document.getElementById("imageInList").onclick = function () {
-//   specImageDisplay();
-// };
-
-// function specImageDisplay() {
-//   document.getElementById("imageInList").src = "blooddk.png";
-// }
 /* creates onclick event for list items */
 
 // /* MAKE OPTIONS SELECTABLE THROUGH POTENTIALLY ON CLICK EVENTS INSIDE THE DROPDOWN MENU

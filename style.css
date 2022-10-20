@@ -204,8 +204,8 @@ body {
   border: 0.3rem solid black;
 }
 
-/* .dropbtn {
-  background-color: #1671ad;
+.dropbtn {
+  background-color: #5a788b;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -214,8 +214,8 @@ body {
 }
 
 .dropbtn:focus {
-  background-color: #2871a1;
-} */
+  background-color: #5a788b;
+}
 
 .dropdown {
   position: relative;
