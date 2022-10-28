@@ -51,15 +51,6 @@ body {
   border-color: rgb(19, 18, 18);
 }
 
-.tcontainer {
-  display: flex;
-  width: 100%;
-  border-style: solid;
-  border-color: goldenrod;
-  justify-content: center;
-  align-items: center;
-  border-top: 0.3rem;
-}
 .groupone {
   position: relative;
   border-collapse: collapse;
@@ -108,40 +99,33 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: whitesmoke;
-  min-width: 160px;
+  background-color: rgb(197, 197, 197);
+  min-width: 140px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {
-  background-color: #ddd;
-}
-
 .show {
-  display: block;
+  display: flex;
 }
 
 li {
   cursor: pointer;
-}
-
-#listItem1 {
   color: black;
+  font-size: 1.6rem;
+  font-weight: bold;
+  justify-content: center;
+  text-align: justify;
 }
 
 .tcontainer {
   display: flex;
   width: 100%;
   height: 100vh;
+  border-style: solid;
+  border-color: goldenrod;
+  border-top: 0.3rem;
   background-image: linear-gradient(#1e57d1, #3968ce);
   align-items: center;
   justify-content: center;

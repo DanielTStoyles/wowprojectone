@@ -74,9 +74,9 @@
                             
                                 <label for="Class/Spec" id="classspec"></label>
                                 <input type="text" id="cname" name="cname">
-                                <select name="class" id="class">
+                                <select name="class" id="class" autocomplete="off">
                                 
-                                    <option value="holder">Select Class & Spec</option>
+                                    <option value="holder" selected>Select Class & Spec</option>
 
                                     <optgroup label="Death Knight">
                                         <option value="blood">Blood</option>
@@ -151,50 +151,37 @@
 
                     <tr>
 
-                        <td>
-                          <div class="dropdown">
-                            <button class="btn btn-success
-                            dropdown-toggle"
-                             type="button"
-                              id="dropbutton"
-                               data-toggle="dropdown"
-                                aria-haspopup="true"
-                                 aria-expanded="false"
-                                 onclick="btnImage()">Class/Specs</button>
-                            <ul 
-                            class="dropdown-menu"
-                            aria-labelledby="dropbutton">
-                            <li class="dropdown-item">
-                                <img src="images/afflicitonlock.png" width="20" height="20">Affliction
-                            </li>
-
-                        </ul>
-                          </div>  
-
-                        </td>
-                
-                    </tr>
-
-                    <tr>
-
                         <td id="tdone">
-                        <input type="text" id="charName" name="charName" placeholder="Character Name">
-                        <p id="selection">choose class</p>
+                            <div>
+                        <select id="playerName" name="playerName" autocomplete="off">
+                            <option value="playerHolder" id="playerHolder">Choose Player</option>
+                            <option value="createNewPlayer">+ Create New Player</option>
+
+                        </div>
+                            
+
+
+
+                            </select>
+                        <div id="selectionBox">
+                        <p id="selectionText">choose class</p>
+                        </div>
                         
                         
                         
                             <div class="dropdown">
                                 <button onclick="dropMenu()"
                             class="dropbtn">Class/Spec</button>
-                                <div id="myDropdown" class="dropdown-content">
-                                    <ul id="menu">
-                                    <li id="listItem" onclick="selection()">
-                                        <img id='listImage' src="images/blooddk.png" width="30" height="30">Unicorn</li> 
-                                    <li id="listItem4" >
-                                        <img class="specImage" src="images/unholydk.png" width="30" height="30">Unicorn </li>
-                                    <button id="listItem1" onclick="selection()">did it work</button>
-                                    <li id="listItem2">polar bear</li>
-                                    <li id="listItem3">brown bear</li>
+                                    <div id="myDropdown" class="dropdown-content">
+                                    <ul class="menu">
+                                    <li id="listItem1" onclick="selection('listItem1')">
+                                        <img id='listImage' src="images/bearform.png" width="30" height="30">Feral (Tank)</li> 
+                                    <li id="listItem2" onclick="selection('listItem2')" >
+                                        <img id="listImage" src="images/catform.png" width="30" height="30">Feral</li>
+                                    <li id="listItem3" onclick="selection('listItem3')">
+                                        <img id="listImage" src="images/HealingTouch.png" width="30" height="30">Resto</li>
+                                    <li id="listItem4" onclick="selection('listItem4')">
+                                        <img id="listImage" src="images/moonfire.png" width="30" height="30">Balance</li>
                                 </ul>
                                 
                                 </div>
@@ -202,18 +189,15 @@
                             
                         </td>
                
-
+ 
                 </ul>
+
                     </tr>
-
-                   
-
-                   
 
                     <tr>
 
                         <td>
-                                
+                             
                            
                         </td>
                     
@@ -232,8 +216,32 @@
             </thead>     
            
     </div>        
-</div>
- 
+</div> 
 </body>
-
 </html>
+
+
+
+
+
+
+<!-- 
+<optgroup label="Death Knight"></optgroup>
+
+<optgroup label="Druid"></optgroup>
+
+<optgroup label="Hunter"></optgroup>
+
+<optgroup label="Mage"></optgroup>
+
+<optgroup label="Paladin"></optgroup>
+
+<optgroup label="Priest"></optgroup>
+
+<optgroup label="Rogue"></optgroup>
+
+<optgroup label="Shaman"></optgroup>
+
+<optgroup label="Warlock"></optgroup>
+
+<optgroup label="Warrior"></optgroup> -->
