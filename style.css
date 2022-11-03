@@ -134,3 +134,15 @@ li {
 .cell {
   display: flex;
 }
+
+#selectionText {
+  font-size: 0;
+  height: 0.4rem;
+  width: 0.4rem;
+}
+
+#selectionText #listImage {
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+}

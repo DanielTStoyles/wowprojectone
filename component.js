@@ -21,22 +21,62 @@ window.onclick = function (event) {
 function selection(id) {
   document.getElementById("selectionText").innerHTML =
     document.getElementById(id).innerHTML;
-  imgTest(id);
 }
 
-function imgTest() {
-  let imageTest = document.createElement("IMG");
-  imageTest.setAttribute("src", listImage.getAttribute("src"));
-  imageTest.setAttribute("width", "40");
-  imageTest.setAttribute("height", "40");
-  removeText();
-  document.getElementById("selectionText").appendChild(imageTest);
+function playerForms() {
+  let playerForm = document.createElement("form");
+  playerForm.setAttribute("method", "post");
+  playerForm.setAttribute("action", "submit.php");
+
+  let pN = document.createElement("input");
+  pN.setAttribute("type", "text");
+  pN.setAttribute("playerName", "PlayerName");
+  pN.setAttribute("placeholder", "Player Name");
+
+  let s = document.createElement("input");
+  s.setAttribute("type", "submit");
+  s.setAttribute("value", "Submit");
+
+  playerForm.appendChild(pN);
+  playerForm.appendChild(s);
+  document.getElementById("here").appendChild(playerForm);
 }
 
-function removeText() {
-  originalText = document.getElementById("selectionText").textContent;
-  newText = originalText.replace(originalText, "");
-  document.getElementById("selectionText").textContent = newText;
-}
+// function hide() {
+//   let selectionItem = document.getElementById("selectionText");
+//   if (selectionItem.dataset.selection >= "0") {
+//     specList.style.display = "none";
+//   } else {
+//     specList.style.display = "block";
+//   }
+// }
 
-let listImage = document.getElementById("listImage");
+// let lis = document.querySelectorAll("li");
+
+// let lis_array = Array.from(lis);
+
+// lis_array.forEach(function (elem) {
+//   elem.addEventListener("click", function (e) {
+//     if (elem.dataset.selection >= "0") {
+//       elem.style.display = "none";
+//     }
+//   });
+// });
+
+// function imgTest() {
+//   let imageTest = document.createElement("IMG");
+//   imageTest.addEventListener("click", function (e) {
+//     console.log(e.target.src);
+//   });
+//   imageTest.setAttribute("src", e.target.src);
+//   imageTest.setAttribute("width", "40");
+//   imageTest.setAttribute("height", "40");
+//   document.getElementById("tester").appendChild(imageTest);
+// }
+
+// function removeText() {
+//   originalText = document.getElementById("tester").textContent;
+//   newText = originalText.replace(originalText, "");
+//   document.getElementById("tester").textContent = newText;
+
+// }

@@ -4,7 +4,7 @@
 <meta charset="UTF=8">
 <title>Raid Roster</title>
 <link rel="stylesheet" href="style.css" type="text/css" rel="import" rel="mytabletemplate.html" />
-<script src="./component.js" defer></script>
+<script src="./component.js" defer ></script>
 </head>
 
 <body>
@@ -149,13 +149,13 @@
                         
                     </tr>
 
-                    <tr>
+                    <tr class="tableRow" >
 
                         <td id="tdone">
                             <div>
                         <select id="playerName" name="playerName" autocomplete="off">
                             <option value="playerHolder" id="playerHolder">Choose Player</option>
-                            <option value="createNewPlayer">+ Create New Player</option>
+                            <option value="createNewPlayer" onclick="playerForm()" > + Create New Player</option>
 
                         </div>
                             
@@ -164,7 +164,7 @@
 
                             </select>
                         <div id="selectionBox">
-                        <p id="selectionText">choose class</p>
+                        <p id="selectionText" ></p>
                         </div>
                         
                         
@@ -174,19 +174,20 @@
                             class="dropbtn">Class/Spec</button>
                                     <div id="myDropdown" class="dropdown-content">
                                     <ul class="menu">
-                                    <li id="listItem1" onclick="selection('listItem1')">
+                                    <li class="specList" id="listItem1" onclick="selection('listItem1')" data-selection="0">
                                         <img id='listImage' src="images/bearform.png" width="30" height="30">Feral (Tank)</li> 
-                                    <li id="listItem2" onclick="selection('listItem2')" >
+                                    <li class="specList"  id="listItem2" onclick="selection('listItem2')" data-selection="1">
                                         <img id="listImage" src="images/catform.png" width="30" height="30">Feral</li>
-                                    <li id="listItem3" onclick="selection('listItem3')">
+                                    <li class="specList"  id="listItem3" onclick="selection('listItem3')" data-selection="2">
                                         <img id="listImage" src="images/HealingTouch.png" width="30" height="30">Resto</li>
-                                    <li id="listItem4" onclick="selection('listItem4')">
+                                    <li class="specList"  id="listItem4" onclick="selection('listItem4')" data-selection="3">
                                         <img id="listImage" src="images/moonfire.png" width="30" height="30">Balance</li>
                                 </ul>
                                 
                                 </div>
                             </div>
-                            
+                                                       
+
                         </td>
                
  
@@ -196,9 +197,9 @@
 
                     <tr>
 
-                        <td>
-                             
-                           
+                        <td id="here">
+                          <button onclick="playerForms()">click it</button>
+                        
                         </td>
                     
                     </tr>
