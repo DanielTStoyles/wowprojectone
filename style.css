@@ -146,3 +146,9 @@ li {
   height: 5rem;
   width: 5rem;
 }
+
+#dataBtn {
+  align-content: center;
+  width: 6rem;
+  height: 2rem;
+}
