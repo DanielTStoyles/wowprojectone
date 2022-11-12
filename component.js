@@ -31,13 +31,11 @@ function playerForms() {
   let pN = document.createElement("input");
   pN.setAttribute("id", "name");
   pN.setAttribute("type", "text");
-  pN.setAttribute("playerName", "namePlayer");
   pN.setAttribute("placeholder", "Player Name");
 
   let classSpec = document.createElement("input");
   classSpec.setAttribute("id", "classSpec");
   classSpec.setAttribute("type", "text");
-  classSpec.setAttribute("classAndSpec", "ClassAndSpec");
   classSpec.setAttribute("placeholder", "Class/Spec");
 
   let dataBtn = document.createElement("button");
@@ -48,21 +46,27 @@ function playerForms() {
   playerForm.appendChild(classSpec);
   document.getElementById("tdone").appendChild(playerForm);
   document.getElementById("tdone").appendChild(dataBtn);
-
-  let form = document.getElementById("playerForm");
   dataBtn.addEventListener("click", addPlayer);
-  dataBtn.addEventListener("click", form.remove());
   // dataBtn.addEventListener("click", formHide());
 }
 
 let playerData = [];
 
-// function formHide() {
-//   document
-//     .getElementById("playerForm")
-//     .parentElement.removeChild(document.getElementById("playerForm"));
-//   document.getElementById("dataBtn").remove();
+// function makeBtn() {
+//   const dataBtns = document.createElement("button");
+//   dataBtns.setAttribute("type", "submit");
+//   dataBtns.setAttribute("id", "dataBtns"), (dataBtns.textContent = "Save");
+//   document.getElementById("tdone").appendChild(dataBtns);
+//   dataBtns.addEventListener("click", addPlayer);
+//   dataBtns.onclick = formHide();
 // }
+
+function formHide() {
+  let form = document.getElementById("playerForm");
+  form.remove();
+  document.getElementById("dataBtns").remove();
+  console.log("hide");
+}
 
 const addPlayer = (ev) => {
   let player = {
