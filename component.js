@@ -38,34 +38,31 @@ function playerForms() {
   classSpec.setAttribute("type", "text");
   classSpec.setAttribute("placeholder", "Class/Spec");
 
+  playerForm.appendChild(pN);
+  playerForm.appendChild(classSpec);
+  document.getElementById("formP").appendChild(playerForm);
+
   let dataBtn = document.createElement("button");
   dataBtn.setAttribute("type", "submit");
   dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
-
-  playerForm.appendChild(pN);
-  playerForm.appendChild(classSpec);
-  document.getElementById("tdone").appendChild(playerForm);
-  document.getElementById("tdone").appendChild(dataBtn);
-  dataBtn.addEventListener("click", addPlayer);
-  // dataBtn.addEventListener("click", formHide());
+  document.getElementById("formP").appendChild(dataBtn);
+  dataBtn.addEventListener(
+    "click",
+    (e) => {
+      e.stopPropogation;
+      addPlayer();
+      formHide();
+    },
+    false
+  );
 }
 
 let playerData = [];
 
-// function makeBtn() {
-//   const dataBtns = document.createElement("button");
-//   dataBtns.setAttribute("type", "submit");
-//   dataBtns.setAttribute("id", "dataBtns"), (dataBtns.textContent = "Save");
-//   document.getElementById("tdone").appendChild(dataBtns);
-//   dataBtns.addEventListener("click", addPlayer);
-//   dataBtns.onclick = formHide();
-// }
-
 function formHide() {
   let form = document.getElementById("playerForm");
   form.remove();
-  document.getElementById("dataBtns").remove();
-  console.log("hide");
+  document.getElementById("dataBtn").remove();
 }
 
 const addPlayer = (ev) => {
@@ -79,15 +76,11 @@ const addPlayer = (ev) => {
   localStorage.setItem("playerList", JSON.stringify(playerData));
 };
 
-// const fileSystem=require("browserify-fs")
-// playerData.push(player);
-// const data = JSON.stringify(playerData);
-// document.querySelector("form").reset();
-// writeFile("./playerData.json", data, (err) => {
-//   if (err) {
-//     console.log("Error writing file", err);
-//   } else {
-//     console.log("JSON data is written to the file successfully");
-//   }
-// });
-// };
+function popup(mylink, windowname) {
+  if (!window.focus) return true;
+  var href;
+  if (typeof mylink == "string") href = mylink;
+  else href = mylink.href;
+  window.open(href, windowname, "width=400,height=200,scrollbars=yes");
+  return false;
+}
