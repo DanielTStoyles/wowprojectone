@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  position: relative;
+  /* position: relative; */
   font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
 	"Font name" */
 
@@ -51,11 +51,10 @@ body {
   border-color: rgb(19, 18, 18);
 }
 
-.groupone {
-  position: relative;
+.groupOne {
+  /* position: relative; */
   border-collapse: collapse;
   color: whitesmoke;
-  padding: 1rem 2rem;
   letter-spacing: 0.1rem;
   font-size: 2rem;
   font-weight: bold;
@@ -65,7 +64,7 @@ body {
   border-color: black;
 }
 
-.groupone tbody tr td {
+.groupOne tbody tr td {
   border-bottom: 0.1rem solid black;
   border-top: 0.1rem solid black;
   border-left: 0.1rem solid black;
@@ -74,7 +73,6 @@ body {
 }
 
 .tables {
-  margin: auto;
   border: 0.3rem solid black;
 }
 
@@ -92,7 +90,7 @@ body {
 }
 
 .dropdown {
-  position: relative;
+  /* position: relative; */
   display: inline-block;
 }
 
@@ -119,20 +117,21 @@ li {
   text-align: justify;
 }
 
-.tcontainer {
-  display: flex;
-  width: 100%;
-  height: 100vh;
+.tContainer {
+  position: absolute;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-row-gap: 10rem;
+  grid-column-gap: 10rem;
+  width: 99%;
+  height: 90%;
   border-style: solid;
   border-color: goldenrod;
   border-top: 0.3rem;
   background-image: linear-gradient(#1e57d1, #3968ce);
   align-items: center;
   justify-content: center;
-}
-
-.cell {
-  display: flex;
+  flex: 1 1 auto;
 }
 
 #selectionText {
@@ -155,4 +154,18 @@ li {
 
 a {
   color: hotpink;
+}
+
+.tContainer #clones {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: 53%;
+}
+
+.tContainer #userInput {
+  display: flex;
+  position: absolute;
+  top: 1rem;
+  right: 44%;
 }

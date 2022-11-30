@@ -59,13 +59,13 @@ function playerForms() {
 
 let playerData = [];
 
-function formHide() {
+function formHide(id) {
   let form = document.getElementById("playerForm");
   form.remove();
-  document.getElementById("dataBtn").remove();
+  document.getElementsByClassName(id).remove();
 }
 
-const addPlayer = (ev) => {
+const addPlayer = () => {
   let player = {
     id: Date.now(),
     name: document.getElementById("name").value,
@@ -83,4 +83,21 @@ function popup(mylink, windowname) {
   else href = mylink.href;
   window.open(href, windowname, "width=400,height=200,scrollbars=yes");
   return false;
+}
+
+let players = [
+  { name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
+  { name: "Jet", Class: "warrior", Spec: "Prot", Role: "tank" },
+  { name: "Ehm", Class: "mage", Spec: "Fire", Role: "dps" },
+  { name: "Jonald", Class: "mage", Spec: "Arcane", Role: "dps" },
+  { name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
+];
+
+let myTbl = document.getElementById("myTbl");
+let container = document.getElementById("tContainer");
+
+function tblCloner(userValue) {
+  for (i = 0; i < userValue; i++) {
+    container.appendChild(myTbl.cloneNode(true));
+  }
 }
