@@ -61,9 +61,19 @@
  
                 </div>
             
-        <div class="tcontainer">
 
-    <table class="groupone">
+                
+        <div class="tContainer" id="tContainer">
+
+        <div class="cloneForm">
+            <form id="tblNumber">
+                <input id="userInput" type="number" autocomplete="off"> 
+            </form>
+                <button id="clones" onclick="tblCloner(document.getElementById('userInput').value)"
+                 type="submit">Create Groups</button>
+        </div>
+
+    <table class="groupOne" id="myTbl">
     <caption>Group 1</caption>
     <thead>
                 <tbody>
@@ -222,23 +232,3 @@
 
 
 
-<!-- 
-<optgroup label="Death Knight"></optgroup>
-
-<optgroup label="Druid"></optgroup>
-
-<optgroup label="Hunter"></optgroup>
-
-<optgroup label="Mage"></optgroup>
-
-<optgroup label="Paladin"></optgroup>
-
-<optgroup label="Priest"></optgroup>
-
-<optgroup label="Rogue"></optgroup>
-
-<optgroup label="Shaman"></optgroup>
-
-<optgroup label="Warlock"></optgroup>
-
-<optgroup label="Warrior"></optgroup> -->

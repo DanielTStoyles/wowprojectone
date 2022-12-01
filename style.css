@@ -5,8 +5,8 @@ html {
 }
 
 *table {
-  margin: 0.4rem;
-  padding: 0.1rem;
+  /* margin: 0.4rem; */
+  /* padding: 0.1rem; */
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
 	"Font name" */
@@ -17,8 +17,9 @@ body {
   /* position: relative; */
   font-family: Arial, Helvetica, sans-serif; /* If the font name has 2 seperate words in it, then you must surround it with quotations" like so
 	"Font name" */
-
   background-color: #133c94;
+  width: 100%;
+  height: 100%;
 }
 .navbar {
   height: 100%;
@@ -26,7 +27,8 @@ body {
   color: rgba(255, 255, 255, 0.959);
 }
 .title {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   font-size: xx-large;
   font-weight: bold;
 }
@@ -52,7 +54,6 @@ body {
 }
 
 .groupOne {
-  /* position: relative; */
   border-collapse: collapse;
   color: whitesmoke;
   letter-spacing: 0.1rem;
@@ -118,20 +119,23 @@ li {
 }
 
 .tContainer {
-  position: absolute;
-  display: grid;
+  position: relative;
+  display: flex;
+  /* display: grid;
   grid-template-columns: auto auto auto;
-  grid-row-gap: 10rem;
-  grid-column-gap: 10rem;
-  width: 99%;
-  height: 90%;
+  grid-gap: 10rem;*/
+  width: 100%;
+  height: 100vh;
   border-style: solid;
   border-color: goldenrod;
   border-top: 0.3rem;
   background-image: linear-gradient(#1e57d1, #3968ce);
-  align-items: center;
+  align-content: center;
   justify-content: center;
-  flex: 1 1 auto;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 11%;
 }
 
 #selectionText {
@@ -156,16 +160,14 @@ a {
   color: hotpink;
 }
 
-.tContainer #clones {
+div.cloneForm {
   display: flex;
+  text-align: center;
   position: absolute;
-  top: 1rem;
-  right: 53%;
+  top: 1%;
 }
 
-.tContainer #userInput {
-  display: flex;
-  position: absolute;
-  top: 1rem;
-  right: 44%;
+#clones {
+  height: fit-content;
+  min-width: auto;
 }

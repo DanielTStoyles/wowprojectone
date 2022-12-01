@@ -100,4 +100,5 @@ function tblCloner(userValue) {
   for (i = 0; i < userValue; i++) {
     container.appendChild(myTbl.cloneNode(true));
   }
+  document.getElementById("tblNumber").reset();
 }
