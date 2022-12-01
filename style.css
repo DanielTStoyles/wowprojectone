@@ -135,7 +135,8 @@ li {
   align-items: center;
   flex-wrap: wrap;
 
-  gap: 11%;
+  column-gap: 15%;
+  row-gap: 10%;
 }
 
 #selectionText {
