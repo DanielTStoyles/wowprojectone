@@ -1,79 +1,100 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF=8">
-<title>Raid Roster</title>
-<link rel="stylesheet" href="style.css" type="text/css" rel="import" rel="mytabletemplate.html" />
-<script src="./component.js" defer ></script>
-</head>
+  <head>
+    <meta charset="UTF=8" />
+    <title>Raid Roster</title>
+    <link
+      rel="stylesheet"
+      href="style.css"
+      type="text/css"
+      rel="import"
+      rel="mytabletemplate.html"
+    />
+    <script src="./component.js" defer></script>
+  </head>
 
-<body>
-
+  <body>
     <div class="navbar">
+      <button type="button" onclick="genTbl(table, players)">
+        +New Roster
+      </button>
 
-    <button type="button" onclick="alert('New roster function will be here')"
-    >+New Roster</button>
+      <button
+        type="button"
+        onclick="alert('Load roster function will be here')"
+      >
+        Load Roster
+      </button>
 
-    <button type="button" onclick="alert('Load roster function will be here')"
-    >Load Roster</button>
+      <button
+        type="button"
+        onclick="alert('Save roster function will be here')"
+      >
+        Save Roster
+      </button>
 
-    <button type="button" onclick="alert('Save roster function will be here')"
-    >Save Roster</button>
+      <button
+        type="button"
+        onclick="alert('Export roster into image file function will be here')"
+      >
+        Export Roster
+      </button>
 
-    <button type="button" onclick="alert('Export roster into image file function will be here')"
-    >Export Roster</button>
+      <button onclick="showTemplate()">Show Template</button>
 
-<p class="title">Raid Roster</p>
-</div>
+      <p class="title">Raid Roster</p>
+    </div>
     <div class="banner">
+      <img src="images/catform.png" />
+      <img src="images/bearform.png" />
+      <img src="images/moonfire.png" />
+      <img src="images/HealingTouch.png" />
+      <img src="images/afflicitonlock.png" />
+      <img src="images/demonlock.png" />
+      <img src="images/destrolock.png" />
+      <img src="images/arcanemage.png" />
+      <img src="images/firemage.png" />
+      <img src="images/frostmage.png" />
+      <img src="images/armswarrior.png" />
+      <img src="images/furywarrior.png" />
+      <img src="images/protwarrior.png" />
+      <img src="images/combat.png" />
+      <img src="images/subtletyrogue.png" />
+      <img src="images/assasinationrogue.png" />
+      <img src="images/ProtPaladin.png" />
+      <img src="images/RetPaladin.png" />
+      <img src="images/holypaladin.png" />
+      <img src="images/HolyPriest.png" />
+      <img src="images/discpriest.png" />
+      <img src="images/shadowpriest.png" />
+      <img src="images/restoshaman.png" />
+      <img src="images/enhanceshaman.png" />
+      <img src="images/eleshaman.png" />
+      <img src="images/marksmanhunter.png" />
+      <img src="images/beasthunter.png" />
+      <img src="images/survivalhunter.png" />
+      <img src="images/frostdk.png" />
+      <img src="images/unholydk.png" />
+      <img src="images/blooddk.png" />
+    </div>
 
-                    <img src="images/catform.png" >
-                    <img src="images/bearform.png" >
-                    <img src="images/moonfire.png" >
-                    <img src="images/HealingTouch.png" >
-                    <img src="images/afflicitonlock.png" >
-                    <img src="images/demonlock.png" >
-                    <img src="images/destrolock.png" >
-                    <img src="images/arcanemage.png" >
-                    <img src="images/firemage.png" >
-                    <img src="images/frostmage.png" >
-                    <img src="images/armswarrior.png" >
-                    <img src="images/furywarrior.png" >
-                    <img src="images/protwarrior.png" >
-                    <img src="images/combat.png" >
-                    <img src="images/subtletyrogue.png" >
-                    <img src="images/assasinationrogue.png" >
-                    <img src="images/ProtPaladin.png" >
-                    <img src="images/RetPaladin.png" >
-                    <img src="images/holypaladin.png" >
-                    <img src="images/HolyPriest.png" >
-                    <img src="images/discpriest.png" >
-                    <img src="images/shadowpriest.png" >
-                    <img src="images/restoshaman.png" >
-                    <img src="images/enhanceshaman.png" >
-                    <img src="images/eleshaman.png" >
-                    <img src="images/marksmanhunter.png" >
-                    <img src="images/beasthunter.png" >
-                    <img src="images/survivalhunter.png" >
-                    <img src="images/frostdk.png" >
-                    <img src="images/unholydk.png" >
-                    <img src="images/blooddk.png" >
- 
-                </div>
-            
+    <div class="tContainer" id="tContainer">
+      <div class="cloneForm">
+        <form id="tblNumber">
+          <input id="userInput" type="number" autocomplete="off" />
+        </form>
+        <button
+          id="clones"
+          onclick="tblCloner(document.getElementById('userInput').value)"
+          type="submit"
+        >
+          Create Groups
+        </button>
+      </div>
 
-                
-        <div class="tContainer" id="tContainer">
-
-        <div class="cloneForm">
-            <form id="tblNumber">
-                <input id="userInput" type="number" autocomplete="off"> 
-            </form>
-                <button id="clones" onclick="tblCloner(document.getElementById('userInput').value)"
-                 type="submit">Create Groups</button>
-        </div>
-
-    <table class="groupOne" id="myTbl">
+      <!-- <table class="groupOne" id="myTbl">
     <caption>Group 1</caption>
     <thead>
                 <tbody>
@@ -225,10 +246,25 @@
 
             </thead>     
            
-    </div>        
-</div> 
-</body>
+    </div>   -->
+
+      <template id="templateTbl">
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </template>
+    </div>
+  </body>
 </html>
-
-
-

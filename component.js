@@ -86,19 +86,58 @@ function popup(mylink, windowname) {
 }
 
 let players = [
-  { name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
-  { name: "Jet", Class: "warrior", Spec: "Prot", Role: "tank" },
-  { name: "Ehm", Class: "mage", Spec: "Fire", Role: "dps" },
-  { name: "Jonald", Class: "mage", Spec: "Arcane", Role: "dps" },
-  { name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
+  { Name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
+  { Name: "Jet", Class: "warrior", Spec: "Prot", Role: "tank" },
+  { Name: "Ehm", Class: "mage", Spec: "Fire", Role: "dps" },
+  { Name: "Jonald", Class: "mage", Spec: "Arcane", Role: "dps" },
+  { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
 ];
 
-let myTbl = document.getElementById("myTbl");
-let container = document.getElementById("tContainer");
+// let myTbl = document.getElementById("myTbl");
+// let container = document.getElementById("tContainer");
 
-function tblCloner(userValue) {
-  for (i = 0; i < userValue; i++) {
-    container.appendChild(myTbl.cloneNode(true));
+let table = document.querySelector("table");
+let data = Object.keys(players[0]);
+
+// function tblCloner(userValue) {
+//   for (i = 0; i < userValue; i++) {
+//     container.appendChild(myTbl.cloneNode(true));
+//   }
+//   document.getElementById("tblNumber").reset();
+// }
+
+function genTbl() {
+  //Create the table element, create table body and append it to the table
+  let table = document.createElement("table");
+  let tableBody = document.createElement("tbody");
+  table.appendChild(tableBody);
+  table.setAttribute("id", Date.now());
+  table.setAttribute("class", "groupTable");
+
+  // Create the table head, insert row into thead, populate thead with the keys in players array
+  function genTHead() {
+    let tHead = table.createTHead();
+    let row = tHead.insertRow();
+    for (let key of data) {
+      let th = document.createElement("th");
+      let text = document.createTextNode(key);
+      th.appendChild(text);
+      row.appendChild(th);
+    }
   }
-  document.getElementById("tblNumber").reset();
+
+  //Create, populate, and append table rows
+  function generateTable(tablebody, data) {
+    for (let element of data) {
+      let newRow = tablebody.insertRow();
+      for (key in element) {
+        let cell = newRow.insertCell();
+        let text = document.createTextNode(element[key]);
+        cell.appendChild(text);
+      }
+    }
+  }
+  generateTable(table, players);
+  genTHead();
+  tContainer.appendChild(table);
 }
