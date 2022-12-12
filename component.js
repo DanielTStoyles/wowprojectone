@@ -93,18 +93,20 @@ let players = [
   { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
 ];
 
-// let myTbl = document.getElementById("myTbl");
-// let container = document.getElementById("tContainer");
+let myTbl = document.getElementById("myTbl");
+let container = document.getElementById("tContainer");
+
+function tblCloner(userValue) {
+  for (i = 0; i < userValue; i++) {
+    // container.appendChild(myTbl.cloneNode(true));
+    genTbl2();
+  }
+  document.getElementById("tblNumber").reset();
+}
 
 let table = document.querySelector("table");
 let data = Object.keys(players[0]);
-
-// function tblCloner(userValue) {
-//   for (i = 0; i < userValue; i++) {
-//     container.appendChild(myTbl.cloneNode(true));
-//   }
-//   document.getElementById("tblNumber").reset();
-// }
+const tContainer = document.getElementById("tContainer");
 
 function genTbl() {
   //Create the table element, create table body and append it to the table
@@ -113,18 +115,6 @@ function genTbl() {
   table.appendChild(tableBody);
   table.setAttribute("id", Date.now());
   table.setAttribute("class", "groupTable");
-
-  // Create the table head, insert row into thead, populate thead with the keys in players array
-  function genTHead() {
-    let tHead = table.createTHead();
-    let row = tHead.insertRow();
-    for (let key of data) {
-      let th = document.createElement("th");
-      let text = document.createTextNode(key);
-      th.appendChild(text);
-      row.appendChild(th);
-    }
-  }
 
   //Create, populate, and append table rows
   function generateTable(tablebody, data) {
@@ -138,6 +128,39 @@ function genTbl() {
     }
   }
   generateTable(table, players);
+  document.getElementById("tContainer").appendChild(table);
   genTHead();
-  tContainer.appendChild(table);
+}
+
+function genTbl2() {
+  let table = document.createElement("table");
+  let tableBody = document.createElement("tbody");
+  table.setAttribute("id", Date.now());
+  table.setAttribute("class", "groupTable");
+
+  function genTHead() {
+    let tHead = document.querySelector("table").createTHead();
+    let row = tHead.insertRow();
+    for (let key of data) {
+      let th = document.createElement("th");
+      let text = document.createTextNode(key);
+      th.appendChild(text);
+      row.appendChild(th);
+    }
+  }
+
+  for (let i = 0; i < 1; i++) {
+    const row = document.createElement("tr");
+
+    for (let j = 0; j < 4; j++) {
+      const cell = document.createElement("td");
+      const cellText = document.createTextNode(`text ${i}, text ${j}`);
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+    }
+    tableBody.appendChild(row);
+    table.appendChild(tableBody);
+    tContainer.appendChild(table);
+    genTHead();
+  }
 }
