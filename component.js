@@ -108,6 +108,17 @@ let table = document.querySelector("table");
 let data = Object.keys(players[0]);
 const tContainer = document.getElementById("tContainer");
 
+function genTHead() {
+  let tHead = document.querySelector("table").createTHead();
+  let row = tHead.insertRow();
+  for (let key of data) {
+    let th = document.createElement("th");
+    let text = document.createTextNode(key);
+    th.appendChild(text);
+    row.appendChild(th);
+  }
+}
+
 function genTbl() {
   //Create the table element, create table body and append it to the table
   let table = document.createElement("table");
@@ -138,17 +149,6 @@ function genTbl2() {
   table.setAttribute("id", Date.now());
   table.setAttribute("class", "groupTable");
 
-  function genTHead() {
-    let tHead = document.querySelector("table").createTHead();
-    let row = tHead.insertRow();
-    for (let key of data) {
-      let th = document.createElement("th");
-      let text = document.createTextNode(key);
-      th.appendChild(text);
-      row.appendChild(th);
-    }
-  }
-
   for (let i = 0; i < 1; i++) {
     const row = document.createElement("tr");
 
@@ -161,6 +161,8 @@ function genTbl2() {
     tableBody.appendChild(row);
     table.appendChild(tableBody);
     tContainer.appendChild(table);
-    genTHead();
+    for (let i = 0; i < 1; i++) {
+      genTHead();
+    }
   }
 }
