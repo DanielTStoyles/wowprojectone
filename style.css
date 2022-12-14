@@ -44,19 +44,20 @@ body {
 
 .groupTable {
   border-collapse: collapse;
+  background-color: #292f33;
   color: whitesmoke;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.02rem;
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
   border-style: solid;
   border-width: 0.1rem;
-  border-color: black;
+  border-color: burlywood;
 }
 
 .groupTable tr td {
-  border-bottom: 0.1rem solid black;
-  border-top: 0.1rem solid black;
+  border-bottom: 0.1rem solid burlywood;
+  border-top: 0.1rem solid burlywood;
   border-left: none;
   border-right: none;
   padding: 1.6rem;
