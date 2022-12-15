@@ -168,6 +168,7 @@ function genTbl2() {
       tableBody.appendChild(row);
     }
   }
+
   let tHead = table.createTHead();
   let tRow = tHead.insertRow();
   for (let key of data) {
@@ -180,3 +181,7 @@ function genTbl2() {
   table.appendChild(tableBody);
   tContainer.appendChild(table);
 }
+
+let specList = document.createElement(ul);
+specList.setAttribute("id", "specList");
+let listItem = document.createElement(li);
