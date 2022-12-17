@@ -181,7 +181,14 @@ function genTbl2() {
   table.appendChild(tableBody);
   tContainer.appendChild(table);
 }
+const banner = document.getElementById("banner").innerHTML;
+let specImages = [];
+specImages.push(banner);
 
 let specList = document.createElement(ul);
 specList.setAttribute("id", "specList");
 let listItem = document.createElement(li);
+
+function genSpecList() {
+  for (let i = 0; i < specImages.length; i++) {}
+}
