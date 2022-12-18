@@ -190,5 +190,7 @@ specList.setAttribute("id", "specList");
 let listItem = document.createElement(li);
 
 function genSpecList() {
-  for (let i = 0; i < specImages.length; i++) {}
+  for (let i = 0; i < specImages.length; i++) {
+    specList.appendChild(specImages.src);
+  }
 }
