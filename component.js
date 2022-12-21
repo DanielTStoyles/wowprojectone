@@ -4,7 +4,6 @@ function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-// /* close dropdown menu if user clicks outside of it */
 window.onclick = function (event) {
   if (!event.target.matches(".dropbtn")) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
@@ -76,14 +75,14 @@ const addPlayer = () => {
   localStorage.setItem("playerList", JSON.stringify(playerData));
 };
 
-function popup(mylink, windowname) {
-  if (!window.focus) return true;
-  var href;
-  if (typeof mylink == "string") href = mylink;
-  else href = mylink.href;
-  window.open(href, windowname, "width=400,height=200,scrollbars=yes");
-  return false;
-}
+// function popup(mylink, windowname) {
+//   if (!window.focus) return true;
+//   var href;
+//   if (typeof mylink == "string") href = mylink;
+//   else href = mylink.href;
+//   window.open(href, windowname, "width=400,height=200,scrollbars=yes");
+//   return false;
+// }
 
 let players = [
   { Name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
@@ -181,24 +180,27 @@ function genTbl2() {
   table.appendChild(tableBody);
   tContainer.appendChild(table);
 }
-const banner = document.getElementById("banner").innerHTML;
-let specImages = [];
-specImages.push(banner);
+// const banner = document.getElementById("banner").innerHTML;
+// let specImages = [];
+// specImages.push(banner);
 
-let specList = document.createElement(ul);
-specList.setAttribute("id", "specList");
-let listItem = document.createElement(li);
+// let specList = document.createElement(ul);
+// specList.setAttribute("id", "specList");
+// let listItem = document.createElement(li);
 
-function genSpecList() {
-  for (let i = 0; i < specImages.length; i++) {
-    specList.appendChild(specImages.src);
-  }
-}
+// function genSpecList() {
+//   for (let i = 0; i < specImages.length; i++) {
+//     specList.appendChild(specImages.src);
+//   }
+// }
 
-let modal = document.getElementById("modalBtn");
-let span = document.getElementsByClassName("close")[0];
-modal.onclick = function () {
+const modalBtn = document.getElementById("modalBtn");
+const modal = document.getElementById("myModal");
+const span = document.getElementsByClassName("close")[0];
+
+modalBtn.onclick = function () {
   modal.style.display = "block";
+  console.log("true");
 };
 
 span.onclick = function () {
