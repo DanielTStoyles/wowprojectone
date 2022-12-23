@@ -21,6 +21,8 @@ function selection(id) {
   document.getElementById("selectionText").innerHTML =
     document.getElementById(id).innerHTML;
 }
+// const listImage2 = document.getElementById("listImage2");
+// console.log(listImage2);
 
 function playerForms() {
   let playerForm = document.createElement("form");
@@ -180,19 +182,30 @@ function genTbl2() {
   table.appendChild(tableBody);
   tContainer.appendChild(table);
 }
-// const banner = document.getElementById("banner").innerHTML;
-// let specImages = [];
-// specImages.push(banner);
 
-// let specList = document.createElement(ul);
-// specList.setAttribute("id", "specList");
-// let listItem = document.createElement(li);
+const banner = document.getElementById("banner");
 
-// function genSpecList() {
-//   for (let i = 0; i < specImages.length; i++) {
-//     specList.appendChild(specImages.src);
-//   }
-// }
+let specImages = [];
+let img = document.getElementsByTagName("img");
+
+function imgCall() {
+  for (let i = 0; i < img.length; i++) {
+    let imageItem = document.createElement("li");
+    imageItem.setAttribute("id", "img" + i);
+    imageItem.addEventListener("click", selection(imageItem.id));
+    // specImages.push(img.item(i).src);
+  }
+}
+
+console.log(img);
+console.log(specImages);
+
+function genSpecList() {
+  for (let i = 0; i < specImages.length; i++) {
+    specList.appendChild(specImages.src);
+  }
+  tContainer.appendChild(specList);
+}
 
 const modalBtn = document.getElementById("modalBtn");
 const modal = document.getElementById("myModal");

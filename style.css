@@ -120,9 +120,8 @@ li {
 }
 
 #selectionText {
-  font-size: 0;
-  height: 0.4rem;
-  width: 0.4rem;
+  height: 0.5rem;
+  width: 0.5rem;
 }
 
 #selectionText #listImage {
