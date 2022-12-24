@@ -1,6 +1,6 @@
 /** @format */
 
-function popup(mylink, windowname) {
+export function popup(mylink, windowname) {
   if (!window.focus) return true;
   var href;
   if (typeof mylink == "string") href = mylink;

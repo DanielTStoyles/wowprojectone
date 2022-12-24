@@ -17,10 +17,22 @@ window.onclick = function (event) {
   }
 };
 
-function selection(id) {
-  document.getElementById("selectionText").innerHTML =
-    document.getElementById(id).innerHTML;
+// function selection(id) {
+//   document.getElementById("selectionText").innerHTML =
+//     document.getElementById(id).innerHTML;
+// }
+
+function selection(img) {
+  let location = document.getElementById("selectionText");
+  let newImage = document.createElement("img");
+  let name = img.src;
+  newImage.setAttribute("id", "newImage");
+  newImage.setAttribute("src", name);
+
+  location.appendChild(newImage);
+  console.log(newImage.src);
 }
+
 // const listImage2 = document.getElementById("listImage2");
 // console.log(listImage2);
 
@@ -76,15 +88,6 @@ const addPlayer = () => {
   console.warn("added", { playerData });
   localStorage.setItem("playerList", JSON.stringify(playerData));
 };
-
-// function popup(mylink, windowname) {
-//   if (!window.focus) return true;
-//   var href;
-//   if (typeof mylink == "string") href = mylink;
-//   else href = mylink.href;
-//   window.open(href, windowname, "width=400,height=200,scrollbars=yes");
-//   return false;
-// }
 
 let players = [
   { Name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
