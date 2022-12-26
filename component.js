@@ -22,12 +22,15 @@ window.onclick = function (event) {
 //     document.getElementById(id).innerHTML;
 // }
 
-function selection(img) {
+function selection() {
   let location = document.getElementById("selectionText");
   let newImage = document.createElement("img");
-  let name = img.src;
+
+  srcFunction(ev);
+  {
+    newImage.setAttribute("src", ev.target.src);
+  }
   newImage.setAttribute("id", "newImage");
-  newImage.setAttribute("src", name);
 
   location.appendChild(newImage);
   console.log(newImage.src);
