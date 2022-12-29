@@ -79,17 +79,25 @@ body {
 
 .dropbtn:focus {
   background-color: #5a788b;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .dropdown {
   display: inline-block;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgb(197, 197, 197);
-  min-width: 140px;
+  background-color: #292f33;
+  border-style: inset;
+  border-color: goldenrod;
+  border-width: 0.3rem;
+  min-width: 10.8rem;
+  max-height: 28rem;
   overflow-x: hidden;
   overflow-y: auto;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -98,14 +106,25 @@ body {
 
 .show {
   display: flex;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.menu {
+  width: 3.5rem;
+}
+
+.listImage {
+  border-style: solid;
+  border-color: goldenrod;
+  border-width: 0.1rem;
 }
 
 li {
   cursor: pointer;
   color: black;
-  font-size: 1.6rem;
-  font-weight: bold;
   justify-content: center;
+  margin-bottom: 0.3rem;
   text-align: justify;
 }
 
