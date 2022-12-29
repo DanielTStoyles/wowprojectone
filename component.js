@@ -17,27 +17,10 @@ window.onclick = function (event) {
   }
 };
 
-// function selection(id) {
-//   document.getElementById("selectionText").innerHTML =
-//     document.getElementById(id).innerHTML;
-// }
-
-function selection() {
-  let location = document.getElementById("selectionText");
-  let newImage = document.createElement("img");
-
-  srcFunction(ev);
-  {
-    newImage.setAttribute("src", ev.target.src);
-  }
-  newImage.setAttribute("id", "newImage");
-
-  location.appendChild(newImage);
-  console.log(newImage.src);
+function selection(id) {
+  document.getElementById("selectionText").innerHTML =
+    document.getElementById(id).innerHTML;
 }
-
-// const listImage2 = document.getElementById("listImage2");
-// console.log(listImage2);
 
 function playerForms() {
   let playerForm = document.createElement("form");
@@ -191,27 +174,54 @@ function genTbl2() {
 
 const banner = document.getElementById("banner");
 
-let specImages = [];
-let img = document.getElementsByTagName("img");
+const specImages = banner.querySelectorAll("img");
 
-function imgCall() {
-  for (let i = 0; i < img.length; i++) {
-    let imageItem = document.createElement("li");
-    imageItem.setAttribute("id", "img" + i);
-    imageItem.addEventListener("click", selection(imageItem.id));
-    // specImages.push(img.item(i).src);
-  }
+for (let i = 0; i < specImages.length; i++) {
+  let item = specImages[i];
+  let listItem = document.createElement("li");
+  let listItemId = "listItem";
+
+  listItem.setAttribute("class", "specList");
+  listItem.setAttribute("id", listItemId + (i + 1));
+
+  let listImage = document.createElement("img");
+  let listImageId = "listImage";
+  listImage.setAttribute("class", "listImage");
+  listImage.setAttribute("id", listImageId + (i + 1));
+  let id = listItem.id;
+  listImage.setAttribute("src", item.src);
+
+  listItem.appendChild(listImage);
+  document.getElementById("menu").appendChild(listItem);
+  listItem.addEventListener(
+    "click",
+    (e) => {
+      e.stopPropagation;
+      selection(id);
+    },
+    false
+  );
 }
 
-console.log(img);
-console.log(specImages);
+// let specImages = [];
+// let img = document.getElementsByTagName("img");
 
-function genSpecList() {
-  for (let i = 0; i < specImages.length; i++) {
-    specList.appendChild(specImages.src);
-  }
-  tContainer.appendChild(specList);
-}
+// function imgCall() {
+//   for (let i = 0; i < img.length; i++) {
+//     let imageItem = document.createElement("li");
+//     imageItem.setAttribute("id", "img" + i);
+//     imageItem.addEventListener("click", selection(imageItem.id));
+//     specImages.push(img.item(i).src);
+//   }
+// }
+
+// console.log(img);
+// console.log(specImages);
+
+//   for (let i = 0; i < specImages.length; i++) {
+//     specList.appendChild(specImages.src);
+//   }
+//   tContainer.appendChild(specList);
 
 const modalBtn = document.getElementById("modalBtn");
 const modal = document.getElementById("myModal");
