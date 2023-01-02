@@ -241,3 +241,8 @@ window.onclick = function (event) {
     modal.style.display = "none";
   }
 };
+
+// Ideas for the next steps: Create a seperate table generation that doesn't read from a saved array of data,
+//make it the create new group ones.
+//basically the one that is created as a new group is blank minus the choose player/create new player option which will append the dropmenu
+//and other user value input fields, Ideally the create new player button eventually opens a modal that then accomplishes all of this
