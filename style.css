@@ -7,8 +7,8 @@ html {
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #133c94;
-  width: 100%;
-  height: 100%;
+  width: 99%;
+  height: 99%;
 }
 
 .navbar {
@@ -138,7 +138,7 @@ li {
   border-style: solid;
   border-color: goldenrod;
   border-top: 0.3rem;
-  background-image: linear-gradient(#1e57d1, #3968ce);
+  background-color: #1e479e;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -213,4 +213,17 @@ div.cloneForm {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+#testInput {
+  border: none;
+  background-image: url(/images/edit-box-icon.png);
+  background-repeat: no-repeat;
+  background-size: 20px;
+  background-position: right;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  font-size: larger;
+  background-color: #1e479e;
+  color: black;
 }

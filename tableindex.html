@@ -12,7 +12,8 @@
       rel="import"
       rel="mytabletemplate.html"
     />
-    <script src="./component.js"  defer></script>
+    <script src="./component.js"defer></script>
+    <script src="./common.js" defer></script>
   </head>
 
   <body>
@@ -36,7 +37,7 @@
 
       <button
         type="button"
-        onclick="alert('Export roster into image file function will be here')"
+        onclick="tableCounter()"
       >
         Export Roster
       </button>
@@ -109,7 +110,12 @@
  
 
 <table class="groupTable" id="myTbl">
-    <caption>Group 1</caption>
+
+    <caption>
+<input type="text" id="testInput" placeholder="Group #" readonly >
+
+    </caption>
+ 
     <thead>
                 <tbody class="tbody">
                     

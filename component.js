@@ -135,6 +135,13 @@ function genTbl() {
 
 function genTbl2() {
   let table = document.createElement("table");
+  let caption = document.createElement("caption");
+  let newText = document.createElement("input");
+  newText.setAttribute("type", "text");
+  newText.setAttribute("placeHolder", "Group #");
+
+  caption.appendChild(newText);
+
   let tableBody = document.createElement("tbody");
   table.setAttribute("id", Date.now());
   table.setAttribute("class", "groupTable");
@@ -167,10 +174,24 @@ function genTbl2() {
     th.appendChild(text);
     tRow.appendChild(th);
   }
+  table.appendChild(caption);
   table.appendChild(tRow);
   table.appendChild(tableBody);
   tContainer.appendChild(table);
 }
+
+// let tableCount = document.getElementsByClassName("groupTable");
+
+// function caption(text) {
+//   let caption = table.createCaption();
+
+//   for (let i = 0; i < tableCount.length; i++) {
+//     let newText = document.createTextNode(text + (i + 1));
+//     caption.appendChild(newText);
+//     table.appendChild(caption);
+//   }
+//   console.log(tableCount);
+// }
 
 const banner = document.getElementById("banner");
 
