@@ -94,6 +94,8 @@ function tblCloner(userValue) {
   document.getElementById("tblNumber").reset();
 }
 
+import { editRelease } from "./common.js";
+
 let table = document.querySelector("table");
 let data = Object.keys(players[0]);
 const tContainer = document.getElementById("tContainer");
@@ -136,12 +138,14 @@ function genTbl() {
 function genTbl2() {
   let table = document.createElement("table");
   let caption = document.createElement("caption");
+  caption.setAttribute("class", "caption");
   let newText = document.createElement("input");
+  newText.setAttribute("class", "caption");
   newText.setAttribute("type", "text");
   newText.setAttribute("placeHolder", "Group #");
 
   caption.appendChild(newText);
-
+  newText.addEventListener("onkeydown", editRelease());
   let tableBody = document.createElement("tbody");
   table.setAttribute("id", Date.now());
   table.setAttribute("class", "groupTable");

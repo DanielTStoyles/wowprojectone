@@ -215,7 +215,7 @@ div.cloneForm {
   cursor: pointer;
 }
 
-#testInput {
+.caption {
   border: none;
   background-image: url(/images/edit-box-icon.png);
   background-repeat: no-repeat;
@@ -225,5 +225,5 @@ div.cloneForm {
   text-align: center;
   font-size: larger;
   background-color: #1e479e;
-  color: black;
+  color: whitesmoke;
 }
