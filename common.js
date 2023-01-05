@@ -1,6 +1,6 @@
-/** @format */
+/* @format */
 
-export function editRelease() {
+function editRelease() {
   let captionList = document.getElementsByClassName("caption");
 
   if (event.key === "Enter") {

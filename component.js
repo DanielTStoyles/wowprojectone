@@ -1,4 +1,5 @@
-/** @format */
+/* @format */
+// import { editRelease } from "./common.js";
 
 function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -85,6 +86,7 @@ let players = [
 
 let myTbl = document.getElementById("myTbl");
 let container = document.getElementById("tContainer");
+let userValue = document.getElementById("userInput").value;
 
 function tblCloner(userValue) {
   for (i = 0; i < userValue; i++) {
@@ -93,8 +95,6 @@ function tblCloner(userValue) {
   }
   document.getElementById("tblNumber").reset();
 }
-
-import { editRelease } from "./common.js";
 
 let table = document.querySelector("table");
 let data = Object.keys(players[0]);
@@ -145,7 +145,7 @@ function genTbl2() {
   newText.setAttribute("placeHolder", "Group #");
 
   caption.appendChild(newText);
-  newText.addEventListener("onkeydown", editRelease());
+  // newText.addEventListener("onkeydown", editRelease());
   let tableBody = document.createElement("tbody");
   table.setAttribute("id", Date.now());
   table.setAttribute("class", "groupTable");
