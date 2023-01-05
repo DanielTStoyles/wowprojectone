@@ -52,3 +52,46 @@ function genTbl2() {
   table.appendChild(tableBody);
   tContainer.appendChild(table);
 }
+
+function genTHead() {
+  let tHead = document.querySelector("table").createTHead();
+  let row = tHead.insertRow();
+  for (let key of data) {
+    let th = document.createElement("th");
+    let text = document.createTextNode(key);
+    th.appendChild(text);
+    row.appendChild(th);
+  }
+}
+
+function genTbl() {
+  //Create the table element, create table body and append it to the table
+  let table = document.createElement("table");
+  let tableBody = document.createElement("tbody");
+  table.appendChild(tableBody);
+  table.setAttribute("id", Date.now());
+  table.setAttribute("class", "groupTable");
+
+  //Create, populate, and append table rows
+  function generateTable(tablebody, data) {
+    for (let element of data) {
+      let newRow = tablebody.insertRow();
+      for (key in element) {
+        let cell = newRow.insertCell();
+        let text = document.createTextNode(element[key]);
+        cell.appendChild(text);
+      }
+    }
+  }
+  generateTable(table, players);
+  document.getElementById("tContainer").appendChild(table);
+  genTHead();
+}
+
+function tblCloner(userValue) {
+  for (i = 0; i < userValue; i++) {
+    // container.appendChild(myTbl.cloneNode(true));
+    genTbl2();
+  }
+  document.getElementById("tblNumber").reset();
+}
