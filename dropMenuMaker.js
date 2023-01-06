@@ -1,41 +1,43 @@
 /** @format */
 
-const banner = document.getElementById("banner");
+export const banner = document.getElementById("banner");
 
-const specImages = banner.querySelectorAll("img");
+export const specImages = banner.querySelectorAll("img");
 
-for (let i = 0; i < specImages.length; i++) {
-  let item = specImages[i];
-  let listItem = document.createElement("li");
-  let listItemId = "listItem";
+export let dropImages = () => {
+  for (let i = 0; i < specImages.length; i++) {
+    let item = specImages[i];
+    let listItem = document.createElement("li");
+    let listItemId = "listItem";
 
-  listItem.setAttribute("class", "specList");
-  listItem.setAttribute("id", listItemId + (i + 1));
+    listItem.setAttribute("class", "specList");
+    listItem.setAttribute("id", listItemId + (i + 1));
 
-  let listImage = document.createElement("img");
-  let listImageId = "listImage";
-  listImage.setAttribute("class", "listImage");
-  listImage.setAttribute("id", listImageId + (i + 1));
-  let id = listItem.id;
-  listImage.setAttribute("src", item.src);
+    let listImage = document.createElement("img");
+    let listImageId = "listImage";
+    listImage.setAttribute("class", "listImage");
+    listImage.setAttribute("id", listImageId + (i + 1));
+    let id = listItem.id;
+    listImage.setAttribute("src", item.src);
 
-  listItem.appendChild(listImage);
-  document.getElementById("menu").appendChild(listItem);
-  listItem.addEventListener(
-    "click",
-    (e) => {
-      e.stopPropagation;
-      selection(id);
-    },
-    false
-  );
-}
+    listItem.appendChild(listImage);
+    document.getElementById("menu").appendChild(listItem);
+    listItem.addEventListener(
+      "click",
+      (e) => {
+        e.stopPropagation;
+        selectionImage(id);
+      },
+      false
+    );
+  }
+};
 
-function dropMenu() {
+export function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function (event) {
+export function dropDisplay(event) {
   if (!event.target.matches(".dropbtn")) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
     let i;
@@ -46,4 +48,9 @@ window.onclick = function (event) {
       }
     }
   }
-};
+}
+
+export function selectionImage(id) {
+  document.getElementById("selectionText").innerHTML =
+    document.getElementById(id).innerHTML;
+}

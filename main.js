@@ -1,188 +1,235 @@
 /* @format */
-// import { editRelease } from "./common.js";
 
-function dropMenu() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
+import {
+  players,
+  data,
+  tContainer,
+  genTbl2,
+  genTbl,
+  editRelease,
+  editButton,
+  tblCloner,
+} from "./tableMaker.js";
 
-window.onclick = function (event) {
-  if (!event.target.matches(".dropbtn")) {
-    let dropdowns = document.getElementsByClassName("dropdown-content");
-    let i;
-    for (i = 0; i < dropdowns.length; i++) {
-      let openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains("show")) {
-        openDropdown.classList.remove("show");
-      }
-    }
-  }
-};
+import {
+  modalBtn,
+  modal,
+  span,
+  modalButton,
+  modalNone,
+  hideModal,
+} from "./modalWork.js";
 
-function selection(id) {
-  document.getElementById("selectionText").innerHTML =
-    document.getElementById(id).innerHTML;
-}
+import {
+  banner,
+  specImages,
+  dropImages,
+  dropMenu,
+  dropDisplay,
+  selectionImage,
+} from "./dropMenuMaker.js";
 
-function playerForms() {
-  let playerForm = document.createElement("form");
-  playerForm.setAttribute("method", "post");
-  playerForm.setAttribute("id", "playerForm");
+window.genTbl2 = genTbl2;
+window.genTbl = genTbl;
+window.editRelease = editRelease;
+window.editButton = editButton;
+window.tblCloner = tblCloner;
+modalBtn.onclick = modalButton;
+span.onclick = modalNone;
+// window.onclick = hideModal
+window.onclick = dropDisplay;
+window.dropMenu = dropMenu;
+window.onclick = dropImages;
+window.specImages = specImages;
+window.banner = banner;
+window.selectionImage = selectionImage;
+window.modal = modal;
+window.hideModal = hideModal;
+window.players = players;
+window.data = data;
+window.tContainer = tContainer;
 
-  let pN = document.createElement("input");
-  pN.setAttribute("id", "name");
-  pN.setAttribute("type", "text");
-  pN.setAttribute("placeholder", "Player Name");
+// function dropMenu() {
+//   document.getElementById("myDropdown").classList.toggle("show");
+// }
 
-  let classSpec = document.createElement("input");
-  classSpec.setAttribute("id", "classSpec");
-  classSpec.setAttribute("type", "text");
-  classSpec.setAttribute("placeholder", "Class/Spec");
+// window.onclick = function (event) {
+//   if (!event.target.matches(".dropbtn")) {
+//     let dropdowns = document.getElementsByClassName("dropdown-content");
+//     let i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       let openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains("show")) {
+//         openDropdown.classList.remove("show");
+//       }
+//     }
+//   }
+// };
 
-  playerForm.appendChild(pN);
-  playerForm.appendChild(classSpec);
-  document.getElementById("formP").appendChild(playerForm);
+// function selection(id) {
+//   document.getElementById("selectionText").innerHTML =
+//     document.getElementById(id).innerHTML;
+// }
 
-  let dataBtn = document.createElement("button");
-  dataBtn.setAttribute("type", "submit");
-  dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
-  document.getElementById("formP").appendChild(dataBtn);
-  dataBtn.addEventListener(
-    "click",
-    (e) => {
-      e.stopPropogation;
-      addPlayer();
-      formHide();
-    },
-    false
-  );
-}
+// function playerForms() {
+//   let playerForm = document.createElement("form");
+//   playerForm.setAttribute("method", "post");
+//   playerForm.setAttribute("id", "playerForm");
 
-let playerData = [];
+//   let pN = document.createElement("input");
+//   pN.setAttribute("id", "name");
+//   pN.setAttribute("type", "text");
+//   pN.setAttribute("placeholder", "Player Name");
 
-function formHide(id) {
-  let form = document.getElementById("playerForm");
-  form.remove();
-  document.getElementsByClassName(id).remove();
-}
+//   let classSpec = document.createElement("input");
+//   classSpec.setAttribute("id", "classSpec");
+//   classSpec.setAttribute("type", "text");
+//   classSpec.setAttribute("placeholder", "Class/Spec");
 
-const addPlayer = () => {
-  let player = {
-    id: Date.now(),
-    name: document.getElementById("name").value,
-    classSpec: document.getElementById("classSpec").value,
-  };
-  playerData.push(player);
-  console.warn("added", { playerData });
-  localStorage.setItem("playerList", JSON.stringify(playerData));
-};
+//   playerForm.appendChild(pN);
+//   playerForm.appendChild(classSpec);
+//   document.getElementById("formP").appendChild(playerForm);
 
-let players = [
-  { Name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
-  { Name: "Jet", Class: "warrior", Spec: "Prot", Role: "tank" },
-  { Name: "Ehm", Class: "mage", Spec: "Fire", Role: "dps" },
-  { Name: "Jonald", Class: "mage", Spec: "Arcane", Role: "dps" },
-  { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
-];
+//   let dataBtn = document.createElement("button");
+//   dataBtn.setAttribute("type", "submit");
+//   dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
+//   document.getElementById("formP").appendChild(dataBtn);
+//   dataBtn.addEventListener(
+//     "click",
+//     (e) => {
+//       e.stopPropogation;
+//       addPlayer();
+//       formHide();
+//     },
+//     false
+//   );
+// }
 
-let myTbl = document.getElementById("myTbl");
-let container = document.getElementById("tContainer");
-let userValue = document.getElementById("userInput").value;
+// let playerData = [];
 
-function tblCloner(userValue) {
-  for (i = 0; i < userValue; i++) {
-    // container.appendChild(myTbl.cloneNode(true));
-    genTbl2();
-  }
-  document.getElementById("tblNumber").reset();
-}
+// function formHide(id) {
+//   let form = document.getElementById("playerForm");
+//   form.remove();
+//   document.getElementsByClassName(id).remove();
+// }
 
-let table = document.querySelector("table");
-let data = Object.keys(players[0]);
-const tContainer = document.getElementById("tContainer");
+// const addPlayer = () => {
+//   let player = {
+//     id: Date.now(),
+//     name: document.getElementById("name").value,
+//     classSpec: document.getElementById("classSpec").value,
+//   };
+//   playerData.push(player);
+//   console.warn("added", { playerData });
+//   localStorage.setItem("playerList", JSON.stringify(playerData));
+// };
 
-function genTHead() {
-  let tHead = document.querySelector("table").createTHead();
-  let row = tHead.insertRow();
-  for (let key of data) {
-    let th = document.createElement("th");
-    let text = document.createTextNode(key);
-    th.appendChild(text);
-    row.appendChild(th);
-  }
-}
+// // let players = [
+//   { Name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
+//   { Name: "Jet", Class: "warrior", Spec: "Prot", Role: "tank" },
+//   { Name: "Ehm", Class: "mage", Spec: "Fire", Role: "dps" },
+//   { Name: "Jonald", Class: "mage", Spec: "Arcane", Role: "dps" },
+//   { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
+// ];
 
-function genTbl() {
-  //Create the table element, create table body and append it to the table
-  let table = document.createElement("table");
-  let tableBody = document.createElement("tbody");
-  table.appendChild(tableBody);
-  table.setAttribute("id", Date.now());
-  table.setAttribute("class", "groupTable");
+// let myTbl = document.getElementById("myTbl");
+// let container = document.getElementById("tContainer");
 
-  //Create, populate, and append table rows
-  function generateTable(tablebody, data) {
-    for (let element of data) {
-      let newRow = tablebody.insertRow();
-      for (key in element) {
-        let cell = newRow.insertCell();
-        let text = document.createTextNode(element[key]);
-        cell.appendChild(text);
-      }
-    }
-  }
-  generateTable(table, players);
-  document.getElementById("tContainer").appendChild(table);
-  genTHead();
-}
+// function tblCloner(userValue) {
+//   for (i = 0; i < userValue; i++) {
+//     // container.appendChild(myTbl.cloneNode(true));
+//     genTbl2();
+//   }
+//   document.getElementById("tblNumber").reset();
+// }
 
-function genTbl2() {
-  let table = document.createElement("table");
-  let caption = document.createElement("caption");
-  caption.setAttribute("class", "caption");
-  let newText = document.createElement("input");
-  newText.setAttribute("class", "caption");
-  newText.setAttribute("type", "text");
-  newText.setAttribute("placeHolder", "Group #");
+// let table = document.querySelector("table");
+// let data = Object.keys(players[0]);
+// const tContainer = document.getElementById("tContainer");
 
-  caption.appendChild(newText);
-  // newText.addEventListener("onkeydown", editRelease());
-  let tableBody = document.createElement("tbody");
-  table.setAttribute("id", Date.now());
-  table.setAttribute("class", "groupTable");
+// function genTHead() {
+//   let tHead = document.querySelector("table").createTHead();
+//   let row = tHead.insertRow();
+//   for (let key of data) {
+//     let th = document.createElement("th");
+//     let text = document.createTextNode(key);
+//     th.appendChild(text);
+//     row.appendChild(th);
+//   }
+// }
 
-  for (let i = 0; i < 5; i++) {
-    const row = document.createElement("tr");
+// function genTbl() {
+//   //Create the table element, create table body and append it to the table
+//   let table = document.createElement("table");
+//   let tableBody = document.createElement("tbody");
+//   table.appendChild(tableBody);
+//   table.setAttribute("id", Date.now());
+//   table.setAttribute("class", "groupTable");
 
-    for (let j = 0; j < 1; j++) {
-      const cell = document.createElement("td");
-      // const cellText = document.createTextNode(`text ${i}, text ${j}`);
-      // cell.appendChild(cellText);
-      let button = document.createElement("button");
-      button.setAttribute("id", "dropBtn");
-      button.setAttribute("class", "dropbtn");
-      button.textContent = "Class/Spec";
-      button.addEventListener("click", () => {
-        document.getElementById("myDropdown").classList.toggle("show");
-      });
-      cell.appendChild(button);
-      row.appendChild(cell);
-      tableBody.appendChild(row);
-    }
-  }
+//   //Create, populate, and append table rows
+//   function generateTable(tablebody, data) {
+//     for (let element of data) {
+//       let newRow = tablebody.insertRow();
+//       for (key in element) {
+//         let cell = newRow.insertCell();
+//         let text = document.createTextNode(element[key]);
+//         cell.appendChild(text);
+//       }
+//     }
+//   }
+//   generateTable(table, players);
+//   document.getElementById("tContainer").appendChild(table);
+//   genTHead();
+// }
 
-  let tHead = table.createTHead();
-  let tRow = tHead.insertRow();
-  for (let key of data) {
-    let th = document.createElement("th");
-    let text = document.createTextNode(key);
-    th.appendChild(text);
-    tRow.appendChild(th);
-  }
-  table.appendChild(caption);
-  table.appendChild(tRow);
-  table.appendChild(tableBody);
-  tContainer.appendChild(table);
-}
+// function genTbl2() {
+//   let table = document.createElement("table");
+//   let caption = document.createElement("caption");
+//   caption.setAttribute("class", "caption");
+//   let newText = document.createElement("input");
+//   newText.setAttribute("class", "caption");
+//   newText.setAttribute("type", "text");
+//   newText.setAttribute("placeHolder", "Group #");
+
+//   caption.appendChild(newText);
+//   //   newText.addEventListener("onkeydown", editRelease());
+//   let tableBody = document.createElement("tbody");
+//   table.setAttribute("id", Date.now());
+//   table.setAttribute("class", "groupTable");
+
+//   for (let i = 0; i < 5; i++) {
+//     const row = document.createElement("tr");
+
+//     for (let j = 0; j < 1; j++) {
+//       const cell = document.createElement("td");
+//       // const cellText = document.createTextNode(`text ${i}, text ${j}`);
+//       // cell.appendChild(cellText);
+//       let button = document.createElement("button");
+//       button.setAttribute("id", "dropBtn");
+//       button.setAttribute("class", "dropbtn");
+//       button.textContent = "Class/Spec";
+//       button.addEventListener("click", () => {
+//         document.getElementById("myDropdown").classList.toggle("show");
+//       });
+//       cell.appendChild(button);
+//       row.appendChild(cell);
+//       tableBody.appendChild(row);
+//     }
+//   }
+
+//   let tHead = table.createTHead();
+//   let tRow = tHead.insertRow();
+//   for (let key of data) {
+//     let th = document.createElement("th");
+//     let text = document.createTextNode(key);
+//     th.appendChild(text);
+//     tRow.appendChild(th);
+//   }
+//   table.appendChild(caption);
+//   table.appendChild(tRow);
+//   table.appendChild(tableBody);
+//   tContainer.appendChild(table);
+// }
 
 // let tableCount = document.getElementsByClassName("groupTable");
 
@@ -197,36 +244,36 @@ function genTbl2() {
 //   console.log(tableCount);
 // }
 
-const banner = document.getElementById("banner");
+// const banner = document.getElementById("banner");
 
-const specImages = banner.querySelectorAll("img");
+// const specImages = banner.querySelectorAll("img");
 
-for (let i = 0; i < specImages.length; i++) {
-  let item = specImages[i];
-  let listItem = document.createElement("li");
-  let listItemId = "listItem";
+// for (let i = 0; i < specImages.length; i++) {
+//   let item = specImages[i];
+//   let listItem = document.createElement("li");
+//   let listItemId = "listItem";
 
-  listItem.setAttribute("class", "specList");
-  listItem.setAttribute("id", listItemId + (i + 1));
+//   listItem.setAttribute("class", "specList");
+//   listItem.setAttribute("id", listItemId + (i + 1));
 
-  let listImage = document.createElement("img");
-  let listImageId = "listImage";
-  listImage.setAttribute("class", "listImage");
-  listImage.setAttribute("id", listImageId + (i + 1));
-  let id = listItem.id;
-  listImage.setAttribute("src", item.src);
+//   let listImage = document.createElement("img");
+//   let listImageId = "listImage";
+//   listImage.setAttribute("class", "listImage");
+//   listImage.setAttribute("id", listImageId + (i + 1));
+//   let id = listItem.id;
+//   listImage.setAttribute("src", item.src);
 
-  listItem.appendChild(listImage);
-  document.getElementById("menu").appendChild(listItem);
-  listItem.addEventListener(
-    "click",
-    (e) => {
-      e.stopPropagation;
-      selection(id);
-    },
-    false
-  );
-}
+//   listItem.appendChild(listImage);
+//   document.getElementById("menu").appendChild(listItem);
+//   listItem.addEventListener(
+//     "click",
+//     (e) => {
+//       e.stopPropagation;
+//       selection(id);
+//     },
+//     false
+//   );
+// }
 
 // let specImages = [];
 // let img = document.getElementsByTagName("img");
@@ -248,24 +295,24 @@ for (let i = 0; i < specImages.length; i++) {
 //   }
 //   tContainer.appendChild(specList);
 
-const modalBtn = document.getElementById("modalBtn");
-const modal = document.getElementById("myModal");
-const span = document.getElementsByClassName("close")[0];
+// const modalBtn = document.getElementById("modalBtn");
+// const modal = document.getElementById("myModal");
+// const span = document.getElementsByClassName("close")[0];
 
-modalBtn.onclick = function () {
-  modal.style.display = "block";
-  console.log("true");
-};
+// modalBtn.onclick = function () {
+//   modal.style.display = "block";
+//   console.log("true");
+// };
 
-span.onclick = function () {
-  modal.style.display = "none";
-};
+// span.onclick = function () {
+//   modal.style.display = "none";
+// };
 
-window.onclick = function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
+// window.onclick = function (event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// };
 
 // Ideas for the next steps: Create a seperate table generation that doesn't read from a saved array of data,
 //make it the create new group ones.

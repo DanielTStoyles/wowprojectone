@@ -1,23 +1,23 @@
 /* @format */
 
-const modalBtn = document.getElementById("modalBtn");
-const modal = document.getElementById("myModal");
-const span = document.getElementsByClassName("close")[0];
+export const modalBtn = document.getElementById("modalBtn");
+export const modal = document.getElementById("myModal");
+export const span = document.getElementsByClassName("close")[0];
 
-modalBtn.onclick = function () {
+export function modalButton() {
   modal.style.display = "block";
   console.log("true");
-};
+}
 
-span.onclick = function () {
+export function modalNone() {
   modal.style.display = "none";
-};
+}
 
-window.onclick = function (event) {
+export function hideModal(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-};
+}
 
 // This is the popup-window code if ever needed
 

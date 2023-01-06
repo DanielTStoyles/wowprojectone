@@ -12,19 +12,21 @@
       rel="import"
       rel="mytabletemplate.html"
     />
-    <script src="main.js"  defer></script>
+    <script src="main.js" type="module" defer></script>
+    <script src="tableMaker.js" defer></script>
+
     
   </head>
 
   <body>
     <div class="navbar">
-      <button type="button" onclick="genTbl2()">
+      <button type="button">
         +New Roster
       </button>
 
       <button
         type="button"
-        onclick="genTbl()"      >
+        onclick="genTbl()">
         Load Roster
       </button>
 
@@ -42,7 +44,7 @@
         Export Roster
       </button>
 
-      <button type="button" onclick="testFunc()">Array Pusher</button>
+      <button type="button" onclick=test()>Array Pusher</button>
 
       <button id="modalBtn">open modal</button>
 
