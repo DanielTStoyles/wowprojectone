@@ -181,20 +181,25 @@ div.cloneForm {
 
 .modal {
   display: none;
-  position: flex; /* Stay in place */
+  position: absolute; /* Stay in place */
   z-index: 1; /* Sit on top */
   padding-top: 10px; /* Location of the box */
-  left: 40rem;
-  top: 30rem;
-  width: 30%; /* Full width */
-  height: 10%; /* Full height */
+  left: 52rem;
+  top: 10rem;
+  width: 45%; /* Full width */
+  height: 60%; /* Full height */
   overflow: auto;
-  background-color: rgb(255, 255, 255); /* Fallback color */
-  background-color: rgba(231, 68, 68, 0.4); /* Black w/ opacity */
+  background-color: white; /* Black w/ opacity */
+  border-style: ridge;
+  border-color: red;
+  border-width: 1rem;
+  justify-content: center;
+  align-content: center;
 }
 
 .modal-content {
-  background-color: #fefefe;
+  font-size: x-large;
+  background-color: white;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;

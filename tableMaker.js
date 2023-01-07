@@ -1,5 +1,12 @@
 /* @format */
-
+import {
+  banner,
+  specImages,
+  dropImages,
+  dropMenu,
+  dropDisplay,
+  selectionImage,
+} from "./dropMenuMaker.js";
 // let table = document.querySelector("table");
 export let players = [
   { Name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
@@ -123,4 +130,57 @@ export function editRelease() {
 
 export function editButton() {
   document.getElementById("caption").setAttribute("contenteditable", true);
+}
+
+export let playerData = [];
+
+export function formHide(id) {
+  let form = document.getElementById("playerForm");
+  form.remove();
+  document.getElementsByClassName(id).remove();
+}
+
+export const addPlayer = () => {
+  let player = {
+    id: Date.now(),
+    name: document.getElementById("name").value,
+    classSpec: document.getElementById("classSpec").value,
+  };
+  playerData.push(player);
+  console.warn("added", { playerData });
+  localStorage.setItem("playerList", JSON.stringify(playerData));
+};
+
+export function playerForms() {
+  let playerForm = document.createElement("form");
+  playerForm.setAttribute("method", "post");
+  playerForm.setAttribute("id", "playerForm");
+
+  let pN = document.createElement("input");
+  pN.setAttribute("id", "name");
+  pN.setAttribute("type", "text");
+  pN.setAttribute("placeholder", "Player Name");
+
+  let classSpec = document.createElement("input");
+  classSpec.setAttribute("id", "classSpec");
+  classSpec.setAttribute("type", "text");
+  classSpec.setAttribute("placeholder", "Class/Spec");
+
+  playerForm.appendChild(pN);
+  playerForm.appendChild(classSpec);
+  document.getElementById("formP").appendChild(playerForm);
+
+  let dataBtn = document.createElement("button");
+  dataBtn.setAttribute("type", "submit");
+  dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
+  document.getElementById("formP").appendChild(dataBtn);
+  dataBtn.addEventListener(
+    "click",
+    (e) => {
+      e.stopPropogation;
+      addPlayer();
+      formHide();
+    },
+    false
+  );
 }

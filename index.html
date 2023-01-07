@@ -18,7 +18,7 @@
     
   </head>
 
-  <body>
+  <body id="pageBody">
     <div class="navbar">
       <button type="button">
         +New Roster
@@ -39,7 +39,7 @@
 
       <button
         type="button"
-        onclick="tableCounter()"
+        
       >
         Export Roster
       </button>
@@ -47,14 +47,6 @@
       <button type="button" onclick=test()>Array Pusher</button>
 
       <button id="modalBtn">open modal</button>
-
-      <div id="myModal" class="modal">
-        <div class="modalContent">
-          <span class="close">&times;</span>
-          <p>Model content will go here</p>
-        </div>
-
-      </div>
 
 
       <p class="title">Raid Roster</p>
@@ -109,7 +101,30 @@
 
       </div>
 
- 
+      <div id="myModal" class="modal">
+        <div class="modalContent">
+          <span class="close">&times;</span>
+          <p>Modal content></p>
+                                      <div class="dropdown">
+                                 <button onclick="dropMenu() , dropImages()"
+                            class="dropbtn" id="dropBtn">Class/Spec</button>
+                              <div id="myDropdown" class="dropdown-content">
+                                    <div class="menu" id="menu">
+                                    
+                                    </div>
+                                
+                                </div> 
+
+                              <div class="formDiv">
+                                    <p id="formP">
+
+                                    </p>
+                                </div
+                          </div>
+
+        </div>
+
+      </div>
 
 <table class="groupTable" id="myTbl">
 
@@ -222,7 +237,7 @@
                          
                         
 
-                            <div class="dropdown">
+                            <!-- <div class="dropdown">
                                  <button onclick="dropMenu()"
                             class="dropbtn" id="dropBtn">Class/Spec</button>
                               <div id="myDropdown" class="dropdown-content">
@@ -237,7 +252,7 @@
 
                                     </p>
                                 </div
-                          </div>
+                          </div> -->
                                                        
 
                       </td> 

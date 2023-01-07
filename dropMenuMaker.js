@@ -4,7 +4,8 @@ export const banner = document.getElementById("banner");
 
 export const specImages = banner.querySelectorAll("img");
 
-export let dropImages = () => {
+// export let dropImages = () => {
+export function dropImages() {
   for (let i = 0; i < specImages.length; i++) {
     let item = specImages[i];
     let listItem = document.createElement("li");
@@ -31,7 +32,8 @@ export let dropImages = () => {
       false
     );
   }
-};
+  console.log(specImages);
+}
 
 export function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");

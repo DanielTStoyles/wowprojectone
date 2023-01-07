@@ -9,6 +9,10 @@ import {
   editRelease,
   editButton,
   tblCloner,
+  playerData,
+  formHide,
+  addPlayer,
+  playerForms,
 } from "./tableMaker.js";
 
 import {
@@ -18,6 +22,7 @@ import {
   modalButton,
   modalNone,
   hideModal,
+  pageShade,
 } from "./modalWork.js";
 
 import {
@@ -39,7 +44,7 @@ span.onclick = modalNone;
 // window.onclick = hideModal
 window.onclick = dropDisplay;
 window.dropMenu = dropMenu;
-window.onclick = dropImages;
+window.dropImages = dropImages;
 window.specImages = specImages;
 window.banner = banner;
 window.selectionImage = selectionImage;
@@ -47,8 +52,12 @@ window.modal = modal;
 window.hideModal = hideModal;
 window.players = players;
 window.data = data;
+window.playerData = playerData;
+window.formHide = formHide;
 window.tContainer = tContainer;
-
+window.addPlayer = addPlayer;
+window.playerForms = playerForms;
+modal.onload = pageShade;
 // function dropMenu() {
 //   document.getElementById("myDropdown").classList.toggle("show");
 // }
