@@ -1,12 +1,12 @@
 /* @format */
-import {
-  banner,
-  specImages,
-  dropImages,
-  dropMenu,
-  dropDisplay,
-  selectionImage,
-} from "./dropMenuMaker.js";
+// import {
+//   banner,
+//   specImages,
+//   dropImages,
+//   dropMenu,
+//   dropDisplay,
+//   selectionImage,
+// } from "./dropMenuMaker.js";
 // let table = document.querySelector("table");
 export let players = [
   { Name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },

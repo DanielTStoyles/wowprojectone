@@ -23,6 +23,7 @@ import {
   modalNone,
   hideModal,
   pageShade,
+  focusColor,
 } from "./modalWork.js";
 
 import {
@@ -57,7 +58,8 @@ window.formHide = formHide;
 window.tContainer = tContainer;
 window.addPlayer = addPlayer;
 window.playerForms = playerForms;
-modal.onload = pageShade;
+window.pageShade = pageShade;
+window.focusColor = focusColor;
 // function dropMenu() {
 //   document.getElementById("myDropdown").classList.toggle("show");
 // }

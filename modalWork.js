@@ -1,12 +1,14 @@
 /* @format */
+import { tContainer } from "./tableMaker.js";
 
 export const modalBtn = document.getElementById("modalBtn");
 export const modal = document.getElementById("myModal");
 export const span = document.getElementsByClassName("close")[0];
+export const focusColor = document.getElementById("focusColor");
 
 export function modalButton() {
-  modal.style.display = "block";
-  console.log("true");
+  modal.style.display = "flex";
+  pageShade();
 }
 
 export function modalNone() {
@@ -19,7 +21,7 @@ export function hideModal(event) {
   }
 }
 
-// This is the popup-window code if ever needed
+// **This is the popup-window code if ever needed**
 
 // function popup(mylink, windowname) {
 //   if (!window.focus) return true;
@@ -30,8 +32,18 @@ export function hideModal(event) {
 //   return false;
 // }
 
-export const pageShade = () => {
-  if ((modal.style.display = "block")) {
-    pageBody.style.backgroundColor = rgba(0, 0, 0, 0.5);
+export function pageShade() {
+  if (modal.style.display != "none") {
+    focusColor.style.backgroundColor = "rgba(0,0,0,0.8)";
+    tContainer.style.backgroundColor = "rgba(0,0,0,0.5)";
+  } else {
+    if ((focusColor.style.backgroundColor = "rgba(0,0,0,0.8)")) {
+      focusColor.style.backgroundColor = "#133c94";
+      tContainer.style.backgroundColor = "#133c94";
+    }
+    console.log("pageShade");
   }
-};
+}
+// export function pageShade(){
+//   while ((modal.style.display = "flex"))
+//
