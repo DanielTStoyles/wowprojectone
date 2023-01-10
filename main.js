@@ -22,8 +22,8 @@ import {
   modalButton,
   modalNone,
   hideModal,
-  pageShade,
   focusColor,
+  modalForm,
 } from "./modalWork.js";
 
 import {
@@ -43,7 +43,7 @@ window.tblCloner = tblCloner;
 modalBtn.onclick = modalButton;
 span.onclick = modalNone;
 // window.onclick = hideModal
-window.onclick = dropDisplay;
+window.dropDisplay = dropDisplay;
 window.dropMenu = dropMenu;
 window.dropImages = dropImages;
 window.specImages = specImages;
@@ -54,12 +54,14 @@ window.hideModal = hideModal;
 window.players = players;
 window.data = data;
 window.playerData = playerData;
-window.formHide = formHide;
+// window.formHide = formHide;
 window.tContainer = tContainer;
-window.addPlayer = addPlayer;
+// window.addPlayer = addPlayer;
 window.playerForms = playerForms;
-window.pageShade = pageShade;
+
 window.focusColor = focusColor;
+window.modalForm = modalForm;
+
 // function dropMenu() {
 //   document.getElementById("myDropdown").classList.toggle("show");
 // }

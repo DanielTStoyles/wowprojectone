@@ -1,5 +1,5 @@
 /* @format */
-import { tContainer } from "./tableMaker.js";
+import { tContainer, playerForms } from "./tableMaker.js";
 
 export const modalBtn = document.getElementById("modalBtn");
 export const modal = document.getElementById("myModal");
@@ -8,7 +8,8 @@ export const focusColor = document.getElementById("focusColor");
 
 export function modalButton() {
   modal.style.display = "flex";
-  pageShade();
+
+  playerForms();
 }
 
 export function modalNone() {
@@ -32,18 +33,27 @@ export function hideModal(event) {
 //   return false;
 // }
 
-export function pageShade() {
-  if (modal.style.display != "none") {
-    focusColor.style.backgroundColor = "rgba(0,0,0,0.8)";
-    tContainer.style.backgroundColor = "rgba(0,0,0,0.5)";
-  } else {
-    if ((focusColor.style.backgroundColor = "rgba(0,0,0,0.8)")) {
-      focusColor.style.backgroundColor = "#133c94";
-      tContainer.style.backgroundColor = "#133c94";
-    }
-    console.log("pageShade");
-  }
+// export function pageShade() {
+//   if (modal.style.display != "none") {
+//     focusColor.style.backgroundColor = "rgba(0,0,0,0.8)";
+//     tContainer.style.backgroundColor = "rgba(0,0,0,0.5)";
+//   } else {
+//     if ((focusColor.style.backgroundColor = "rgba(0,0,0,0.8)")) {
+//       focusColor.style.backgroundColor = "#133c94";
+//       tContainer.style.backgroundColor = "#133c94";
+//     }
+//     console.log("pageShade");
+//   }
+// }
+
+export function modalForm() {
+  let form = document.createElement("form");
+  let input = document.createElement("input");
+  form.setAttribute("class", "modal-content");
+  input.setAttribute("type", "text");
+  input.setAttribute("class", "playerNameEntry");
+  input.setAttribute("id", "playerNameInput");
+  input.setAttribute("placeholder", "Player Name");
+  form.appendChild(input);
+  modal.appendChild(form);
 }
-// export function pageShade(){
-//   while ((modal.style.display = "flex"))
-//

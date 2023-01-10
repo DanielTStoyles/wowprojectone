@@ -189,9 +189,6 @@ div.cloneForm {
   height: 45%;
   overflow: auto;
   background-color: #133c94;
-
-  justify-content: center;
-  align-content: center;
 }
 
 .modal-content {
@@ -203,11 +200,15 @@ div.cloneForm {
   margin: auto;
   padding: 20px;
   width: 80%;
+  justify-content: center;
+  align-content: center;
 }
 
 .close {
+  position: relative;
   color: #aaaaaa;
-  float: right;
+  left: 49rem;
+  bottom: 5.4rem;
   font-size: 28px;
   font-weight: bold;
 }
@@ -235,4 +236,8 @@ div.cloneForm {
 .focusColor {
   width: 100%;
   height: 100%;
+}
+
+div.formDiv {
+  flex-wrap: wrap;
 }

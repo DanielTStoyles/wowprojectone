@@ -32,7 +32,6 @@ export function dropImages() {
       false
     );
   }
-  console.log(specImages);
 }
 
 export function dropMenu() {
