@@ -338,11 +338,35 @@ window.modalReset = modalReset;
 //basically the one that is created as a new group is blank minus the choose player/create new player option which will append the dropmenu
 //and other user value input fields, Ideally the create new player button eventually opens a modal that then accomplishes all of this
 
-modalSpan.addEventListener(
-  "click",
-  (e) => {
-    e.stopPropagation;
-    modalReset();
-  },
-  true
-);
+// modalSpan.addEventListener(
+//   "click",
+//   (e) => {
+//     e.stopPropagation;
+//     modalReset();
+//   },
+//   true
+// );
+
+const template = document.createElement("template");
+template.innerHTML = `
+
+<style>
+
+</style>
+
+<div class="tooltip-container">
+test
+</div>
+
+
+`;
+
+class FormMake extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+}
+
+window.customElements.define("form-make", FormMake);

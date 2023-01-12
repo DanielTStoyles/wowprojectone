@@ -17,3 +17,13 @@ function editRelease() {
 function editButton() {
   document.getElementById("caption").setAttribute("contenteditable", true);
 }
+
+function formMake() {
+  let div = document.createElement("div");
+
+  let form = document.createElement("form");
+
+  let p = document.createElement("p");
+
+  let span = document.createElement("span");
+}
