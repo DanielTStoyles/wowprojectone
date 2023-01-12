@@ -24,6 +24,7 @@ import {
   hideModal,
   focusColor,
   modalForm,
+  modalReset,
 } from "./modalWork.js";
 
 import {
@@ -33,7 +34,10 @@ import {
   dropMenu,
   dropDisplay,
   selectionImage,
+  dropBtn,
 } from "./dropMenuMaker.js";
+
+const modalSpan = document.getElementById("modalSpan");
 
 window.genTbl2 = genTbl2;
 window.genTbl = genTbl;
@@ -61,6 +65,8 @@ window.playerForms = playerForms;
 
 window.focusColor = focusColor;
 window.modalForm = modalForm;
+window.dropBtn = dropBtn;
+window.modalReset = modalReset;
 
 // function dropMenu() {
 //   document.getElementById("myDropdown").classList.toggle("show");
@@ -331,3 +337,12 @@ window.modalForm = modalForm;
 //make it the create new group ones.
 //basically the one that is created as a new group is blank minus the choose player/create new player option which will append the dropmenu
 //and other user value input fields, Ideally the create new player button eventually opens a modal that then accomplishes all of this
+
+modalSpan.addEventListener(
+  "click",
+  (e) => {
+    e.stopPropagation;
+    modalReset();
+  },
+  true
+);

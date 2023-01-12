@@ -185,8 +185,8 @@ div.cloneForm {
   z-index: 1;
   padding-top: 10px;
   top: 10rem;
-  width: 45%;
-  height: 45%;
+  width: 70%;
+  height: 70%;
   overflow: auto;
   background-color: #133c94;
 }
@@ -240,4 +240,10 @@ div.cloneForm {
 
 div.formDiv {
   flex-wrap: wrap;
+}
+
+#modalCaption {
+  font-size: xx-large;
+  font-weight: 200;
+  color: yellow;
 }

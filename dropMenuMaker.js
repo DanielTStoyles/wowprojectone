@@ -1,5 +1,7 @@
 /** @format */
 
+export const dropBtn = document.getElementById("dropBtn");
+
 export const banner = document.getElementById("banner");
 
 export const specImages = banner.querySelectorAll("img");
@@ -38,7 +40,7 @@ export function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-export function dropDisplay(event) {
+export const dropDisplay = (event) => {
   if (!event.target.matches(".dropbtn")) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
     let i;
@@ -49,9 +51,12 @@ export function dropDisplay(event) {
       }
     }
   }
-}
+};
 
 export function selectionImage(id) {
-  document.getElementById("selectionText").innerHTML =
+  document.getElementById("dropBtn").innerHTML =
     document.getElementById(id).innerHTML;
+  dropBtn.style.padding = "0px";
+  dropBtn.style.backgroundColor = "#133c94";
+  document.getElementById("myDropdown").classList.toggle("show");
 }

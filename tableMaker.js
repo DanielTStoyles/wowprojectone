@@ -173,13 +173,13 @@ export function playerForms() {
 
   document.getElementById("pF1").appendChild(pN);
   document.getElementById("pF2").appendChild(charName);
-  document.getElementById("pF3").appendChild(alternateRole);
+  document.getElementById("pF4").appendChild(alternateRole);
   // document.getElementById("formP").appendChild(playerForm);
 
   let dataBtn = document.createElement("button");
   dataBtn.setAttribute("type", "submit");
   dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
-  document.getElementById("pF4").appendChild(dataBtn);
+  document.getElementById("pF5").appendChild(dataBtn);
   // dataBtn.addEventListener(
   //   "click",
   //   (e) => {

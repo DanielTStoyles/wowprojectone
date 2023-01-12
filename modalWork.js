@@ -15,11 +15,11 @@ export function modalNone() {
   modal.style.display = "none";
 }
 
-export function hideModal(event) {
+export const hideModal = (event) => {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
 
 // **This is the popup-window code if ever needed**
 
@@ -55,4 +55,11 @@ export function modalForm() {
   input.setAttribute("placeholder", "Player Name");
   form.appendChild(input);
   modal.appendChild(form);
+}
+
+export function modalReset() {
+  document.getElementById("playerForm").reset();
+  document.getElementById("playerForm").remove();
+
+  console.log("something is wrong");
 }
