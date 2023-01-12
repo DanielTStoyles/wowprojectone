@@ -8,7 +8,6 @@ export const focusColor = document.getElementById("focusColor");
 
 export function modalButton() {
   modal.style.display = "flex";
-
   playerForms();
 }
 
