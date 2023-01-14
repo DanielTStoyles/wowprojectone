@@ -1,4 +1,5 @@
 /* @format */
+import { dropDisplay } from "./dropMenuMaker.js";
 import { tContainer, playerForms } from "./tableMaker.js";
 
 export const modalBtn = document.getElementById("modalBtn");
@@ -62,4 +63,13 @@ export function modalReset() {
   document.getElementById("playerForm").remove();
 
   console.log("something is wrong");
+}
+
+export function classBtn() {
+  let div = document.createElement("div");
+  div.setAttribute("class", "dropdown");
+  let cSpecBtn = document.createElement("button");
+  cSpecBtn.setAttribute("type", "button");
+  cSpecBtn.setAttribute("class", "dropbtn");
+  cSpecBtn.setAttribute("id", "dropBtn");
 }
