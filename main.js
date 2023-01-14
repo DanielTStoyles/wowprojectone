@@ -62,7 +62,6 @@ window.playerData = playerData;
 window.tContainer = tContainer;
 // window.addPlayer = addPlayer;
 window.playerForms = playerForms;
-
 window.focusColor = focusColor;
 window.modalForm = modalForm;
 window.dropBtn = dropBtn;
@@ -367,6 +366,8 @@ class FormMake extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
+
+  connectedCallback() {}
 }
 
 window.customElements.define("form-make", FormMake);
