@@ -3,24 +3,22 @@ import { dropDisplay } from "./dropMenuMaker.js";
 import { tContainer, playerForms } from "./tableMaker.js";
 
 export const modalBtn = document.getElementById("modalBtn");
-export const modal = document.getElementById("myModal");
-export const span = document.getElementsByClassName("close")[0];
-export const focusColor = document.getElementById("focusColor");
+// export const modal = document.getElementById("myModal");
+// export const span = document.getElementsByClassName("close")[0];
+// export const focusColor = document.getElementById("focusColor");
 
-export function modalButton() {
-  modal.style.display = "flex";
-  playerForms();
-}
+// export function modalButton() {
+//   modal.style.display = "flex";
+//   playerForms();
+// }
 
-export function modalNone() {
-  modal.style.display = "none";
-}
+// export const modalNone = (modal.style.display = "none");
 
-export const hideModal = (event) => {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
+// export const hideModal = (event) => {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// };
 
 // **This is the popup-window code if ever needed**
 
@@ -59,10 +57,10 @@ export function modalForm() {
 }
 
 export function modalReset() {
-  document.getElementById("playerForm").reset();
-  document.getElementById("playerForm").remove();
-
-  console.log("something is wrong");
+  let form = document.getElementById("playerForm");
+  modal.style.display = "none";
+  span.style.display = "none";
+  document.querySelector(".modal").removeChild(form);
 }
 
 export function classBtn() {
@@ -72,4 +70,61 @@ export function classBtn() {
   cSpecBtn.setAttribute("type", "button");
   cSpecBtn.setAttribute("class", "dropbtn");
   cSpecBtn.setAttribute("id", "dropBtn");
+}
+
+export function modalMake() {
+  let modal = document.createElement("div");
+  modal.id = "myModal";
+  modal.className = "modal";
+  document.body.appendChild(modal);
+  let close = document.createElement("span");
+  close.innerHTML = "&times";
+  close.className = "close";
+  modal.appendChild(close);
+
+  let modalContent = document.createElement("div");
+  modalContent.className = "modal-content";
+
+  let formDiv = document.createElement("div");
+  formDiv.className = "formDiv";
+
+  let playerForm = document.createElement("form");
+  playerForm.setAttribute("method", "post");
+  playerForm.setAttribute("id", "playerForm");
+
+  for (let i = 0; i < 6; i++) {
+    let p = document.createElement("p");
+    for (j = 0; j < p.length; j++) {
+      p.setAttribute("id", "pF"(i + 1));
+    }
+    playerForm.appendChild(p);
+  }
+
+  // let pN = document.createElement("input");
+  // pN.setAttribute("id", "name");
+  // pN.setAttribute("type", "text");
+  // pN.setAttribute("placeholder", "Player Name");
+
+  // let charName = document.createElement("input");
+  // charName.setAttribute("id", "charName");
+  // charName.setAttribute("type", "text");
+  // charName.setAttribute("placeholder", "Character Name");
+
+  // let alternateRole = document.createElement("input");
+  // alternateRole.setAttribute("id", "alternateRole");
+  // alternateRole.setAttribute("type", "text");
+  // alternateRole.setAttribute("placeholder", "Alternate Role (optional)");
+
+  // document.getElementById("pF1").appendChild(pN);
+  // document.getElementById("pF2").appendChild(charName);
+  // document.getElementById("pF4").appendChild(alternateRole);
+
+  // let dataBtn = document.createElement("button");
+  // dataBtn.setAttribute("type", "submit");
+  // dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
+  // document.getElementById("pF5").appendChild(dataBtn);
+
+  formDiv.appendChild(playerForm);
+  modalContent.appendChild(formDiv);
+  modal.appendChild(modalContent);
 }

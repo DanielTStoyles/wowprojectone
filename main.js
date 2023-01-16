@@ -13,18 +13,20 @@ import {
   formHide,
   addPlayer,
   playerForms,
+  formRemove,
 } from "./tableMaker.js";
 
 import {
   modalBtn,
-  modal,
-  span,
-  modalButton,
-  modalNone,
-  hideModal,
-  focusColor,
-  modalForm,
-  modalReset,
+  // modal,
+  // span,
+  // modalButton,
+  // modalNone,
+  // hideModal,
+  // focusColor,
+  // modalForm,
+  // modalReset,
+  modalMake,
 } from "./modalWork.js";
 
 import {
@@ -44,8 +46,9 @@ window.genTbl = genTbl;
 window.editRelease = editRelease;
 window.editButton = editButton;
 window.tblCloner = tblCloner;
-modalBtn.onclick = modalButton;
-span.onclick = modalNone;
+// modalBtn.onclick = modalButton;
+modalBtn.onclick = modalMake;
+// span.onclick = modalReset;
 // window.onclick = hideModal
 window.dropDisplay = dropDisplay;
 window.dropMenu = dropMenu;
@@ -53,19 +56,18 @@ window.dropImages = dropImages;
 window.specImages = specImages;
 window.banner = banner;
 window.selectionImage = selectionImage;
-window.modal = modal;
-window.hideModal = hideModal;
+// window.modal = modal;
+// window.hideModal = hideModal;
 window.players = players;
 window.data = data;
 window.playerData = playerData;
 // window.formHide = formHide;
 window.tContainer = tContainer;
 // window.addPlayer = addPlayer;
-window.playerForms = playerForms;
-window.focusColor = focusColor;
-window.modalForm = modalForm;
+// window.playerForms = playerForms;
+// window.focusColor = focusColor;
+// window.modalForm = modalForm;
 window.dropBtn = dropBtn;
-window.modalReset = modalReset;
 
 // function dropMenu() {
 //   document.getElementById("myDropdown").classList.toggle("show");
