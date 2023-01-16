@@ -152,9 +152,9 @@ export const addPlayer = () => {
 };
 
 export function playerForms() {
-  // let playerForm = document.getElementById("playerForm");
-  // playerForm.setAttribute("method", "post");
-  // playerForm.setAttribute("id", "playerForm");
+  let playerForm = document.getElementById("playerForm");
+  playerForm.setAttribute("method", "post");
+  playerForm.setAttribute("id", "playerForm");
 
   let pN = document.createElement("input");
   pN.setAttribute("id", "name");

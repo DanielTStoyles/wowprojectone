@@ -6,7 +6,6 @@ export const banner = document.getElementById("banner");
 
 export const specImages = banner.querySelectorAll("img");
 
-// export let dropImages = () => {
 export function dropImages() {
   for (let i = 0; i < specImages.length; i++) {
     let item = specImages[i];
