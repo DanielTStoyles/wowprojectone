@@ -13,7 +13,7 @@ import {
   formHide,
   addPlayer,
   playerForms,
-  formRemove,
+  // formRemove,
 } from "./tableMaker.js";
 
 import {
@@ -348,28 +348,27 @@ window.dropBtn = dropBtn;
 //   true
 // );
 
-const template = document.createElement("template");
-template.innerHTML = `
+// const template = document.createElement("template");
+// template.innerHTML = `
 
-<style>
+// <style>
 
-</style>
+// </style>
 
-<div class="tooltip-container">
-test
-</div>
+// <div class="tooltip-container">
+// test
+// </div>
 
+// `;
 
-`;
+// class FormMake extends HTMLElement {
+//   constructor() {
+//     super();
+//     this.attachShadow({ mode: "open" });
+//     this.shadowRoot.appendChild(template.content.cloneNode(true));
+//   }
 
-class FormMake extends HTMLElement {
-  constructor() {
-    super();
-    this.attachShadow({ mode: "open" });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
-  }
+//   connectedCallback() {}
+// }
 
-  connectedCallback() {}
-}
-
-window.customElements.define("form-make", FormMake);
+// window.customElements.define("form-make", FormMake);

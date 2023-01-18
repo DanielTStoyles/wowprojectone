@@ -76,7 +76,7 @@ export function modalMake() {
   let modal = document.createElement("div");
   modal.id = "myModal";
   modal.className = "modal";
-  document.body.appendChild(modal);
+  tContainer.appendChild(modal);
   let close = document.createElement("span");
   close.innerHTML = "&times";
   close.className = "close";
@@ -84,6 +84,7 @@ export function modalMake() {
 
   let modalContent = document.createElement("div");
   modalContent.className = "modal-content";
+  modal.appendChild(modalContent);
 
   let formDiv = document.createElement("div");
   formDiv.className = "formDiv";
@@ -91,12 +92,13 @@ export function modalMake() {
   let playerForm = document.createElement("form");
   playerForm.setAttribute("method", "post");
   playerForm.setAttribute("id", "playerForm");
+  formDiv.appendChild(playerForm);
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 5; i++) {
     let p = document.createElement("p");
-    for (j = 0; j < p.length; j++) {
-      p.setAttribute("id", "pF"(i + 1));
-    }
+    let pId = "pF";
+
+    p.setAttribute("id", pId + (i + 1));
     playerForm.appendChild(p);
   }
 
@@ -124,7 +126,6 @@ export function modalMake() {
   // dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
   // document.getElementById("pF5").appendChild(dataBtn);
 
-  formDiv.appendChild(playerForm);
-  modalContent.appendChild(formDiv);
-  modal.appendChild(modalContent);
+  // modalContent.appendChild(formDiv);
+  // modal.appendChild(modalContent);
 }
