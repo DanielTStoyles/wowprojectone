@@ -3,9 +3,9 @@ import { dropDisplay } from "./dropMenuMaker.js";
 import { tContainer, playerForms } from "./tableMaker.js";
 
 export const modalBtn = document.getElementById("modalBtn");
-// export const modal = document.getElementById("myModal");
-// export const span = document.getElementsByClassName("close")[0];
-// export const focusColor = document.getElementById("focusColor");
+
+export const span = document.getElementsByClassName("close")[0];
+export const focusColor = document.getElementById("focusColor");
 
 // export function modalButton() {
 //   modal.style.display = "flex";
@@ -44,32 +44,9 @@ export const modalBtn = document.getElementById("modalBtn");
 //   }
 // }
 
-export function modalForm() {
-  let form = document.createElement("form");
-  let input = document.createElement("input");
-  form.setAttribute("class", "modal-content");
-  input.setAttribute("type", "text");
-  input.setAttribute("class", "playerNameEntry");
-  input.setAttribute("id", "playerNameInput");
-  input.setAttribute("placeholder", "Player Name");
-  form.appendChild(input);
-  modal.appendChild(form);
-}
-
 export function modalReset() {
-  let form = document.getElementById("playerForm");
-  modal.style.display = "none";
-  span.style.display = "none";
-  document.querySelector(".modal").removeChild(form);
-}
-
-export function classBtn() {
-  let div = document.createElement("div");
-  div.setAttribute("class", "dropdown");
-  let cSpecBtn = document.createElement("button");
-  cSpecBtn.setAttribute("type", "button");
-  cSpecBtn.setAttribute("class", "dropbtn");
-  cSpecBtn.setAttribute("id", "dropBtn");
+  let modal = document.getElementById("myModal");
+  document.removeChild(modal);
 }
 
 export function modalMake() {
@@ -80,19 +57,31 @@ export function modalMake() {
   let close = document.createElement("span");
   close.innerHTML = "&times";
   close.className = "close";
-  modal.appendChild(close);
+  close.id = "closeSpan";
+  close.addEventListener("click", function (event) {
+    if (event.target === close) {
+      modalReset();
+    }
+  });
 
   let modalContent = document.createElement("div");
   modalContent.className = "modal-content";
   modal.appendChild(modalContent);
+  modalContent.appendChild(close);
 
   let formDiv = document.createElement("div");
   formDiv.className = "formDiv";
+  modalContent.appendChild(formDiv);
 
   let playerForm = document.createElement("form");
   playerForm.setAttribute("method", "post");
   playerForm.setAttribute("id", "playerForm");
   formDiv.appendChild(playerForm);
+
+  let modalCaption = document.createElement("p");
+  modalCaption.setAttribute("id", "modalCaption");
+  modalCaption.textContent = "New Player Profile";
+  playerForm.appendChild(modalCaption);
 
   for (let i = 0; i < 5; i++) {
     let p = document.createElement("p");
@@ -102,30 +91,64 @@ export function modalMake() {
     playerForm.appendChild(p);
   }
 
-  // let pN = document.createElement("input");
-  // pN.setAttribute("id", "name");
-  // pN.setAttribute("type", "text");
-  // pN.setAttribute("placeholder", "Player Name");
+  let pN = document.createElement("input");
+  pN.setAttribute("id", "name");
+  pN.setAttribute("type", "text");
+  pN.setAttribute("placeholder", "Player Name");
 
-  // let charName = document.createElement("input");
-  // charName.setAttribute("id", "charName");
-  // charName.setAttribute("type", "text");
-  // charName.setAttribute("placeholder", "Character Name");
+  let charName = document.createElement("input");
+  charName.setAttribute("id", "charName");
+  charName.setAttribute("type", "text");
+  charName.setAttribute("placeholder", "Character Name(s)");
 
-  // let alternateRole = document.createElement("input");
-  // alternateRole.setAttribute("id", "alternateRole");
-  // alternateRole.setAttribute("type", "text");
-  // alternateRole.setAttribute("placeholder", "Alternate Role (optional)");
+  let alternateRole = document.createElement("input");
+  alternateRole.setAttribute("id", "alternateRole");
+  alternateRole.setAttribute("type", "text");
+  alternateRole.setAttribute("placeholder", "Alternate Role (optional)");
 
-  // document.getElementById("pF1").appendChild(pN);
-  // document.getElementById("pF2").appendChild(charName);
-  // document.getElementById("pF4").appendChild(alternateRole);
+  document.getElementById("pF1").appendChild(pN);
+  document.getElementById("pF2").appendChild(charName);
+  document.getElementById("pF4").appendChild(alternateRole);
 
-  // let dataBtn = document.createElement("button");
-  // dataBtn.setAttribute("type", "submit");
-  // dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
-  // document.getElementById("pF5").appendChild(dataBtn);
+  let dataBtn = document.createElement("button");
+  dataBtn.setAttribute("type", "submit");
+  dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
+  document.getElementById("pF5").appendChild(dataBtn);
 
-  // modalContent.appendChild(formDiv);
-  // modal.appendChild(modalContent);
+  let classBtn = document.createElement("button");
+  let textNode = document.createTextNode("Class/Spec");
+  classBtn.setAttribute("id", "dropBtn");
+  classBtn.setAttribute("class", "dropBtn");
+  classBtn.setAttribute("type", "button");
+  classBtn.appendChild(textNode);
+  document.getElementById("pF3").appendChild(classBtn);
+  classBtn.addEventListener("click", function (event) {
+    if (event.target === classBtn) {
+      dropMenu(), dropImages();
+    }
+  });
+
+  let dropDiv = document.createElement("div");
+  dropDiv.setAttribute("class", "dropdown");
+  dropDiv.setAttribute("id", "dropdown");
+  document.getElementById("pF3").appendChild(dropDiv);
+
+  let dropdownDiv = document.createElement("div");
+  dropdownDiv.setAttribute("id", "myDropdown");
+  dropdownDiv.setAttribute("class", "dropdown-content");
+  dropDiv.appendChild(dropdownDiv);
+
+  let menuDiv = document.createElement("div");
+  menuDiv.setAttribute("class", "menu");
+  menuDiv.setAttribute("id", "menu");
+  dropdownDiv.appendChild(menuDiv);
+}
+
+export function makeBtn() {
+  let classBtn = document.createElement("button");
+  classBtn.setAttribute("id", "dropBtn");
+  classBtn.setAttribute("class", "dropBtn");
+  classBtn.setAttribute("type", "button");
+  document.getElementById("pF3").appendChild(classBtn);
+  classBtn.addEventListener("click", dropMenu(), dropImages());
 }

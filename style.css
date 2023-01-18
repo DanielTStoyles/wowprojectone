@@ -70,7 +70,7 @@ body {
   padding: 1.6rem;
 }
 
-.dropbtn {
+.dropBtn {
   background-color: #5a788b;
   color: white;
   padding: 16px;
@@ -205,10 +205,9 @@ div.cloneForm {
 }
 
 .close {
-  position: relative;
-  color: #aaaaaa;
-  left: 49rem;
-  bottom: 5.4rem;
+  position: absolute;
+  right: 22rem;
+  color: white;
   font-size: 28px;
   font-weight: bold;
 }

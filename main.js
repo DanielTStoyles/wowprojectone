@@ -18,14 +18,12 @@ import {
 
 import {
   modalBtn,
-  // modal,
-  // span,
+  span,
   // modalButton,
   // modalNone,
   // hideModal,
-  // focusColor,
-  // modalForm,
-  // modalReset,
+  focusColor,
+  modalReset,
   modalMake,
 } from "./modalWork.js";
 
@@ -39,34 +37,24 @@ import {
   dropBtn,
 } from "./dropMenuMaker.js";
 
-const modalSpan = document.getElementById("modalSpan");
-
 window.genTbl2 = genTbl2;
 window.genTbl = genTbl;
 window.editRelease = editRelease;
 window.editButton = editButton;
 window.tblCloner = tblCloner;
-// modalBtn.onclick = modalButton;
 modalBtn.onclick = modalMake;
-// span.onclick = modalReset;
-// window.onclick = hideModal
 window.dropDisplay = dropDisplay;
 window.dropMenu = dropMenu;
 window.dropImages = dropImages;
 window.specImages = specImages;
 window.banner = banner;
 window.selectionImage = selectionImage;
-// window.modal = modal;
-// window.hideModal = hideModal;
 window.players = players;
 window.data = data;
 window.playerData = playerData;
-// window.formHide = formHide;
 window.tContainer = tContainer;
 // window.addPlayer = addPlayer;
 // window.playerForms = playerForms;
-// window.focusColor = focusColor;
-// window.modalForm = modalForm;
 window.dropBtn = dropBtn;
 
 // function dropMenu() {
