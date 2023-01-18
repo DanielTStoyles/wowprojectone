@@ -37,6 +37,7 @@ export function dropImages() {
 
 export function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
+  console.log("yikes that blows");
 }
 
 export const dropDisplay = (event) => {
@@ -55,7 +56,8 @@ export const dropDisplay = (event) => {
 export function selectionImage(id) {
   document.getElementById("dropBtn").innerHTML =
     document.getElementById(id).innerHTML;
-  dropBtn.style.padding = "0px";
-  dropBtn.style.backgroundColor = "#133c94";
+
+  document.getElementById("dropBtn").style.padding = "0px";
+  document.getElementById("dropBtn").style.backgroundColor = "#133c94";
   document.getElementById("myDropdown").classList.toggle("show");
 }
