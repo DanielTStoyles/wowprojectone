@@ -37,7 +37,6 @@ export function dropImages() {
 
 export function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
-  console.log("yikes that blows");
 }
 
 export const dropDisplay = (event) => {

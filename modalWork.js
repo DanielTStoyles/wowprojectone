@@ -44,9 +44,12 @@ export const focusColor = document.getElementById("focusColor");
 //   }
 // }
 
+export let playerData = [];
+
 export function modalReset() {
   let modal = document.getElementById("myModal");
-  document.removeChild(modal);
+  modal.removeChild(document.getElementById("modalCont"));
+  tContainer.removeChild(modal);
 }
 
 export function modalMake() {
@@ -65,6 +68,7 @@ export function modalMake() {
   });
 
   let modalContent = document.createElement("div");
+  modalContent.id = "modalCont";
   modalContent.className = "modal-content";
   modal.appendChild(modalContent);
   modalContent.appendChild(close);
@@ -111,9 +115,14 @@ export function modalMake() {
   document.getElementById("pF4").appendChild(alternateRole);
 
   let dataBtn = document.createElement("button");
-  dataBtn.setAttribute("type", "submit");
+  dataBtn.setAttribute("type", "button");
   dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
   document.getElementById("pF5").appendChild(dataBtn);
+  dataBtn.addEventListener("click", function (event) {
+    if (event.target === dataBtn) {
+      addPlayer();
+    }
+  });
 
   let classBtn = document.createElement("button");
   let textNode = document.createTextNode("Class/Spec");
@@ -151,4 +160,16 @@ export function makeBtn() {
   classBtn.setAttribute("type", "button");
   document.getElementById("pF3").appendChild(classBtn);
   classBtn.addEventListener("click", dropMenu(), dropImages());
+}
+
+export function addPlayer() {
+  let player = {
+    id: Date.now(),
+    name: document.getElementById("name").value,
+    classSpec: document.getElementById("alternateRole").value,
+  };
+  playerData.push(player);
+  console.warn("added", { playerData });
+  localStorage.setItem("playerList", JSON.stringify(playerData));
+  modalReset();
 }

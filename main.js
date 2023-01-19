@@ -9,11 +9,8 @@ import {
   editRelease,
   editButton,
   tblCloner,
-  playerData,
   formHide,
-  addPlayer,
   playerForms,
-  // formRemove,
 } from "./tableMaker.js";
 
 import {
@@ -22,9 +19,9 @@ import {
   // modalButton,
   // modalNone,
   // hideModal,
-  focusColor,
-  modalReset,
   modalMake,
+  addPlayer,
+  playerData,
 } from "./modalWork.js";
 
 import {
@@ -53,13 +50,9 @@ window.players = players;
 window.data = data;
 window.playerData = playerData;
 window.tContainer = tContainer;
-// window.addPlayer = addPlayer;
+window.addPlayer = addPlayer;
 // window.playerForms = playerForms;
 window.dropBtn = dropBtn;
-
-// function dropMenu() {
-//   document.getElementById("myDropdown").classList.toggle("show");
-// }
 
 // window.onclick = function (event) {
 //   if (!event.target.matches(".dropbtn")) {
@@ -113,32 +106,11 @@ window.dropBtn = dropBtn;
 //   );
 // }
 
-// let playerData = [];
-
 // function formHide(id) {
 //   let form = document.getElementById("playerForm");
 //   form.remove();
 //   document.getElementsByClassName(id).remove();
 // }
-
-// const addPlayer = () => {
-//   let player = {
-//     id: Date.now(),
-//     name: document.getElementById("name").value,
-//     classSpec: document.getElementById("classSpec").value,
-//   };
-//   playerData.push(player);
-//   console.warn("added", { playerData });
-//   localStorage.setItem("playerList", JSON.stringify(playerData));
-// };
-
-// // let players = [
-//   { Name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
-//   { Name: "Jet", Class: "warrior", Spec: "Prot", Role: "tank" },
-//   { Name: "Ehm", Class: "mage", Spec: "Fire", Role: "dps" },
-//   { Name: "Jonald", Class: "mage", Spec: "Arcane", Role: "dps" },
-//   { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
-// ];
 
 // let myTbl = document.getElementById("myTbl");
 // let container = document.getElementById("tContainer");

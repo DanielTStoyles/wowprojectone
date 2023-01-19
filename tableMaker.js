@@ -132,24 +132,11 @@ export function editButton() {
   document.getElementById("caption").setAttribute("contenteditable", true);
 }
 
-export let playerData = [];
-
 export function formHide(id) {
   let form = document.getElementById("playerForm");
   form.remove();
   document.getElementsByClassName(id).remove();
 }
-
-export const addPlayer = () => {
-  let player = {
-    id: Date.now(),
-    name: document.getElementById("name").value,
-    classSpec: document.getElementById("classSpec").value,
-  };
-  playerData.push(player);
-  console.warn("added", { playerData });
-  localStorage.setItem("playerList", JSON.stringify(playerData));
-};
 
 export function playerForms() {
   let playerForm = document.getElementById("playerForm");
