@@ -9,10 +9,10 @@ import {
 } from "./dropMenuMaker.js";
 // let table = document.querySelector("table");
 export let players = [
-  { Name: "Wugz", Class: "druid", Spec: "Feral", Role: "dps" },
-  { Name: "Jet", Class: "warrior", Spec: "Prot", Role: "tank" },
-  { Name: "Ehm", Class: "mage", Spec: "Fire", Role: "dps" },
-  { Name: "Jonald", Class: "mage", Spec: "Arcane", Role: "dps" },
+  { Name: "Wugz", Class: "druid", Role: "dps" },
+  { Name: "Jet", Class: "warrior", Role: "tank" },
+  { Name: "Ehm", Class: "mage", Role: "dps" },
+  { Name: "Jonald", Class: "mage", Role: "dps" },
   { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
 ];
 
