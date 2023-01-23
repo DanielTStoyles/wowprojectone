@@ -37,18 +37,8 @@ export function genTbl2() {
   for (let i = 0; i < 5; i++) {
     const row = document.createElement("tr");
 
-    for (let j = 0; j < 1; j++) {
+    for (let j = 0; j < 3; j++) {
       const cell = document.createElement("td");
-      // const cellText = document.createTextNode(`text ${i}, text ${j}`);
-      // cell.appendChild(cellText);
-      let button = document.createElement("button");
-      button.setAttribute("id", "dropBtn");
-      button.setAttribute("class", "dropbtn");
-      button.textContent = "Class/Spec";
-      button.addEventListener("click", () => {
-        document.getElementById("myDropdown").classList.toggle("show");
-      });
-      cell.appendChild(button);
       row.appendChild(cell);
       tableBody.appendChild(row);
     }
