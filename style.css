@@ -246,3 +246,9 @@ div.formDiv {
   font-weight: 200;
   color: yellow;
 }
+
+.playerBtn {
+  align-content: center;
+  width: 6rem;
+  height: 2rem;
+}

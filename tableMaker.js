@@ -15,7 +15,8 @@ export let players = [
   { Name: "Jonald", Class: "mage", Role: "dps" },
   { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
 ];
-
+export let playerObject = [];
+// let playerObjectData = Object.keys(playerObjectData[0]);
 export let data = Object.keys(players[0]);
 export const tContainer = document.getElementById("tContainer");
 
@@ -40,11 +41,18 @@ export function genTbl2() {
     for (let j = 0; j < 3; j++) {
       const cell = document.createElement("td");
       if ([j] == 2) {
-        let specBtn = document.createElement("button");
-        specBtn.className = "specBtn";
-        specBtn.setAttribute("type", "button");
-        cell.appendChild(specBtn);
-        specBtn.addEventListener("click", loadPlayer());
+        let playerBtn = document.createElement("button");
+        let newTextNode = document.createTextNode("Select Player");
+        playerBtn.className = "playerBtn";
+        playerBtn.setAttribute("type", "button");
+        playerBtn.appendChild(newTextNode);
+
+        cell.appendChild(playerBtn);
+        playerBtn.addEventListener("click", function (event) {
+          if (event.target === playerBtn) {
+            playerList();
+          }
+        });
       }
       row.appendChild(cell);
       tableBody.appendChild(row);
@@ -65,17 +73,32 @@ export function genTbl2() {
   tContainer.appendChild(table);
 }
 
-export function genTHead() {
-  let tHead = document.querySelector("table").createTHead();
-  let row = tHead.insertRow();
-  for (let key of data) {
-    let th = document.createElement("th");
-    let text = document.createTextNode(key);
-    th.appendChild(text);
-    row.appendChild(th);
+export function playerList() {
+  let playerProfile = playerObject[0];
+
+  for (let i = 0; i < playerObject.length; i++) {
+    let pListItem = document.createElement("li");
+    let newText = document.createTextNode(playerProfile);
+    pListItem.setAttribute("class", "playerOption");
+    pListItem.appendChild(newText);
+
+    let pDropDiv = document.createElement("div");
+    pDropDiv.setAttribute("class", "pDropdown");
+    pDropDiv.setAttribute("id", "pDropdown");
+    tContainer.appendChild(pDropDiv);
+
+    let pDropdownDiv = document.createElement("div");
+    pDropdownDiv.setAttribute("id", "pMyDropdown");
+    pDropdownDiv.setAttribute("class", "pDropdown-content");
+    pDropDiv.appendChild(pDropdownDiv);
+
+    let pMenuDiv = document.createElement("div");
+    pMenuDiv.setAttribute("class", "pMenu");
+    pMenuDiv.setAttribute("id", "pMenu");
+    pMenuDiv.appendChild(pListItem);
+    pDropdownDiv.appendChild(pMenuDiv);
   }
 }
-
 export function genTbl() {
   //Create the table element, create table body and append it to the table
   let table = document.createElement("table");
@@ -100,6 +123,17 @@ export function genTbl() {
   generateTable(table, players);
   tContainer.appendChild(table);
   genTHead();
+}
+
+export function genTHead() {
+  let tHead = document.querySelector("table").createTHead();
+  let row = tHead.insertRow();
+  for (let key of data) {
+    let th = document.createElement("th");
+    let text = document.createTextNode(key);
+    th.appendChild(text);
+    row.appendChild(th);
+  }
 }
 
 export function tblCloner() {
@@ -173,19 +207,4 @@ export function playerForms() {
   //   },
   //   false
   // );
-}
-
-export let playerObjectData = [];
-let playerObjectData = Object.keys(playerObjectData[0]);
-
-export function loadPlayer(tableBody, playerObjectData) {
-  const tableBody = document.querySelector("table");
-  // let dataP = Object.keys(playerObjectData[0]);
-  for (let element of playerObjectData) {
-    console.log(element);
-    for (const key in element) {
-      let text = document.createTextNode(element[key]);
-      cell.appendChild(text);
-    }
-  }
 }

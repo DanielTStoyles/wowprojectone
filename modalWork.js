@@ -1,6 +1,6 @@
 /* @format */
 import { dropDisplay } from "./dropMenuMaker.js";
-import { tContainer, playerForms } from "./tableMaker.js";
+import { tContainer, playerForms, playerObject } from "./tableMaker.js";
 
 export const modalBtn = document.getElementById("modalBtn");
 
@@ -166,8 +166,8 @@ export function addPlayer() {
     name: document.getElementById("name").value,
     classSpec: document.getElementById("alternateRole").value,
   };
-  playerObjectData.push(player);
-  console.warn("added", { playerObjectData });
-  localStorage.setItem("playerList", JSON.stringify(playerObjectData));
+  playerObject.push(player);
+  console.warn("added", { playerObject });
+  localStorage.setItem("playerList", JSON.stringify(playerObject));
   modalReset();
 }
