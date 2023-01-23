@@ -11,6 +11,8 @@ import {
   tblCloner,
   formHide,
   playerForms,
+  playerObjectData,
+  loadPlayer,
 } from "./tableMaker.js";
 
 import {
@@ -21,7 +23,6 @@ import {
   // hideModal,
   modalMake,
   addPlayer,
-  playerData,
 } from "./modalWork.js";
 
 import {
@@ -48,10 +49,12 @@ window.banner = banner;
 window.selectionImage = selectionImage;
 window.players = players;
 window.data = data;
-window.playerData = playerData;
+
 window.tContainer = tContainer;
 window.addPlayer = addPlayer;
 // window.playerForms = playerForms;
+window.playerObjectData = playerObjectData;
+window.loadPlayer = loadPlayer;
 window.dropBtn = dropBtn;
 
 // window.onclick = function (event) {

@@ -39,6 +39,13 @@ export function genTbl2() {
 
     for (let j = 0; j < 3; j++) {
       const cell = document.createElement("td");
+      if ([j] == 2) {
+        let specBtn = document.createElement("button");
+        specBtn.className = "specBtn";
+        specBtn.setAttribute("type", "button");
+        cell.appendChild(specBtn);
+        specBtn.addEventListener("click", loadPlayer());
+      }
       row.appendChild(cell);
       tableBody.appendChild(row);
     }
@@ -166,4 +173,19 @@ export function playerForms() {
   //   },
   //   false
   // );
+}
+
+export let playerObjectData = [];
+let playerObjectData = Object.keys(playerObjectData[0]);
+
+export function loadPlayer(tableBody, playerObjectData) {
+  const tableBody = document.querySelector("table");
+  // let dataP = Object.keys(playerObjectData[0]);
+  for (let element of playerObjectData) {
+    console.log(element);
+    for (const key in element) {
+      let text = document.createTextNode(element[key]);
+      cell.appendChild(text);
+    }
+  }
 }
