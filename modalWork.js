@@ -44,8 +44,6 @@ export const focusColor = document.getElementById("focusColor");
 //   }
 // }
 
-export let playerData = [];
-
 export function modalReset() {
   let modal = document.getElementById("myModal");
   modal.removeChild(document.getElementById("modalCont"));
@@ -168,8 +166,8 @@ export function addPlayer() {
     name: document.getElementById("name").value,
     classSpec: document.getElementById("alternateRole").value,
   };
-  playerData.push(player);
-  console.warn("added", { playerData });
-  localStorage.setItem("playerList", JSON.stringify(playerData));
+  playerObjectData.push(player);
+  console.warn("added", { playerObjectData });
+  localStorage.setItem("playerList", JSON.stringify(playerObjectData));
   modalReset();
 }
