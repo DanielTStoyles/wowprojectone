@@ -6,6 +6,7 @@ import {
   dropMenu,
   dropDisplay,
   selectionImage,
+  pDropMenu,
 } from "./dropMenuMaker.js";
 // let table = document.querySelector("table");
 export let players = [
@@ -61,16 +62,56 @@ export function genTbl2() {
 
   let tHead = table.createTHead();
   let tRow = tHead.insertRow();
-  for (let key of data) {
+  let newData = Object.keys(playerObject[0]);
+
+  for (let key of newData) {
     let th = document.createElement("th");
     let text = document.createTextNode(key);
     th.appendChild(text);
     tRow.appendChild(th);
+
+    // let tHead = table.createTHead();
+    // let tRow = tHead.insertRow();
+    // for (let key of data) {
+    //   let th = document.createElement("th");
+    //   let text = document.createTextNode(key);
+    //   th.appendChild(text);
+    //   tRow.appendChild(th);
+    // }
+    table.appendChild(caption);
+    table.appendChild(tRow);
+    table.appendChild(tableBody);
+    tContainer.appendChild(table);
   }
-  table.appendChild(caption);
-  table.appendChild(tRow);
-  table.appendChild(tableBody);
-  tContainer.appendChild(table);
+}
+
+export function playerList() {
+  let playerProfile = Object.keys(playerObject);
+  console.log(playerProfile);
+
+  let pDropDiv = document.createElement("div");
+  pDropDiv.setAttribute("class", "pDropdown");
+  pDropDiv.setAttribute("id", "pDropdown");
+  tContainer.appendChild(pDropDiv);
+
+  let pDropdownDiv = document.createElement("div");
+  pDropdownDiv.setAttribute("id", "pMyDropdown");
+  pDropdownDiv.setAttribute("class", "pDropdown-content");
+  pDropDiv.appendChild(pDropdownDiv);
+
+  let pMenuDiv = document.createElement("div");
+  pMenuDiv.setAttribute("class", "pMenu");
+  pMenuDiv.setAttribute("id", "pMenu");
+  pDropdownDiv.appendChild(pMenuDiv);
+
+  for (let i = 0; i < playerObject.length; i++) {
+    let pListItem = document.createElement("li");
+    let newText = document.createTextNode(playerProfile);
+    pListItem.setAttribute("class", "playerOption");
+    pListItem.appendChild(newText);
+    pMenuDiv.appendChild(pListItem);
+  }
+  pDropMenu();
 }
 
 export function genTbl() {
@@ -191,33 +232,6 @@ export function playerForms() {
   //   },
   //   false
   // );
-}
-
-export function playerList() {
-  let playerProfile = playerObject[0];
-
-  for (let i = 0; i < playerObject.length; i++) {
-    let pListItem = document.createElement("li");
-    let newText = document.createTextNode(playerProfile);
-    pListItem.setAttribute("class", "playerOption");
-    pListItem.appendChild(newText);
-
-    let pDropDiv = document.createElement("div");
-    pDropDiv.setAttribute("class", "pDropdown");
-    pDropDiv.setAttribute("id", "pDropdown");
-    tContainer.appendChild(pDropDiv);
-
-    let pDropdownDiv = document.createElement("div");
-    pDropdownDiv.setAttribute("id", "pMyDropdown");
-    pDropdownDiv.setAttribute("class", "pDropdown-content");
-    pDropDiv.appendChild(pDropdownDiv);
-
-    let pMenuDiv = document.createElement("div");
-    pMenuDiv.setAttribute("class", "pMenu");
-    pMenuDiv.setAttribute("id", "pMenu");
-    pMenuDiv.appendChild(pListItem);
-    pDropdownDiv.appendChild(pMenuDiv);
-  }
 }
 
 export function consoleLogger() {
