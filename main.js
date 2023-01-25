@@ -2,7 +2,7 @@
 
 import {
   players,
-  data,
+  // data,
   tContainer,
   genTbl2,
   genTbl,
@@ -14,6 +14,7 @@ import {
   // playerObjectData,
   // loadPlayer,
   playerList,
+  consoleLogger,
 } from "./tableMaker.js";
 
 import {
@@ -51,7 +52,7 @@ window.specImages = specImages;
 window.banner = banner;
 window.selectionImage = selectionImage;
 window.players = players;
-window.data = data;
+// window.data = data;
 
 window.tContainer = tContainer;
 window.addPlayer = addPlayer;
@@ -62,3 +63,5 @@ window.dropBtn = dropBtn;
 window.playerList = playerList;
 window.pDropMenu = pDropMenu;
 window.pDropDisplay = pDropDisplay;
+
+window.consoleLogger = consoleLogger;

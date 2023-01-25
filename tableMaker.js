@@ -17,7 +17,7 @@ export let players = [
 ];
 export let playerObject = [];
 // let playerObjectData = Object.keys(playerObjectData[0]);
-export let data = Object.keys(players[0]);
+// export let data = Object.keys(players[0]);
 export const tContainer = document.getElementById("tContainer");
 
 export function genTbl2() {
@@ -73,33 +73,6 @@ export function genTbl2() {
   tContainer.appendChild(table);
 }
 
-export function playerList() {
-  let playerProfile = playerObject[0];
-
-  for (let i = 0; i < playerObject.length; i++) {
-    let pListItem = document.createElement("li");
-    let newText = document.createTextNode(playerProfile);
-    pListItem.setAttribute("class", "playerOption");
-    pListItem.appendChild(newText);
-
-    let pDropDiv = document.createElement("div");
-    pDropDiv.setAttribute("class", "pDropdown");
-    pDropDiv.setAttribute("id", "pDropdown");
-    tContainer.appendChild(pDropDiv);
-
-    let pDropdownDiv = document.createElement("div");
-    pDropdownDiv.setAttribute("id", "pMyDropdown");
-    pDropdownDiv.setAttribute("class", "pDropdown-content");
-    pDropDiv.appendChild(pDropdownDiv);
-
-    let pMenuDiv = document.createElement("div");
-    pMenuDiv.setAttribute("class", "pMenu");
-    pMenuDiv.setAttribute("id", "pMenu");
-    pMenuDiv.appendChild(pListItem);
-    pDropdownDiv.appendChild(pMenuDiv);
-  }
-}
-
 export function genTbl() {
   //Create the table element, create table body and append it to the table
   let table = document.createElement("table");
@@ -121,9 +94,19 @@ export function genTbl() {
       }
     }
   }
-  generateTable(table, players);
+  generateTable(table, playerObject);
   tContainer.appendChild(table);
-  genTHead();
+  let tHead = document.querySelector("table").createTHead();
+  let row = tHead.insertRow();
+  let newData = Object.keys(playerObject[0]);
+  console.log(newData);
+
+  for (let key of newData) {
+    let th = document.createElement("th");
+    let text = document.createTextNode(key);
+    th.appendChild(text);
+    row.appendChild(th);
+  }
 }
 
 export function genTHead() {
@@ -208,4 +191,36 @@ export function playerForms() {
   //   },
   //   false
   // );
+}
+
+export function playerList() {
+  let playerProfile = playerObject[0];
+
+  for (let i = 0; i < playerObject.length; i++) {
+    let pListItem = document.createElement("li");
+    let newText = document.createTextNode(playerProfile);
+    pListItem.setAttribute("class", "playerOption");
+    pListItem.appendChild(newText);
+
+    let pDropDiv = document.createElement("div");
+    pDropDiv.setAttribute("class", "pDropdown");
+    pDropDiv.setAttribute("id", "pDropdown");
+    tContainer.appendChild(pDropDiv);
+
+    let pDropdownDiv = document.createElement("div");
+    pDropdownDiv.setAttribute("id", "pMyDropdown");
+    pDropdownDiv.setAttribute("class", "pDropdown-content");
+    pDropDiv.appendChild(pDropdownDiv);
+
+    let pMenuDiv = document.createElement("div");
+    pMenuDiv.setAttribute("class", "pMenu");
+    pMenuDiv.setAttribute("id", "pMenu");
+    pMenuDiv.appendChild(pListItem);
+    pDropdownDiv.appendChild(pMenuDiv);
+  }
+}
+
+export function consoleLogger() {
+  let playersList = Object.values(playerObject);
+  console.log(playersList);
 }

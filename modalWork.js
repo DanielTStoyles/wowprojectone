@@ -168,6 +168,6 @@ export function addPlayer() {
   };
   playerObject.push(player);
   console.warn("added", { playerObject });
-  localStorage.setItem("playerList", JSON.stringify(playerObject));
+  // localStorage.setItem("playerList", JSON.stringify(playerObject));
   modalReset();
 }
