@@ -169,5 +169,9 @@ export function addPlayer() {
   playerObject.push(player);
   console.warn("added", { playerObject });
   // localStorage.setItem("playerList", JSON.stringify(playerObject));
-  modalReset();
+  function modalFormReset() {
+    let playerForm = document.getElementById("playerForm");
+    playerForm.reset();
+  }
+  modalFormReset();
 }
