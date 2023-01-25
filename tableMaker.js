@@ -86,8 +86,8 @@ export function genTbl2() {
 }
 
 export function playerList() {
-  let playerProfile = Object.keys(playerObject);
-  console.log(playerProfile);
+  let data = Object.values(playerObject[0]);
+  console.log(data);
 
   let pDropDiv = document.createElement("div");
   pDropDiv.setAttribute("class", "pDropdown");
@@ -106,12 +106,18 @@ export function playerList() {
 
   for (let i = 0; i < playerObject.length; i++) {
     let pListItem = document.createElement("li");
-    let newText = document.createTextNode(playerProfile);
+    let listSpace = document.createElement("p");
+    let newText = document.createTextNode(data[1]);
     pListItem.setAttribute("class", "playerOption");
-    pListItem.appendChild(newText);
+    pListItem.appendChild(listSpace);
+    listSpace.appendChild(newText);
     pMenuDiv.appendChild(pListItem);
   }
   pDropMenu();
+}
+
+export function getName(item) {
+  return [item.name];
 }
 
 export function genTbl() {
