@@ -60,3 +60,20 @@ export function selectionImage(id) {
   document.getElementById("dropBtn").style.backgroundColor = "#133c94";
   document.getElementById("myDropdown").classList.toggle("show");
 }
+
+export function pDropMenu() {
+  document.getElementById("pMyDropdown").classList.toggle("show");
+}
+
+export const pDropDisplay = (event) => {
+  if (!event.target.matches(".playerBtn")) {
+    let pDropdowns = document.getElementsByClassName("pDropdown-content");
+    let i;
+    for (i = 0; i < pDropdowns.length; i++) {
+      let pOpenDropdown = pDropdowns[i];
+      if (pOpenDropdown.classList.contains("show")) {
+        pOpenDropdown.classList.remove("show");
+      }
+    }
+  }
+};

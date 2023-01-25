@@ -106,6 +106,33 @@ body {
   z-index: 1;
 }
 
+.dropbtn:focus {
+  background-color: #5a788b;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.pDropdown {
+  display: inline-block;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.pDropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #292f33;
+  border-style: inset;
+  border-color: goldenrod;
+  border-width: 0.3rem;
+  min-width: 5.5rem;
+  max-height: 28rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
 .show {
   display: flex;
   overflow-x: hidden;

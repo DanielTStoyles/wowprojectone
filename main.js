@@ -34,6 +34,8 @@ import {
   dropDisplay,
   selectionImage,
   dropBtn,
+  pDropMenu,
+  pDropDisplay,
 } from "./dropMenuMaker.js";
 
 window.genTbl2 = genTbl2;
@@ -58,3 +60,5 @@ window.addPlayer = addPlayer;
 // window.loadPlayer = loadPlayer;
 window.dropBtn = dropBtn;
 window.playerList = playerList;
+window.pDropMenu = pDropMenu;
+window.pDropDisplay = pDropDisplay;

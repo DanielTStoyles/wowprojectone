@@ -278,3 +278,181 @@
 // }
 
 // window.customElements.define("form-make", FormMake);
+
+// HTML CODE BELOW HERE
+
+// <!--
+//       <div id="myModal" class="modal">
+//         <div class="modal-content">
+//           <span class="close" id="modalSpan">&times;</span>
+
+//                               <div class="formDiv">
+//                                 <form id="playerForm">
+//                                   <p id="modalCaption">Player Profile</p>
+//                                     <p id="pF1"></p>
+//                                     <p id="pF2"></p>
+//                                     <p id="pF3"> Class/Spec: <div class="dropdown">
+//                                       <button type="button" onclick="dropMenu() , dropImages()"
+//                                  class="dropbtn" id="dropBtn">Class/Spec</button>
+//                                    <div id="myDropdown" class="dropdown-content">
+//                                          <div class="menu" id="menu">
+
+//                                          </div>
+
+//                                      </div>
+//                                     </p>
+//                                     <p id="pF4"> </p>
+//                                  <p id="pF5">
+
+//                                     </p>
+
+//                                   <div id="selectionBox">
+//                                   <p id="selectionText" ></p>
+//                                   </div>
+//                                   </form>
+//                                 </div
+//                           </div>
+
+//         </div>
+//         </div>
+
+//         <div class="compTest">
+// <h1>the ol tooltip </h1>
+// <p>Lorem ipsum dolor sit amet<form-make></form-make> consectetur adipisicing elit. Voluptas, eius.</p>
+//         </div> -->
+
+//       <!-- </div> -->
+// <!--
+// <table class="groupTable" id="myTbl">
+
+//     <caption>
+// <input type="text" class="caption" id="caption" placeholder="Group #" autocomplete="off" >
+
+//     </caption>
+
+//     <thead>
+//                 <tbody class="tbody"> -->
+
+//                     <!-- <tr>
+
+//                         <td>
+
+//                                 <label for="Class/Spec" id="classspec"></label>
+//                                 <input type="text" id="cname" name="cname">
+//                                 <select name="class" id="class" autocomplete="off">
+
+//                                     <option value="holder" selected>Select Class & Spec</option>
+
+//                                     <optgroup label="Death Knight">
+//                                         <option value="blood">Blood</option>
+//                                         <option value="frost">Frost</option>
+//                                         <option value="unholy">Unholy</option>
+//                                     </optgroup>
+
+//                                     <optgroup label="Druid">
+//                                         <option value="bear">Bear</option>
+//                                         <option value="cat">Cat</option>
+//                                         <option value="balance">Balance</option>
+//                                         <option value="resto">Resto</option>
+//                                     </optgroup>
+
+//                                     <optgroup label="Hunter">
+//                                         <option value="beast">Beast Master</option>
+//                                         <option value="marks">Marksman</option>
+//                                         <option value="survival">Survival</option>
+//                                     </optgroup>
+
+//                                     <optgroup label="Mage">
+//                                         <option value="arcane">arcane</option>
+//                                         <option value="fire">Fire</option>
+//                                         <option value="frost">Frost</option>
+//                                     </optgroup>
+
+//                                     <optgroup label="Paladin">
+//                                         <option value="holy">Holy</option>
+//                                         <option value="prot">Prot</option>
+//                                         <option value="ret">Ret</option>
+//                                     </optgroup>
+
+//                                     <optgroup label="Priest">
+//                                         <option value="disc">Disc</option>
+//                                         <option value="holy">Holy</option>
+//                                         <option value="shadow">Shadow</option>
+//                                     </optgroup>
+
+//                                     <optgroup label="Rogue">
+//                                         <option value="assasin">Assasin</option>
+//                                         <option value="combat">Combat</option>
+//                                         <option value="sub">Sub</option>
+//                                     </optgroup>
+
+//                                     <optgroup label="Shaman">
+//                                         <option value="enhace">Enhancement</option>
+//                                         <option value="ele">Ele</option>
+//                                         <option value="restor">Resto</option>
+//                                     </optgroup>
+
+//                                     <optgroup label="Warlock">
+//                                         <option value="affliction">Affliction</option>
+//                                         <option value="demon">Demonology</option>
+//                                         <option value="destro">Destruction</option>
+//                                     </optgroup>
+
+//                                     <optgroup label="Warrior">
+//                                         <option value="arms">Arms</option>
+//                                         <option value="fury">Fury</option>
+//                                         <option value="protec">Prot</option>
+
+//                                     </optgroup>
+
+//                                 </select>
+//                                 <input type="submit" value="Submit" />
+
+//                         </td>
+
+//                     </tr> -->
+
+//                     <!-- <tr class="tableRow" >
+
+//                         <td id="tdone">
+//                             <div>
+//                         <select id="playerName" name="playerName" autocomplete="off">
+//                             <option value="playerHolder" id="playerHolder">Choose Player</option>
+//                             <option id="testerino" value="createNewPlayer" onClick="playerForms()" > + Create New Player</option>
+
+//                         </div> -->
+
+//                             <!-- </select>
+//                         <div id="selectionBox">
+//                         <p id="selectionText" ></p>
+//                         </div> -->
+
+//                             <!-- <div class="dropdown">
+//                                  <button onclick="dropMenu()"
+//                             class="dropbtn" id="dropBtn">Class/Spec</button>
+//                               <div id="myDropdown" class="dropdown-content">
+//                                     <div class="menu" id="menu">
+
+//                                     </div>
+
+//                                 </div>
+
+//                               <div class="formDiv">
+//                                     <p id="formP">
+
+//                                     </p>
+//                                 </div
+//                           </div> -->
+
+//                       <!-- </td>
+//                 -->
+
+//                <!-- </ul>
+
+//                     </tr>
+
+//                     <tr>
+
+//                     </tr>
+
+//                     </tr> -->
