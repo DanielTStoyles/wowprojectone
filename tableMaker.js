@@ -99,6 +99,7 @@ export function playerList() {
     pDropdownDiv.appendChild(pMenuDiv);
   }
 }
+
 export function genTbl() {
   //Create the table element, create table body and append it to the table
   let table = document.createElement("table");
