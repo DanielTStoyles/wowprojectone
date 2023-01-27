@@ -164,6 +164,7 @@ export function addPlayer() {
   let player = {
     id: Date.now(),
     name: document.getElementById("name").value,
+    CharName: document.getElementById("charName").value,
     classSpec: document.getElementById("alternateRole").value,
   };
   playerObject.push(player);

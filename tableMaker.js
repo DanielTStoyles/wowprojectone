@@ -116,10 +116,6 @@ export function playerList() {
   pDropMenu();
 }
 
-export function getName(item) {
-  return [item.name];
-}
-
 export function genTbl() {
   //Create the table element, create table body and append it to the table
   let table = document.createElement("table");
