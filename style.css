@@ -149,6 +149,12 @@ body {
   border-width: 0.1rem;
 }
 
+#playerBtn {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+}
+
 li {
   cursor: pointer;
   color: black;

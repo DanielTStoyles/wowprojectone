@@ -63,5 +63,4 @@ window.dropBtn = dropBtn;
 window.playerList = playerList;
 window.pDropMenu = pDropMenu;
 window.pDropDisplay = pDropDisplay;
-
 window.consoleLogger = consoleLogger;

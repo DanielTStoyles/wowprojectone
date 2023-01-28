@@ -41,14 +41,17 @@ export function genTbl2() {
 
     for (let j = 0; j < 3; j++) {
       const cell = document.createElement("td");
-      if ([j] == 2) {
+      if ([j] == 0) {
         let playerBtn = document.createElement("button");
         let newTextNode = document.createTextNode("Select Player");
         playerBtn.className = "playerBtn";
+        playerBtn.id = "playerBtn";
         playerBtn.setAttribute("type", "button");
+
         playerBtn.appendChild(newTextNode);
 
         cell.appendChild(playerBtn);
+
         playerBtn.addEventListener("click", function (event) {
           if (event.target === playerBtn) {
             playerList();
@@ -62,27 +65,43 @@ export function genTbl2() {
 
   let tHead = table.createTHead();
   let tRow = tHead.insertRow();
-  let newData = Object.keys(playerObject[0]);
 
-  for (let key of newData) {
-    let th = document.createElement("th");
-    let text = document.createTextNode(key);
-    th.appendChild(text);
-    tRow.appendChild(th);
+  let thOne = document.createElement("th");
+  let textOne = document.createTextNode("Name");
+  thOne.appendChild(textOne);
 
-    // let tHead = table.createTHead();
-    // let tRow = tHead.insertRow();
-    // for (let key of data) {
-    //   let th = document.createElement("th");
-    //   let text = document.createTextNode(key);
-    //   th.appendChild(text);
-    //   tRow.appendChild(th);
-    // }
-    table.appendChild(caption);
-    table.appendChild(tRow);
-    table.appendChild(tableBody);
-    tContainer.appendChild(table);
-  }
+  let thTwo = document.createElement("th");
+  let textTwo = document.createTextNode("Role");
+  thTwo.appendChild(textTwo);
+
+  let thThree = document.createElement("th");
+  let textThree = document.createTextNode("Class & Spec");
+  thThree.appendChild(textThree);
+
+  tRow.appendChild(thOne);
+  tRow.appendChild(thTwo);
+  tRow.appendChild(thThree);
+
+  // let newData = Object.keys(playerObject[0]);
+
+  // for (let key of newData) {
+  //   let th = document.createElement("th");
+  //   let text = document.createTextNode(key);
+  //   th.appendChild(text);
+  //   tRow.appendChild(th);
+
+  // let tHead = table.createTHead();
+  // let tRow = tHead.insertRow();
+  // for (let key of data) {
+  //   let th = document.createElement("th");
+  //   let text = document.createTextNode(key);
+  //   th.appendChild(text);
+  //   tRow.appendChild(th);
+  // }
+  table.appendChild(caption);
+  table.appendChild(tRow);
+  table.appendChild(tableBody);
+  tContainer.appendChild(table);
 }
 
 export function playerList() {
