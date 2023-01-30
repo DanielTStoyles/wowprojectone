@@ -119,6 +119,14 @@ export function playerList() {
     listSpace.appendChild(newText);
     pDropMenu();
     document.getElementById("pMenu").appendChild(pListItem);
+    pListItem.addEventListener("click", function () {
+      for (let j = 0; j < data.length; j++) {
+        let tableNode = document.createTextNode(data[1]);
+        let table = document.querySelector("table");
+        let cells = table.querySelectorAll("td");
+        cells[j].appendChild(tableNode);
+      }
+    });
   }
 }
 
