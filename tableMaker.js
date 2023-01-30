@@ -22,6 +22,9 @@ export let playerObject = [];
 export const tContainer = document.getElementById("tContainer");
 
 export function genTbl2() {
+  let tDiv = document.createElement("div");
+  tDiv.setAttribute("class", "tDiv");
+  tContainer.appendChild(tDiv);
   let table = document.createElement("table");
   let caption = document.createElement("caption");
   caption.setAttribute("class", "caption");
@@ -82,36 +85,15 @@ export function genTbl2() {
   tRow.appendChild(thTwo);
   tRow.appendChild(thThree);
 
-  // let newData = Object.keys(playerObject[0]);
-
-  // for (let key of newData) {
-  //   let th = document.createElement("th");
-  //   let text = document.createTextNode(key);
-  //   th.appendChild(text);
-  //   tRow.appendChild(th);
-
-  // let tHead = table.createTHead();
-  // let tRow = tHead.insertRow();
-  // for (let key of data) {
-  //   let th = document.createElement("th");
-  //   let text = document.createTextNode(key);
-  //   th.appendChild(text);
-  //   tRow.appendChild(th);
-  // }
   table.appendChild(caption);
   table.appendChild(tRow);
   table.appendChild(tableBody);
-  tContainer.appendChild(table);
-}
-
-export function playerList() {
-  let data = Object.values(playerObject[0]);
-  console.log(data);
+  tDiv.appendChild(table);
 
   let pDropDiv = document.createElement("div");
   pDropDiv.setAttribute("class", "pDropdown");
   pDropDiv.setAttribute("id", "pDropdown");
-  tContainer.appendChild(pDropDiv);
+  tDiv.appendChild(pDropDiv);
 
   let pDropdownDiv = document.createElement("div");
   pDropdownDiv.setAttribute("id", "pMyDropdown");
@@ -122,6 +104,11 @@ export function playerList() {
   pMenuDiv.setAttribute("class", "pMenu");
   pMenuDiv.setAttribute("id", "pMenu");
   pDropdownDiv.appendChild(pMenuDiv);
+}
+
+export function playerList() {
+  let data = Object.values(playerObject[0]);
+  console.log(data);
 
   for (let i = 0; i < playerObject.length; i++) {
     let pListItem = document.createElement("li");
@@ -130,9 +117,9 @@ export function playerList() {
     pListItem.setAttribute("class", "playerOption");
     pListItem.appendChild(listSpace);
     listSpace.appendChild(newText);
-    pMenuDiv.appendChild(pListItem);
+    pDropMenu();
+    document.getElementById("pMenu").appendChild(pListItem);
   }
-  pDropMenu();
 }
 
 export function genTbl() {
@@ -259,3 +246,32 @@ export function consoleLogger() {
   let playersList = Object.values(playerObject);
   console.log(playersList);
 }
+
+// export function dropPlayer() {
+//   for (let i = 0; i < playerObject.length; i++) {
+//     let item = playerObject[i];
+//     let listItem = document.createElement("li");
+//     let listItemId = "playerItem";
+
+//     listItem.setAttribute("class", "playerList");
+//     listItem.setAttribute("id", listItemId + (i + 1));
+
+//     let playerProfile = document.createElement("p");
+//     let playerProfileId = "playerSelection";
+//     playerProfile.setAttribute("class", "playerSelection");
+//     playerProfile.setAttribute("id", playerProfileId + (i + 1));
+//     let id = listItem.id;
+//     // playerProfile.setAttribute("src", item.src);
+
+//     listItem.appendChild(playerProfile);
+//     document.getElementById("menu").appendChild(listItem);
+//     listItem.addEventListener(
+//       "click", function (event){
+//         if (event.target===playerProfile){
+//           console.log("it worked!");
+//         }
+//       }
+
+//     );
+//   }
+// }
