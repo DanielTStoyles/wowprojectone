@@ -108,7 +108,8 @@ export function genTbl2() {
 
 export function playerList() {
   let data = Object.values(playerObject[0]);
-  console.log(data);
+  const [w, x, y, z] = data;
+  console.log(w, x, y, z);
 
   for (let i = 0; i < playerObject.length; i++) {
     let pListItem = document.createElement("li");
@@ -120,13 +121,25 @@ export function playerList() {
     pDropMenu();
     document.getElementById("pMenu").appendChild(pListItem);
     pListItem.addEventListener("click", function () {
-      for (let j = 0; j < data.length; j++) {
-        let tableNode = document.createTextNode(data[1]);
-        let table = document.querySelector("table");
-        let cells = table.querySelectorAll("td");
-        cells[j].appendChild(tableNode);
-      }
+      let nodeOne = document.createTextNode(x);
+      let nodeTwo = document.createTextNode(y);
+      let nodeThree = document.createTextNode(z);
+      let table = document.querySelector("table");
+      let cells = table.querySelectorAll("td");
+      cells[0].appendChild(nodeOne);
+      cells[1].appendChild(nodeTwo);
+      cells[2].appendChild(nodeThree);
+      cells[0].removeChild(playerBtn);
     });
+
+    // pListItem.addEventListener("click", function () {
+    //   for (let j = 0; j < data.length; j++) {
+    //     let tableNode = document.createTextNode(x);
+    //     let table = document.querySelector("table");
+    //     let cells = table.querySelectorAll("td");
+    //     cells[i].appendChild(tableNode);
+    //   }
+    // });
   }
 }
 
