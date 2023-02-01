@@ -42,6 +42,7 @@ export function dropMenu() {
 export const dropDisplay = (event) => {
   if (!event.target.matches(".dropbtn")) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
+
     let i;
     for (i = 0; i < dropdowns.length; i++) {
       let openDropdown = dropdowns[i];
@@ -71,6 +72,7 @@ export const pDropDisplay = (event) => {
     let i;
     for (i = 0; i < pDropdowns.length; i++) {
       let pOpenDropdown = pDropdowns[i];
+      console.log(pDropdowns[i]);
       if (pOpenDropdown.classList.contains("show")) {
         pOpenDropdown.classList.remove("show");
       }

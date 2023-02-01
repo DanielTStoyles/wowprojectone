@@ -8,7 +8,7 @@ import {
   selectionImage,
   pDropMenu,
 } from "./dropMenuMaker.js";
-// let table = document.querySelector("table");
+
 export let players = [
   { Name: "Wugz", Class: "druid", Role: "dps" },
   { Name: "Jet", Class: "warrior", Role: "tank" },
@@ -17,8 +17,7 @@ export let players = [
   { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
 ];
 export let playerObject = [];
-// let playerObjectData = Object.keys(playerObjectData[0]);
-// export let data = Object.keys(players[0]);
+
 export const tContainer = document.getElementById("tContainer");
 
 export function genTbl2() {
@@ -34,7 +33,7 @@ export function genTbl2() {
   newText.setAttribute("placeHolder", "Group #");
 
   caption.appendChild(newText);
-  newText.addEventListener("onkeydown", editRelease());
+  newText.addEventListener("keydown", editRelease);
   let tableBody = document.createElement("tbody");
   table.setAttribute("id", Date.now());
   table.setAttribute("class", "groupTable");
@@ -44,7 +43,7 @@ export function genTbl2() {
 
     for (let j = 0; j < 3; j++) {
       const cell = document.createElement("td");
-      if ([j] == 0) {
+      if (j === 0) {
         let playerBtn = document.createElement("button");
         let newTextNode = document.createTextNode("Select Player");
         playerBtn.className = "playerBtn";
@@ -62,8 +61,8 @@ export function genTbl2() {
         });
       }
       row.appendChild(cell);
-      tableBody.appendChild(row);
     }
+    tableBody.appendChild(row);
   }
 
   let tHead = table.createTHead();
@@ -107,41 +106,39 @@ export function genTbl2() {
 }
 
 export function playerList() {
-  let data = Object.values(playerObject[0]);
-  const [w, x, y, z] = data;
-  console.log(w, x, y, z);
+  // let data = Object.values(playerObject[0]);
+  // const [w, x, y, z] = data;
+  // console.log(w);
 
-  for (let i = 0; i < playerObject.length; i++) {
-    let pListItem = document.createElement("li");
-    let listSpace = document.createElement("p");
-    let newText = document.createTextNode(data[1]);
-    pListItem.setAttribute("class", "playerOption");
-    pListItem.appendChild(listSpace);
-    listSpace.appendChild(newText);
-    pDropMenu();
-    document.getElementById("pMenu").appendChild(pListItem);
-    pListItem.addEventListener("click", function () {
-      let nodeOne = document.createTextNode(x);
-      let nodeTwo = document.createTextNode(y);
-      let nodeThree = document.createTextNode(z);
-      let table = document.querySelector("table");
-      let cells = table.querySelectorAll("td");
-      cells[0].appendChild(nodeOne);
-      cells[1].appendChild(nodeTwo);
-      cells[2].appendChild(nodeThree);
-      cells[0].removeChild(playerBtn);
-    });
+  playerObject.forEach(function (item) {
+    const pListItem = document.createElement("li");
+    pListItem.innerHTML = item.name;
+    document.getElementById("pMyDropdown").appendChild(pListItem);
+    document.getElementById("pMyDropdown").appendChild(pListItem);
+  });
+  pDropMenu();
+  // for (let i = 0; i < playerObject.length; i++) {
+  //   let pListItem = document.createElement("li");
+  //   let listSpace = document.createElement("p");
+  //   let newText = document.createTextNode(data[1]);
+  //   pListItem.setAttribute("class", "playerOption");
+  //   pListItem.appendChild(listSpace);
+  //   listSpace.appendChild(newText);
 
-    // pListItem.addEventListener("click", function () {
-    //   for (let j = 0; j < data.length; j++) {
-    //     let tableNode = document.createTextNode(x);
-    //     let table = document.querySelector("table");
-    //     let cells = table.querySelectorAll("td");
-    //     cells[i].appendChild(tableNode);
-    //   }
-    // });
-  }
+  // pListItem.addEventListener("click", function () {
+  //   let nodeOne = document.createTextNode(x);
+  //   let nodeTwo = document.createTextNode(y);
+  //   let nodeThree = document.createTextNode(z);
+  //   let table = document.querySelector("table");
+  //   let cells = table.querySelectorAll("td");
+  //   cells[0].appendChild(nodeOne);
+  //   cells[1].appendChild(nodeTwo);
+  //   cells[2].appendChild(nodeThree);
+  //   cells[0].removeChild(playerBtn);
 }
+//     );
+//   }
+// }
 
 export function genTbl() {
   //Create the table element, create table body and append it to the table
