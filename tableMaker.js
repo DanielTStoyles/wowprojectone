@@ -16,41 +16,46 @@ export let players = [
   { Name: "Jonald", Class: "mage", Role: "dps" },
   { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
 ];
+
+export const doc = document;
+
 export let playerObject = [];
 
-export const tContainer = document.getElementById("tContainer");
+export const tContainer = doc.getElementById("tContainer");
 
 export function genTbl2() {
-  let tDiv = document.createElement("div");
+  let tDiv = doc.createElement("div");
   tDiv.setAttribute("class", "tDiv");
   tContainer.appendChild(tDiv);
-  let table = document.createElement("table");
-  let caption = document.createElement("caption");
+  let table = doc.createElement("table");
+  let caption = doc.createElement("caption");
   caption.setAttribute("class", "caption");
-  let newText = document.createElement("input");
+  let newText = doc.createElement("input");
   newText.setAttribute("class", "caption");
   newText.setAttribute("type", "text");
   newText.setAttribute("placeHolder", "Group #");
 
   caption.appendChild(newText);
   newText.addEventListener("keydown", editRelease);
-  let tableBody = document.createElement("tbody");
+  let tableBody = doc.createElement("tbody");
   table.setAttribute("id", Date.now());
   table.setAttribute("class", "groupTable");
 
   for (let i = 0; i < 5; i++) {
-    const row = document.createElement("tr");
+    const row = doc.createElement("tr");
 
     for (let j = 0; j < 3; j++) {
-      const cell = document.createElement("td");
+      const cellId = "playerGroup" + [i] + [j];
+      let cell = doc.createElement("td");
+      cell.id = cellId;
+
       if (j === 0) {
-        let playerBtn = document.createElement("button");
-        let newTextNode = document.createTextNode("Select Player");
+        let playerBtn = doc.createElement("button");
+
         playerBtn.className = "playerBtn";
         playerBtn.id = "playerBtn";
+        playerBtn.innerText = "Select Player";
         playerBtn.setAttribute("type", "button");
-
-        playerBtn.appendChild(newTextNode);
 
         cell.appendChild(playerBtn);
 
@@ -68,62 +73,49 @@ export function genTbl2() {
   let tHead = table.createTHead();
   let tRow = tHead.insertRow();
 
-  let thOne = document.createElement("th");
-  let textOne = document.createTextNode("Name");
+  let thOne = doc.createElement("th");
+  let textOne = doc.createTextNode("Name");
   thOne.appendChild(textOne);
 
-  let thTwo = document.createElement("th");
-  let textTwo = document.createTextNode("Role");
+  let thTwo = doc.createElement("th");
+  let textTwo = doc.createTextNode("Role");
   thTwo.appendChild(textTwo);
 
-  let thThree = document.createElement("th");
-  let textThree = document.createTextNode("Class & Spec");
+  let thThree = doc.createElement("th");
+  let textThree = doc.createTextNode("Class & Spec");
   thThree.appendChild(textThree);
 
-  tRow.appendChild(thOne);
-  tRow.appendChild(thTwo);
-  tRow.appendChild(thThree);
-
-  table.appendChild(caption);
-  table.appendChild(tRow);
-  table.appendChild(tableBody);
+  tRow.append(thOne, thTwo, thThree);
+  table.append(caption, tRow, tableBody);
   tDiv.appendChild(table);
 
-  let pDropDiv = document.createElement("div");
+  let pDropDiv = doc.createElement("div");
   pDropDiv.setAttribute("class", "pDropdown");
   pDropDiv.setAttribute("id", "pDropdown");
   tDiv.appendChild(pDropDiv);
 
-  let pDropdownDiv = document.createElement("div");
+  let pDropdownDiv = doc.createElement("div");
   pDropdownDiv.setAttribute("id", "pMyDropdown");
   pDropdownDiv.setAttribute("class", "pDropdown-content");
   pDropDiv.appendChild(pDropdownDiv);
 
-  let pMenuDiv = document.createElement("div");
+  let pMenuDiv = doc.createElement("div");
   pMenuDiv.setAttribute("class", "pMenu");
   pMenuDiv.setAttribute("id", "pMenu");
   pDropdownDiv.appendChild(pMenuDiv);
 }
 
 export function playerList() {
-  // let data = Object.values(playerObject[0]);
-  // const [w, x, y, z] = data;
-  // console.log(w);
-
   playerObject.forEach(function (item) {
-    const pListItem = document.createElement("li");
-    pListItem.innerHTML = item.name;
-    document.getElementById("pMyDropdown").appendChild(pListItem);
-    document.getElementById("pMyDropdown").appendChild(pListItem);
+    let pListItem = doc.createElement("li");
+    pListItem.innerText = item.name;
+    pListItem.setAttribute("data-item", JSON.stringify(item));
+    doc.getElementById("pMyDropdown").appendChild(pListItem);
+    pListItem.addEventListener("click", function (event) {
+      let obj = JSON.parse(event.target.getAttribute("data-item"));
+    });
   });
   pDropMenu();
-  // for (let i = 0; i < playerObject.length; i++) {
-  //   let pListItem = document.createElement("li");
-  //   let listSpace = document.createElement("p");
-  //   let newText = document.createTextNode(data[1]);
-  //   pListItem.setAttribute("class", "playerOption");
-  //   pListItem.appendChild(listSpace);
-  //   listSpace.appendChild(newText);
 
   // pListItem.addEventListener("click", function () {
   //   let nodeOne = document.createTextNode(x);

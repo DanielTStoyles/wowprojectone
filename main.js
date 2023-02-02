@@ -15,6 +15,7 @@ import {
   // loadPlayer,
   playerList,
   consoleLogger,
+  doc,
 } from "./tableMaker.js";
 
 import {
@@ -39,6 +40,7 @@ import {
   // pDropDisplay,
 } from "./dropMenuMaker.js";
 
+window.doc = doc;
 window.genTbl2 = genTbl2;
 window.genTbl = genTbl;
 window.editRelease = editRelease;
