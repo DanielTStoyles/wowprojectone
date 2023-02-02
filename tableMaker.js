@@ -116,21 +116,7 @@ export function playerList() {
     });
   });
   pDropMenu();
-
-  // pListItem.addEventListener("click", function () {
-  //   let nodeOne = document.createTextNode(x);
-  //   let nodeTwo = document.createTextNode(y);
-  //   let nodeThree = document.createTextNode(z);
-  //   let table = document.querySelector("table");
-  //   let cells = table.querySelectorAll("td");
-  //   cells[0].appendChild(nodeOne);
-  //   cells[1].appendChild(nodeTwo);
-  //   cells[2].appendChild(nodeThree);
-  //   cells[0].removeChild(playerBtn);
 }
-//     );
-//   }
-// }
 
 export function genTbl() {
   //Create the table element, create table body and append it to the table
