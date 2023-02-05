@@ -16,6 +16,7 @@ import {
   playerList,
   consoleLogger,
   doc,
+  createDropdown,
 } from "./tableMaker.js";
 
 import {
@@ -66,3 +67,4 @@ window.playerList = playerList;
 window.pDropMenu = pDropMenu;
 // window.pDropDisplay = pDropDisplay;
 window.consoleLogger = consoleLogger;
+window.createDropdown = createDropdown;

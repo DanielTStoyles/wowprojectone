@@ -106,16 +106,40 @@ export function genTbl2() {
 }
 
 export function playerList() {
-  playerObject.forEach(function (item) {
-    let pListItem = doc.createElement("li");
-    pListItem.innerText = item.name;
-    pListItem.setAttribute("data-item", JSON.stringify(item));
-    doc.getElementById("pMyDropdown").appendChild(pListItem);
-    pListItem.addEventListener("click", function (event) {
-      let obj = JSON.parse(event.target.getAttribute("data-item"));
-    });
+  const table = document.querySelector("table");
+  table.addEventListener("click", function (event) {
+    if (event.target.matches("button.playerBtn")) {
+      const button = event.target;
+      const row = button.closest("tr");
+      const dropdown = createDropdown(playerObject);
+      button.after(dropdown);
+      dropdown.addEventListener("click", function (event) {
+        if (event.target.matches("li")) {
+          let selectedObject = playerObject.find(function (item) {
+            return item.name === event.target.innerText;
+          });
+          console.log(selectedObject.prop1);
+
+          let tds = row.querySelectorAll("td");
+          tds[0].innerText = selectedObject.name;
+          tds[1].innerText = selectedObject.CharName;
+          tds[2].innerText = selectedObject.classSpec;
+          dropdown.remove();
+        }
+      });
+    }
   });
-  pDropMenu();
+}
+
+export function createDropdown(playerObject) {
+  const dropdown = document.createElement("ul");
+  dropdown.classList.add("dropdown-menu");
+  playerObject.forEach((obj) => {
+    const li = document.createElement("li");
+    li.textContent = obj.name;
+    dropdown.appendChild(li);
+  });
+  return dropdown;
 }
 
 export function genTbl() {
