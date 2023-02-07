@@ -131,15 +131,23 @@ export function playerList() {
   });
 }
 
+export let playerDrop = null;
+
 export function createDropdown(playerObject) {
-  const dropdown = document.createElement("ul");
-  dropdown.classList.add("dropdown-menu");
-  playerObject.forEach((obj) => {
-    const li = document.createElement("li");
-    li.textContent = obj.name;
-    dropdown.appendChild(li);
-  });
-  return dropdown;
+  if (!playerDrop) {
+    playerDrop = document.createElement("ul");
+    playerDrop.classList.add("dropdown-menu");
+    const createdLi = new Set();
+    playerObject.forEach((obj) => {
+      if (!createdLi.has(obj.name)) {
+        const li = document.createElement("li");
+        li.textContent = obj.name;
+        playerDrop.appendChild(li);
+        createdLi.add(obj.name);
+      }
+    });
+  }
+  return playerDrop;
 }
 
 export function genTbl() {
