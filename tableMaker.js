@@ -52,8 +52,7 @@ export function genTbl2() {
       if (j === 0) {
         let playerBtn = doc.createElement("button");
 
-        playerBtn.className = "playerBtn";
-        playerBtn.id = "playerBtn";
+        playerBtn.id = "playerbtn" + i + j;
         playerBtn.innerText = "Select Player";
         playerBtn.setAttribute("type", "button");
 
@@ -98,6 +97,7 @@ export function genTbl2() {
   pDropdownDiv.setAttribute("id", "pMyDropdown");
   pDropdownDiv.setAttribute("class", "pDropdown-content");
   pDropDiv.appendChild(pDropdownDiv);
+  pMyDropdown.style.display = "none";
 
   let pMenuDiv = doc.createElement("div");
   pMenuDiv.setAttribute("class", "pMenu");
@@ -105,50 +105,86 @@ export function genTbl2() {
   pDropdownDiv.appendChild(pMenuDiv);
 }
 
+let playerDrop = null;
+
 export function playerList() {
   const table = document.querySelector("table");
   table.addEventListener("click", function (event) {
-    if (event.target.matches("button.playerBtn")) {
-      const button = event.target;
-      const row = button.closest("tr");
-      const dropdown = createDropdown(playerObject);
-      button.after(dropdown);
-      dropdown.addEventListener("click", function (event) {
-        if (event.target.matches("li")) {
-          let selectedObject = playerObject.find(function (item) {
-            return item.name === event.target.innerText;
-          });
-          console.log(selectedObject.prop1);
+    if (event.target.matches("button")) {
+      let button = event.target;
+      let pMyDropdown = doc.getElementById("pMyDropdown");
+      if (pMyDropdown.style.display === "block") {
+        pMyDropdown.style.display = "none";
+      } else {
+        pMyDropdown.style.display = "block";
+      }
+      let row = button.closest("tr");
 
-          let tds = row.querySelectorAll("td");
-          tds[0].innerText = selectedObject.name;
-          tds[1].innerText = selectedObject.CharName;
-          tds[2].innerText = selectedObject.classSpec;
-          dropdown.remove();
+      const dropdown = createDropdown(playerObject);
+      doc.getElementById("pMenu").appendChild(dropdown);
+
+      function createDropdown(playerObject) {
+        if (!playerDrop) {
+          playerDrop = document.createElement("ul");
+          playerDrop.classList.add("dropdown-menu");
+          playerDrop.addEventListener("click", function (event) {
+            if (event.target.matches("li")) {
+              let selectedObject = playerObject.find(function (item) {
+                return item.name === event.target.innerText;
+              });
+
+              let tds = row.querySelectorAll("td");
+              tds[0].innerText = selectedObject.name;
+              tds[1].innerText = selectedObject.CharName;
+              tds[2].innerText = selectedObject.classSpec;
+              dropdown.remove();
+            }
+          });
+          const createdLi = new Set();
+          playerObject.forEach((obj) => {
+            if (!createdLi.has(obj.name)) {
+              const li = document.createElement("li");
+              li.textContent = obj.name;
+              playerDrop.appendChild(li);
+              createdLi.add(obj.name);
+            }
+          });
         }
-      });
+        return playerDrop;
+      }
     }
   });
 }
 
-export let playerDrop = null;
-
-export function createDropdown(playerObject) {
-  if (!playerDrop) {
-    playerDrop = document.createElement("ul");
-    playerDrop.classList.add("dropdown-menu");
-    const createdLi = new Set();
-    playerObject.forEach((obj) => {
-      if (!createdLi.has(obj.name)) {
-        const li = document.createElement("li");
-        li.textContent = obj.name;
-        playerDrop.appendChild(li);
-        createdLi.add(obj.name);
-      }
-    });
-  }
-  return playerDrop;
-}
+// export function createDropdown(playerObject) {
+//   if (!playerDrop) {
+//     playerDrop = document.createElement("ul");
+//     playerDrop.classList.add("dropdown-menu");
+//     playerDrop.addEventListener("click", function (event) {
+//       if (event.target.matches("li")) {
+//         let selectedObject = playerObject.find(function (item) {
+//           return item.name === event.target.innerText;
+//         });
+//         let row = event.target.closest("tr");
+//         let tds = row.querySelectorAll("td");
+//         tds[0].innerText = selectedObject.name;
+//         tds[1].innerText = selectedObject.CharName;
+//         tds[2].innerText = selectedObject.classSpec;
+//         dropdown.remove();
+//       }
+//     });
+//     const createdLi = new Set();
+//     playerObject.forEach((obj) => {
+//       if (!createdLi.has(obj.name)) {
+//         const li = document.createElement("li");
+//         li.textContent = obj.name;
+//         playerDrop.appendChild(li);
+//         createdLi.add(obj.name);
+//       }
+//     });
+//   }
+//   return playerDrop;
+// }
 
 export function genTbl() {
   //Create the table element, create table body and append it to the table
@@ -303,3 +339,18 @@ export function consoleLogger() {
 //     );
 //   }
 // }
+
+// let pDropDiv = doc.createElement("div");
+// pDropDiv.setAttribute("class", "pDropdown");
+// pDropDiv.setAttribute("id", "pDropdown");
+// tDiv.appendChild(pDropDiv);
+
+// let pDropdownDiv = doc.createElement("div");
+// pDropdownDiv.setAttribute("id", "pMyDropdown");
+// pDropdownDiv.setAttribute("class", "pDropdown-content");
+// pDropDiv.appendChild(pDropdownDiv);
+
+// let pMenuDiv = doc.createElement("div");
+// pMenuDiv.setAttribute("class", "pMenu");
+// pMenuDiv.setAttribute("id", "pMenu");
+// pDropdownDiv.appendChild(pMenuDiv);
