@@ -37,7 +37,7 @@ import {
   selectionImage,
   dropBtn,
   pDropMenu,
-  // pDropDisplay,
+  pDropDisplay,
 } from "./dropMenuMaker.js";
 
 window.doc = doc;
@@ -64,5 +64,5 @@ window.addPlayer = addPlayer;
 window.dropBtn = dropBtn;
 window.playerList = playerList;
 window.pDropMenu = pDropMenu;
-// window.pDropDisplay = pDropDisplay;
+window.pDropDisplay = pDropDisplay;
 window.consoleLogger = consoleLogger;

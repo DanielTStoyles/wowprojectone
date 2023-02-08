@@ -115,10 +115,9 @@ export function playerList() {
       let pMyDropdown = doc.getElementById("pMyDropdown");
       if (pMyDropdown.style.display === "block") {
         pMyDropdown.style.display = "none";
-      } else {
-        pMyDropdown.style.display = "block";
       }
       let row = button.closest("tr");
+      console.log(row);
 
       const dropdown = createDropdown(playerObject);
       doc.getElementById("pMenu").appendChild(dropdown);
@@ -137,7 +136,6 @@ export function playerList() {
               tds[0].innerText = selectedObject.name;
               tds[1].innerText = selectedObject.CharName;
               tds[2].innerText = selectedObject.classSpec;
-              dropdown.remove();
             }
           });
           const createdLi = new Set();
