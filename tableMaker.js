@@ -52,16 +52,14 @@ export function genTbl2() {
       if (j === 0) {
         let playerBtn = doc.createElement("button");
 
-        playerBtn.id = "playerbtn" + i + j;
+        playerBtn.id = "playerBtn" + i + j;
         playerBtn.innerText = "Select Player";
         playerBtn.setAttribute("type", "button");
 
         cell.appendChild(playerBtn);
 
         playerBtn.addEventListener("click", function (event) {
-          if (event.target === playerBtn) {
-            playerList();
-          }
+          playerList();
         });
       }
       row.appendChild(cell);
@@ -111,22 +109,18 @@ export function playerList() {
   const table = document.querySelector("table");
   table.addEventListener("click", function (event) {
     if (event.target.matches("button")) {
-      let button = event.target;
-      let pMyDropdown = doc.getElementById("pMyDropdown");
-      if (pMyDropdown.style.display === "block") {
-        pMyDropdown.style.display = "none";
-      }
-      let row = button.closest("tr");
-      console.log(row);
+      const button = event.target;
+      const row = button.closest("tr");
 
       const dropdown = createDropdown(playerObject);
       doc.getElementById("pMenu").appendChild(dropdown);
+      console.log(dropdown);
 
       function createDropdown(playerObject) {
         if (!playerDrop) {
-          playerDrop = document.createElement("ul");
-          playerDrop.classList.add("dropdown-menu");
-          playerDrop.addEventListener("click", function (event) {
+          const localPlayerDrop = document.createElement("ul");
+          localPlayerDrop.classList.add("dropdown-menu");
+          localPlayerDrop.addEventListener("click", function (event) {
             if (event.target.matches("li")) {
               let selectedObject = playerObject.find(function (item) {
                 return item.name === event.target.innerText;
@@ -147,6 +141,7 @@ export function playerList() {
               createdLi.add(obj.name);
             }
           });
+          playerDrop = localPlayerDrop;
         }
         return playerDrop;
       }

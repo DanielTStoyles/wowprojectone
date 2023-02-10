@@ -56,7 +56,6 @@ export const dropDisplay = (event) => {
 export function selectionImage(id) {
   document.getElementById("dropBtn").innerHTML =
     document.getElementById(id).innerHTML;
-
   document.getElementById("dropBtn").style.padding = "0px";
   document.getElementById("dropBtn").style.backgroundColor = "#133c94";
   document.getElementById("myDropdown").classList.toggle("show");
