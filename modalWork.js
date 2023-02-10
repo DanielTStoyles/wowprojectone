@@ -55,7 +55,7 @@ export function modalMake() {
   modal.id = "myModal";
   modal.className = "modal";
   tContainer.appendChild(modal);
-  let close = document.createElement("span");
+  const close = document.createElement("span");
   close.innerHTML = "&times";
   close.className = "close";
   close.id = "closeSpan";

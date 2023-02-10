@@ -6,7 +6,7 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #133c94;
+  background-color: #1c1c6e;
   width: 99%;
   height: 99%;
 }
@@ -148,8 +148,8 @@ body {
   border-width: 0.1rem;
 }
 
-#playerBtn {
-  display: flex;
+.playerBtn {
+  display: inline-block;
   width: fit-content;
   height: fit-content;
 }
@@ -170,7 +170,7 @@ li {
   border-style: solid;
   border-color: goldenrod;
   border-top: 0.3rem;
-  background-color: #1e479e;
+  background-color: #1c1c6e;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -220,14 +220,19 @@ div.cloneForm {
   width: 70%;
   height: 70%;
   overflow: auto;
-  background-color: #133c94;
+  background-color: #20476d;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.55);
+
+  opacity: 0.9;
+  transform-origin: center;
+  transition: transform 0.8s ease-out, opacity 0.5s ease-out;
 }
 
 .modal-content {
   z-index: 1;
   display: flex;
   font-size: x-large;
-  background-color: #133c94;
+  background-color: #20476d;
   color: white;
   margin: auto;
   padding: 20px;
