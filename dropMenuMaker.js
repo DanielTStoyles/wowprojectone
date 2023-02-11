@@ -39,6 +39,10 @@ export function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
+export function pDropMenu() {
+  document.getElementById("pMyDropdown").classList.toggle("show");
+}
+
 export const dropDisplay = (event) => {
   if (!event.target.matches(".dropbtn")) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
@@ -53,6 +57,20 @@ export const dropDisplay = (event) => {
   }
 };
 
+// export const pDropDisplay = (event) => {
+//   if (!event.target.matches(".playerBtn")) {
+//     let dropdowns = document.getElementsByClassName("pDropdown-content");
+
+//     let i;
+//     for (i = 0; i < dropdowns.length; i++) {
+//       let openDropdown = dropdowns[i];
+//       if (openDropdown.classList.contains("show")) {
+//         openDropdown.classList.remove("show");
+//       }
+//     }
+//   }
+// };
+
 export function selectionImage(id) {
   document.getElementById("dropBtn").innerHTML =
     document.getElementById(id).innerHTML;
@@ -60,21 +78,3 @@ export function selectionImage(id) {
   document.getElementById("dropBtn").style.backgroundColor = "#133c94";
   document.getElementById("myDropdown").classList.toggle("show");
 }
-
-export function pDropMenu() {
-  document.getElementById("pMyDropdown").classList.toggle("show");
-}
-
-export const pDropDisplay = (event) => {
-  if (!event.target.matches(".playerBtn")) {
-    let pDropdowns = document.getElementsByClassName("pDropdown-content");
-    let i;
-    for (i = 0; i < pDropdowns.length; i++) {
-      let pOpenDropdown = pDropdowns[i];
-      console.log(pDropdowns[i]);
-      if (pOpenDropdown.classList.contains("show")) {
-        pOpenDropdown.classList.remove("show");
-      }
-    }
-  }
-};

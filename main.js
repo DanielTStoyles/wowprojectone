@@ -13,9 +13,11 @@ import {
   playerForms,
   // playerObjectData,
   // loadPlayer,
-  playerList,
+  // playerList,
   consoleLogger,
   doc,
+  stinky,
+  addStinky,
 } from "./tableMaker.js";
 
 import {
@@ -62,8 +64,10 @@ window.addPlayer = addPlayer;
 // window.playerObjectData = playerObjectData;
 // window.loadPlayer = loadPlayer;
 window.dropBtn = dropBtn;
-window.playerList = playerList;
-window.pDropMenu = pDropMenu;
-// window.pDropDisplay = pDropDisplay;
+// window.playerList = playerList;
 window.consoleLogger = consoleLogger;
 window.dropDisplay = dropDisplay;
+window.stinky = stinky;
+window.addStinky = addStinky;
+window.pDropMenu = pDropMenu;
+// window.pDropDisplay = pDropDisplay;

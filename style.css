@@ -46,6 +46,9 @@ body {
 .listImage {
   width: 4rem;
   height: 4rem;
+  border-style: solid;
+  border-color: goldenrod;
+  border-width: 0.1rem;
 }
 
 .groupTable {
@@ -91,6 +94,12 @@ body {
   overflow-y: auto;
 }
 
+.pDropdown {
+  display: inline-block;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
 .dropdown-content {
   display: none;
   position: absolute;
@@ -106,18 +115,6 @@ body {
   z-index: 1;
 }
 
-.dropbtn:focus {
-  background-color: #5a788b;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.pDropdown {
-  display: inline-block;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 .pDropdown-content {
   display: none;
   position: absolute;
@@ -127,25 +124,24 @@ body {
   border-width: 0.3rem;
   min-width: 5.5rem;
   max-height: 28rem;
-
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-.show {
-  display: inline-block;
   overflow-x: hidden;
   overflow-y: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
 .menu {
   width: 1.5rem;
 }
 
-.listImage {
-  border-style: solid;
-  border-color: goldenrod;
-  border-width: 0.1rem;
+.pMenu {
+  width: 1.5rem;
+}
+
+.show {
+  display: inline-block;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .playerBtn {

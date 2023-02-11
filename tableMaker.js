@@ -58,8 +58,9 @@ export function genTbl2() {
 
         cell.appendChild(playerBtn);
 
-        playerBtn.addEventListener("click", function (event) {
-          playerList();
+        playerBtn.addEventListener("click", function () {
+          pDropMenu();
+          stinky();
         });
       }
       row.appendChild(cell);
@@ -103,50 +104,83 @@ export function genTbl2() {
   pDropdownDiv.appendChild(pMenuDiv);
 }
 
-let playerDrop = null;
+// let playerDrop = null;
 
-export function playerList() {
-  const table = document.querySelector("table");
-  table.addEventListener("click", function (event) {
-    if (event.target.matches("button")) {
+// export function playerList() {
+//   const table = document.querySelector("table");
+//   table.addEventListener("click", function (event) {
+//     if (event.target.matches("button")) {
+//       const button = event.target;
+//       const row = button.closest("tr");
+
+//       const dropdown = createDropdown(playerObject);
+//       doc.getElementById("pMenu").appendChild(dropdown);
+//       console.log(dropdown);
+
+//       function createDropdown(playerObject) {
+//         if (!playerDrop) {
+//           const localPlayerDrop = document.createElement("ul");
+//           localPlayerDrop.classList.add("dropdown-menu");
+//           localPlayerDrop.addEventListener("click", function (event) {
+//             if (event.target.matches("li")) {
+//               let selectedObject = playerObject.find(function (item) {
+//                 return item.name === event.target.innerText;
+//               });
+
+//               let tds = row.querySelectorAll("td");
+//               tds[0].innerText = selectedObject.name;
+//               tds[1].innerText = selectedObject.CharName;
+//               tds[2].innerText = selectedObject.classSpec;
+//             }
+//           });
+//           const createdLi = new Set();
+//           playerObject.forEach((obj) => {
+//             if (!createdLi.has(obj.name)) {
+//               const li = document.createElement("li");
+//               li.textContent = obj.name;
+//               playerDrop.appendChild(li);
+//               createdLi.add(obj.name);
+//             }
+//           });
+//           playerDrop = localPlayerDrop;
+//         }
+//         return playerDrop;
+//       }
+//     }
+//   });
+// }
+
+export function stinky() {
+  const createdLi = new Set();
+  playerObject.forEach((item) => {
+    if (!createdLi.has(item.name)) {
+      let li = doc.createElement("li");
       const button = event.target;
       const row = button.closest("tr");
-
-      const dropdown = createDropdown(playerObject);
-      doc.getElementById("pMenu").appendChild(dropdown);
-      console.log(dropdown);
-
-      function createDropdown(playerObject) {
-        if (!playerDrop) {
-          const localPlayerDrop = document.createElement("ul");
-          localPlayerDrop.classList.add("dropdown-menu");
-          localPlayerDrop.addEventListener("click", function (event) {
-            if (event.target.matches("li")) {
-              let selectedObject = playerObject.find(function (item) {
-                return item.name === event.target.innerText;
-              });
-
-              let tds = row.querySelectorAll("td");
-              tds[0].innerText = selectedObject.name;
-              tds[1].innerText = selectedObject.CharName;
-              tds[2].innerText = selectedObject.classSpec;
-            }
-          });
-          const createdLi = new Set();
-          playerObject.forEach((obj) => {
-            if (!createdLi.has(obj.name)) {
-              const li = document.createElement("li");
-              li.textContent = obj.name;
-              playerDrop.appendChild(li);
-              createdLi.add(obj.name);
-            }
-          });
-          playerDrop = localPlayerDrop;
-        }
-        return playerDrop;
-      }
+      li.setAttribute("class", "playerItem");
+      li.innerText = item.name;
+      doc.getElementById("pMenu").appendChild(li);
+      createdLi.add(item.name);
+      li.addEventListener(
+        "click",
+        (e) => {
+          e.stopPropagation;
+          addStinky(row);
+        },
+        false
+      );
     }
   });
+}
+
+export function addStinky() {
+  let selectedObject = playerObject.find(function (item) {
+    return item.name === event.target.innerText;
+  });
+  let tds = row.querySelectorAll("td");
+  tds[0].innerText = selectedObject.name;
+  tds[1].innerText = selectedObject.CharName;
+  tds[2].innerText = selectedObject.classSpec;
 }
 
 // export function createDropdown(playerObject) {
