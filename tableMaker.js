@@ -19,7 +19,7 @@ export let players = [
 
 export const doc = document;
 
-export let playerObject = [];
+export const playerObject = [];
 
 export const tContainer = doc.getElementById("tContainer");
 
@@ -62,25 +62,47 @@ export function genTbl2() {
 
         cell.appendChild(playerBtn);
         playerBtn.addEventListener("click", function () {
-          let alreadyUsed = false;
-          for (let i = 0; i < pMenuDiv.children.length; i++) {
-            if (pMenuDiv.children[i].innerText === playerObject.name) {
-              alreadyUsed = true;
-              break;
+          pMyDropdown.style.display = "block";
+
+          const eventButton = event.target;
+          console.log(eventButton);
+          let createdList = new Set();
+
+          for (let i = 0; i < playerObject.length; i++) {
+            let playerObjects = Object.values(playerObject[i]);
+
+            if (!createdList.has(playerObjects[1])) {
+              let listyWisty = doc.createElement("li");
+              listyWisty.innerText = playerObjects[1];
+              createdList.add(listyWisty);
+              listyWisty.addEventListener("click", function () {
+                event.stopPropagation();
+                let rows = eventButton.parentNode.parentNode;
+                let tds = rows.getElementsByTagName("td");
+                for (let j = 0; j < tds.length; j++) {
+                  let cellOne = tds[0];
+                  let cellTwo = tds[1];
+                  let cellThree = tds[2];
+
+                  cellOne.innerText = playerObjects[1];
+                  cellTwo.innerText = playerObjects[2];
+                  cellThree.innerText = playerObjects[3];
+
+                  pMyDropdown.style.display = "none";
+                }
+              });
+
+              pMenuDiv.appendChild(listyWisty);
             }
           }
-          if (!alreadyUsed) {
-            pMyDropdown.style.display = "block";
-            stinky();
-          }
+
+          cell.appendChild(playerBtn);
         });
       }
-
       row.appendChild(cell);
     }
     tableBody.appendChild(row);
   }
-
   let tHead = table.createTHead();
   let tRow = tHead.insertRow();
 
@@ -115,39 +137,6 @@ export function genTbl2() {
   pMenuDiv.setAttribute("class", "pMenu");
   pMenuDiv.setAttribute("id", "pMenu");
   pDropdownDiv.appendChild(pMenuDiv);
-
-  function stinky() {
-    const createdLi = new Set();
-    const rows = tDiv.querySelectorAll("tr");
-
-    playerObject.forEach((item) => {
-      if (!createdLi.has(item.name)) {
-        let li = doc.createElement("li");
-        const theButton = event.target;
-        li.setAttribute("class", "playerItem");
-        li.innerText = item.name;
-        doc.getElementById("pMenu").appendChild(li);
-        createdLi.add(item.name);
-        li.addEventListener("click", function (event) {
-          event.stopPropagation();
-          let rowIndex = theButton.id.slice(-1);
-          let cellId1 = "playerGroup" + rowIndex + "0";
-          let cellId2 = "playerGroup" + rowIndex + "1";
-          let cellId3 = "playerGroup" + rowIndex + "2";
-
-          let cell1 = doc.getElementById(cellId1);
-          let cell2 = doc.getElementById(cellId2);
-          let cell3 = doc.getElementById(cellId3);
-
-          cell1.innerText = playerObject.name;
-          cell2.innerText = playerObject.charName;
-          cell3.innerText = playerObject.classSpec;
-
-          pMyDropdown.style.display = "none";
-        });
-      }
-    });
-  }
 }
 
 // let playerDrop = null;
