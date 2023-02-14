@@ -28,15 +28,19 @@ export function genTbl2() {
   tDiv.setAttribute("class", "tDiv");
   tContainer.appendChild(tDiv);
   let table = doc.createElement("table");
+
   let caption = doc.createElement("caption");
   caption.setAttribute("class", "caption");
+
   let newText = doc.createElement("input");
   newText.setAttribute("class", "caption");
   newText.setAttribute("type", "text");
   newText.setAttribute("placeHolder", "Group #");
 
   caption.appendChild(newText);
+
   newText.addEventListener("keydown", editRelease);
+
   let tableBody = doc.createElement("tbody");
   table.setAttribute("id", Date.now());
   table.setAttribute("class", "groupTable");
@@ -57,12 +61,21 @@ export function genTbl2() {
         playerBtn.setAttribute("type", "button");
 
         cell.appendChild(playerBtn);
-
         playerBtn.addEventListener("click", function () {
-          pDropMenu();
-          stinky();
+          let alreadyUsed = false;
+          for (let i = 0; i < pMenuDiv.children.length; i++) {
+            if (pMenuDiv.children[i].innerText === playerObject.name) {
+              alreadyUsed = true;
+              break;
+            }
+          }
+          if (!alreadyUsed) {
+            pMyDropdown.style.display = "block";
+            stinky();
+          }
         });
       }
+
       row.appendChild(cell);
     }
     tableBody.appendChild(row);
@@ -102,6 +115,39 @@ export function genTbl2() {
   pMenuDiv.setAttribute("class", "pMenu");
   pMenuDiv.setAttribute("id", "pMenu");
   pDropdownDiv.appendChild(pMenuDiv);
+
+  function stinky() {
+    const createdLi = new Set();
+    const rows = tDiv.querySelectorAll("tr");
+
+    playerObject.forEach((item) => {
+      if (!createdLi.has(item.name)) {
+        let li = doc.createElement("li");
+        const theButton = event.target;
+        li.setAttribute("class", "playerItem");
+        li.innerText = item.name;
+        doc.getElementById("pMenu").appendChild(li);
+        createdLi.add(item.name);
+        li.addEventListener("click", function (event) {
+          event.stopPropagation();
+          let rowIndex = theButton.id.slice(-1);
+          let cellId1 = "playerGroup" + rowIndex + "0";
+          let cellId2 = "playerGroup" + rowIndex + "1";
+          let cellId3 = "playerGroup" + rowIndex + "2";
+
+          let cell1 = doc.getElementById(cellId1);
+          let cell2 = doc.getElementById(cellId2);
+          let cell3 = doc.getElementById(cellId3);
+
+          cell1.innerText = playerObject.name;
+          cell2.innerText = playerObject.charName;
+          cell3.innerText = playerObject.classSpec;
+
+          pMyDropdown.style.display = "none";
+        });
+      }
+    });
+  }
 }
 
 // let playerDrop = null;
@@ -150,38 +196,15 @@ export function genTbl2() {
 //   });
 // }
 
-export function stinky() {
-  const createdLi = new Set();
-  playerObject.forEach((item) => {
-    if (!createdLi.has(item.name)) {
-      let li = doc.createElement("li");
-      const button = event.target;
-      const row = button.closest("tr");
-      li.setAttribute("class", "playerItem");
-      li.innerText = item.name;
-      doc.getElementById("pMenu").appendChild(li);
-      createdLi.add(item.name);
-      li.addEventListener(
-        "click",
-        (e) => {
-          e.stopPropagation;
-          addStinky(row);
-        },
-        false
-      );
-    }
-  });
-}
-
-export function addStinky() {
-  let selectedObject = playerObject.find(function (item) {
-    return item.name === event.target.innerText;
-  });
-  let tds = row.querySelectorAll("td");
-  tds[0].innerText = selectedObject.name;
-  tds[1].innerText = selectedObject.CharName;
-  tds[2].innerText = selectedObject.classSpec;
-}
+// export function addStinky() {
+//   let selectedObject = playerObject.find(function (item) {
+//     return item.name === event.target.innerText;
+//   });
+//   let tds = row.querySelectorAll("td");
+//   tds[0].innerText = selectedObject.name;
+//   tds[1].innerText = selectedObject.CharName;
+//   tds[2].innerText = selectedObject.classSpec;
+// }
 
 // export function createDropdown(playerObject) {
 //   if (!playerDrop) {

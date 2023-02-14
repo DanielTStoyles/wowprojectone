@@ -16,8 +16,6 @@ import {
   // playerList,
   consoleLogger,
   doc,
-  stinky,
-  addStinky,
 } from "./tableMaker.js";
 
 import {
@@ -67,7 +65,6 @@ window.dropBtn = dropBtn;
 // window.playerList = playerList;
 window.consoleLogger = consoleLogger;
 window.dropDisplay = dropDisplay;
-window.stinky = stinky;
-window.addStinky = addStinky;
+
 window.pDropMenu = pDropMenu;
 // window.pDropDisplay = pDropDisplay;
