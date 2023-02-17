@@ -24,6 +24,7 @@ export const playerObject = [];
 export const tContainer = doc.getElementById("tContainer");
 
 export function genTbl2() {
+  let createdList = new Set();
   let tDiv = doc.createElement("div");
   tDiv.setAttribute("class", "tDiv");
   tContainer.appendChild(tDiv);
@@ -66,15 +67,14 @@ export function genTbl2() {
 
           const eventButton = event.target;
           console.log(eventButton);
-          let createdList = new Set();
 
           for (let i = 0; i < playerObject.length; i++) {
             let playerObjects = Object.values(playerObject[i]);
 
-            if (!createdList.has(playerObjects[1])) {
+            if (!createdList.has(playerObjects[1].innerText)) {
               let listyWisty = doc.createElement("li");
               listyWisty.innerText = playerObjects[1];
-              createdList.add(listyWisty);
+              createdList.add(playerObjects[1].innerText);
               listyWisty.addEventListener("click", function () {
                 event.stopPropagation();
                 let rows = eventButton.parentNode.parentNode;
@@ -89,6 +89,7 @@ export function genTbl2() {
                   cellThree.innerText = playerObjects[3];
 
                   pMyDropdown.style.display = "none";
+                  console.log(createdList);
                 }
               });
 

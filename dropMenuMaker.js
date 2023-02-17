@@ -57,20 +57,6 @@ export const dropDisplay = (event) => {
   }
 };
 
-// export const pDropDisplay = (event) => {
-//   if (!event.target.matches(".playerBtn")) {
-//     let dropdowns = document.getElementsByClassName("pDropdown-content");
-
-//     let i;
-//     for (i = 0; i < dropdowns.length; i++) {
-//       let openDropdown = dropdowns[i];
-//       if (openDropdown.classList.contains("show")) {
-//         openDropdown.classList.remove("show");
-//       }
-//     }
-//   }
-// };
-
 export function selectionImage(id) {
   document.getElementById("dropBtn").innerHTML =
     document.getElementById(id).innerHTML;
