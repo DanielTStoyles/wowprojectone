@@ -64,6 +64,11 @@ export function modalMake() {
       modalReset();
     }
   });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      modalReset();
+    }
+  });
 
   let modalContent = document.createElement("div");
   modalContent.id = "modalCont";
