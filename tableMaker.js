@@ -77,7 +77,8 @@ export function genTbl2() {
               createdList.add(playerObjects[1].innerText);
               listyWisty.addEventListener("click", function () {
                 event.stopPropagation();
-                let rows = eventButton.parentNode.parentNode;
+                const location = eventButton;
+                let rows = location.parentNode.parentNode;
                 let tds = rows.getElementsByTagName("td");
                 for (let j = 0; j < tds.length; j++) {
                   let cellOne = tds[0];
