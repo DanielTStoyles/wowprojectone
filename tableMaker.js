@@ -23,8 +23,9 @@ export const playerObject = [];
 
 export const tContainer = doc.getElementById("tContainer");
 
+let createdList = new Set();
+
 export function genTbl2() {
-  let createdList = new Set();
   let tDiv = doc.createElement("div");
   tDiv.setAttribute("class", "tDiv");
   tContainer.appendChild(tDiv);
@@ -80,17 +81,19 @@ export function genTbl2() {
                 const location = eventButton;
                 let rows = location.parentNode.parentNode;
                 let tds = rows.getElementsByTagName("td");
+                let specialImage = document.createElement("img");
                 for (let j = 0; j < tds.length; j++) {
                   let cellOne = tds[0];
                   let cellTwo = tds[1];
                   let cellThree = tds[2];
 
+                  specialImage.src = playerObjects[4];
+
                   cellOne.innerText = playerObjects[1];
                   cellTwo.innerText = playerObjects[2];
-                  cellThree.innerText = playerObjects[3];
+                  cellThree.appendChild(specialImage);
 
                   pMyDropdown.style.display = "none";
-                  console.log(createdList);
                 }
               });
 
@@ -140,92 +143,6 @@ export function genTbl2() {
   pMenuDiv.setAttribute("id", "pMenu");
   pDropdownDiv.appendChild(pMenuDiv);
 }
-
-// let playerDrop = null;
-
-// export function playerList() {
-//   const table = document.querySelector("table");
-//   table.addEventListener("click", function (event) {
-//     if (event.target.matches("button")) {
-//       const button = event.target;
-//       const row = button.closest("tr");
-
-//       const dropdown = createDropdown(playerObject);
-//       doc.getElementById("pMenu").appendChild(dropdown);
-//       console.log(dropdown);
-
-//       function createDropdown(playerObject) {
-//         if (!playerDrop) {
-//           const localPlayerDrop = document.createElement("ul");
-//           localPlayerDrop.classList.add("dropdown-menu");
-//           localPlayerDrop.addEventListener("click", function (event) {
-//             if (event.target.matches("li")) {
-//               let selectedObject = playerObject.find(function (item) {
-//                 return item.name === event.target.innerText;
-//               });
-
-//               let tds = row.querySelectorAll("td");
-//               tds[0].innerText = selectedObject.name;
-//               tds[1].innerText = selectedObject.CharName;
-//               tds[2].innerText = selectedObject.classSpec;
-//             }
-//           });
-//           const createdLi = new Set();
-//           playerObject.forEach((obj) => {
-//             if (!createdLi.has(obj.name)) {
-//               const li = document.createElement("li");
-//               li.textContent = obj.name;
-//               playerDrop.appendChild(li);
-//               createdLi.add(obj.name);
-//             }
-//           });
-//           playerDrop = localPlayerDrop;
-//         }
-//         return playerDrop;
-//       }
-//     }
-//   });
-// }
-
-// export function addStinky() {
-//   let selectedObject = playerObject.find(function (item) {
-//     return item.name === event.target.innerText;
-//   });
-//   let tds = row.querySelectorAll("td");
-//   tds[0].innerText = selectedObject.name;
-//   tds[1].innerText = selectedObject.CharName;
-//   tds[2].innerText = selectedObject.classSpec;
-// }
-
-// export function createDropdown(playerObject) {
-//   if (!playerDrop) {
-//     playerDrop = document.createElement("ul");
-//     playerDrop.classList.add("dropdown-menu");
-//     playerDrop.addEventListener("click", function (event) {
-//       if (event.target.matches("li")) {
-//         let selectedObject = playerObject.find(function (item) {
-//           return item.name === event.target.innerText;
-//         });
-//         let row = event.target.closest("tr");
-//         let tds = row.querySelectorAll("td");
-//         tds[0].innerText = selectedObject.name;
-//         tds[1].innerText = selectedObject.CharName;
-//         tds[2].innerText = selectedObject.classSpec;
-//         dropdown.remove();
-//       }
-//     });
-//     const createdLi = new Set();
-//     playerObject.forEach((obj) => {
-//       if (!createdLi.has(obj.name)) {
-//         const li = document.createElement("li");
-//         li.textContent = obj.name;
-//         playerDrop.appendChild(li);
-//         createdLi.add(obj.name);
-//       }
-//     });
-//   }
-//   return playerDrop;
-// }
 
 export function genTbl() {
   //Create the table element, create table body and append it to the table
@@ -351,47 +268,3 @@ export function consoleLogger() {
   let playersList = Object.values(playerObject);
   console.log(playersList);
 }
-
-// export function dropPlayer() {
-//   for (let i = 0; i < playerObject.length; i++) {
-//     let item = playerObject[i];
-//     let listItem = document.createElement("li");
-//     let listItemId = "playerItem";
-
-//     listItem.setAttribute("class", "playerList");
-//     listItem.setAttribute("id", listItemId + (i + 1));
-
-//     let playerProfile = document.createElement("p");
-//     let playerProfileId = "playerSelection";
-//     playerProfile.setAttribute("class", "playerSelection");
-//     playerProfile.setAttribute("id", playerProfileId + (i + 1));
-//     let id = listItem.id;
-//     // playerProfile.setAttribute("src", item.src);
-
-//     listItem.appendChild(playerProfile);
-//     document.getElementById("menu").appendChild(listItem);
-//     listItem.addEventListener(
-//       "click", function (event){
-//         if (event.target===playerProfile){
-//           console.log("it worked!");
-//         }
-//       }
-
-//     );
-//   }
-// }
-
-// let pDropDiv = doc.createElement("div");
-// pDropDiv.setAttribute("class", "pDropdown");
-// pDropDiv.setAttribute("id", "pDropdown");
-// tDiv.appendChild(pDropDiv);
-
-// let pDropdownDiv = doc.createElement("div");
-// pDropdownDiv.setAttribute("id", "pMyDropdown");
-// pDropdownDiv.setAttribute("class", "pDropdown-content");
-// pDropDiv.appendChild(pDropdownDiv);
-
-// let pMenuDiv = doc.createElement("div");
-// pMenuDiv.setAttribute("class", "pMenu");
-// pMenuDiv.setAttribute("id", "pMenu");
-// pDropdownDiv.appendChild(pMenuDiv);

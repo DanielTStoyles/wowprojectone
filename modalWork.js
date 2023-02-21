@@ -124,6 +124,11 @@ export function modalMake() {
   dataBtn.addEventListener("click", function (event) {
     if (event.target === dataBtn) {
       addPlayer();
+      console.log(originalDropBtnStyle);
+      document.getElementById("listImage1").remove();
+      classBtn.innerHTML = originalDropBtnStyle.innerHTML;
+      classBtn.style.padding = originalDropBtnStyle.padding;
+      classBtn.backgroundColor = originalDropBtnStyle.backgroundColor;
     }
   });
 
@@ -134,6 +139,13 @@ export function modalMake() {
   classBtn.setAttribute("type", "button");
   classBtn.appendChild(textNode);
   document.getElementById("pF3").appendChild(classBtn);
+
+  const originalDropBtnStyle = {
+    innerHTML: classBtn.innerHTML,
+    padding: (classBtn.style.padding = "16px"),
+    backgroundColor: (classBtn.style.backgroundColor = "rgb(90, 120, 139)"),
+  };
+
   classBtn.addEventListener("click", function (event) {
     if (event.target === classBtn) {
       dropMenu(), dropImages();
@@ -156,25 +168,18 @@ export function modalMake() {
   dropdownDiv.appendChild(menuDiv);
 }
 
-export function makeBtn() {
-  let classBtn = document.createElement("button");
-  classBtn.setAttribute("id", "dropBtn");
-  classBtn.setAttribute("class", "dropBtn");
-  classBtn.setAttribute("type", "button");
-  document.getElementById("pF3").appendChild(classBtn);
-  classBtn.addEventListener("click", dropMenu(), dropImages());
-}
-
 export function addPlayer() {
   let player = {
     id: Date.now(),
     name: document.getElementById("name").value,
     CharName: document.getElementById("charName").value,
     classSpec: document.getElementById("alternateRole").value,
+    specialImage: document.getElementById("listImage1").src,
   };
+
   playerObject.push(player);
   console.warn("added", { playerObject });
-  // localStorage.setItem("playerList", JSON.stringify(playerObject));
+
   function modalFormReset() {
     let playerForm = document.getElementById("playerForm");
     playerForm.reset();

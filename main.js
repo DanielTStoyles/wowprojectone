@@ -26,6 +26,7 @@ import {
   // hideModal,
   modalMake,
   addPlayer,
+  // classBtnStyle,
 } from "./modalWork.js";
 
 import {
@@ -65,6 +66,6 @@ window.dropBtn = dropBtn;
 // window.playerList = playerList;
 window.consoleLogger = consoleLogger;
 window.dropDisplay = dropDisplay;
-
+// window.classBtnStyle = classBtnStyle;
 window.pDropMenu = pDropMenu;
 // window.pDropDisplay = pDropDisplay;
