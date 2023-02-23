@@ -23,13 +23,17 @@ export const playerObject = [];
 
 export const tContainer = doc.getElementById("tContainer");
 
-let createdList = new Set();
+// let createdList = new Set();
 
 export function genTbl2() {
   let tDiv = doc.createElement("div");
+
   tDiv.setAttribute("class", "tDiv");
   tContainer.appendChild(tDiv);
+
   let table = doc.createElement("table");
+  table.setAttribute("id", Date.now());
+  table.setAttribute("class", "groupTable");
 
   let caption = doc.createElement("caption");
   caption.setAttribute("class", "caption");
@@ -41,73 +45,8 @@ export function genTbl2() {
 
   caption.appendChild(newText);
 
-  newText.addEventListener("keydown", editRelease);
-
   let tableBody = doc.createElement("tbody");
-  table.setAttribute("id", Date.now());
-  table.setAttribute("class", "groupTable");
 
-  for (let i = 0; i < 5; i++) {
-    const row = doc.createElement("tr");
-
-    for (let j = 0; j < 3; j++) {
-      const cellId = "playerGroup" + [i] + [j];
-      let cell = doc.createElement("td");
-      cell.id = cellId;
-
-      if (j === 0) {
-        let playerBtn = doc.createElement("button");
-
-        playerBtn.id = "playerBtn" + i + j;
-        playerBtn.innerText = "Select Player";
-        playerBtn.setAttribute("type", "button");
-
-        cell.appendChild(playerBtn);
-        playerBtn.addEventListener("click", function () {
-          pMyDropdown.style.display = "block";
-
-          const eventButton = event.target;
-          console.log(eventButton);
-
-          for (let i = 0; i < playerObject.length; i++) {
-            let playerObjects = Object.values(playerObject[i]);
-
-            if (!createdList.has(playerObjects[1].innerText)) {
-              let listyWisty = doc.createElement("li");
-              listyWisty.innerText = playerObjects[1];
-              createdList.add(playerObjects[1].innerText);
-              listyWisty.addEventListener("click", function () {
-                event.stopPropagation();
-                const location = eventButton;
-                let rows = location.parentNode.parentNode;
-                let tds = rows.getElementsByTagName("td");
-                let specialImage = document.createElement("img");
-                for (let j = 0; j < tds.length; j++) {
-                  let cellOne = tds[0];
-                  let cellTwo = tds[1];
-                  let cellThree = tds[2];
-
-                  specialImage.src = playerObjects[4];
-
-                  cellOne.innerText = playerObjects[1];
-                  cellTwo.innerText = playerObjects[2];
-                  cellThree.appendChild(specialImage);
-
-                  pMyDropdown.style.display = "none";
-                }
-              });
-
-              pMenuDiv.appendChild(listyWisty);
-            }
-          }
-
-          cell.appendChild(playerBtn);
-        });
-      }
-      row.appendChild(cell);
-    }
-    tableBody.appendChild(row);
-  }
   let tHead = table.createTHead();
   let tRow = tHead.insertRow();
 
@@ -127,21 +66,121 @@ export function genTbl2() {
   table.append(caption, tRow, tableBody);
   tDiv.appendChild(table);
 
-  let pDropDiv = doc.createElement("div");
-  pDropDiv.setAttribute("class", "pDropdown");
-  pDropDiv.setAttribute("id", "pDropdown");
-  tDiv.appendChild(pDropDiv);
+  const pDropMenuDiv = doc.createElement("div");
+  const pDropUl = doc.createElement("ul");
+  pDropMenuDiv.appendChild(pDropUl);
 
-  let pDropdownDiv = doc.createElement("div");
-  pDropdownDiv.setAttribute("id", "pMyDropdown");
-  pDropdownDiv.setAttribute("class", "pDropdown-content");
-  pDropDiv.appendChild(pDropdownDiv);
-  pMyDropdown.style.display = "none";
+  for (let i = 0; i < 5; i++) {
+    const row = doc.createElement("tr");
 
-  let pMenuDiv = doc.createElement("div");
-  pMenuDiv.setAttribute("class", "pMenu");
-  pMenuDiv.setAttribute("id", "pMenu");
-  pDropdownDiv.appendChild(pMenuDiv);
+    for (let j = 0; j < 3; j++) {
+      // const cellId = "playerGroup" + [i] + [j];
+      let cell = doc.createElement("td");
+      // cell.id = cellId;
+
+      if (j === 0) {
+        let playerBtn = doc.createElement("button");
+        playerBtn.innerText = "Select Player";
+        playerBtn.setAttribute("type", "button");
+        playerBtn.setAttribute("class", "pDropdownBtn");
+        cell.appendChild(playerBtn);
+
+        let currentRow = -1;
+
+        let dropdownBtns = doc.querySelectorAll(".pDropdownBtn");
+        for (let i = 0; i < dropdownBtns.length; i++) {
+          dropdownBtns[i].addEventListener("click", function () {
+            currentRow = this.parentNode.parentNode.rowIndex;
+            showDropdownMenu(this);
+          });
+        }
+        let fillCells = doc.querySelectorAll("fill-cell");
+        for (let i = 0; i < fillCells.length; i++) {
+          fillCells[i].addEventListener("click", function () {
+            let tableRows = doc.querySelectorAll("table tr");
+            let tableCells = tableRows[currentRow].querySelectorAll("td");
+            for (let i = 1; i < tableCells; i++) {
+              tableCells[i].textContent = this.getAttribute("data-text");
+            }
+            hideDropdownMenu();
+          });
+        }
+
+        function showDropdownMenu(button) {
+          let dropdownMenu = doc.querySelector(".dropdown-menu");
+          dropdownMenu.style.display = "block";
+          let buttonPosition = button.getBoundingClientRect();
+          dropdownMenu.style.top = buttonPosition.bottom + "px";
+          dropdownMenu.style.left = buttonPosition.left + "px";
+        }
+
+        function hideDropdownMenu() {
+          let dropdownMenu = doc.querySelector(".dropdown-menu");
+          dropdownMenu.style.display = "none";
+        }
+        // playerBtn.addEventListener("click", function () {
+        //   pMyDropdown.style.display = "block";
+
+        //   for (let i = 0; i < playerObject.length; i++) {
+        //     let playerObjects = Object.values(playerObject[i]);
+
+        //     if (!createdList.has(playerObjects[i].innerText)) {
+        //       let listyWisty = doc.createElement("li");
+        //       let rowId = event.currentTarget.parentNode.parentNode.id;
+        //       playerBtn.setAttribute("data-row-id", rowId);
+        //       listyWisty.innerText = playerObjects[1];
+        //       listyWisty.id = "listyWisty" + i;
+        //       createdList.add(playerObjects[1].innerText);
+
+        //       listyWisty.addEventListener("click", function () {
+        //         event.stopPropagation();
+
+        //         const rows = document.getElementById(
+        //           playerBtn.getAttribute("data-row-id")
+        //         );
+        //         let tds = rows.getElementsByTagName("td");
+        //         let specialImage = document.createElement("img");
+        //         for (let j = 0; j < tds.length; j++) {
+        //           let cellOne = tds[0];
+        //           let cellTwo = tds[1];
+        //           let cellThree = tds[2];
+
+        //           specialImage.src = playerObjects[4];
+        //           cellOne.innerText = playerObjects[1];
+        //           cellTwo.innerText = playerObjects[2];
+        //           cellThree.appendChild(specialImage);
+
+        //           pMyDropdown.style.display = "none";
+        //         }
+        //       });
+
+        //       pMenuDiv.appendChild(listyWisty);
+        //     }
+        //   }
+
+        //   cell.appendChild(playerBtn);
+        // });
+      }
+      row.appendChild(cell);
+    }
+    tableBody.appendChild(row);
+  }
+
+  // let pDropDiv = doc.createElement("div");
+  // pDropDiv.setAttribute("class", "pDropdown");
+  // pDropDiv.setAttribute("id", "pDropdown");
+  // tDiv.appendChild(pDropDiv);
+
+  // let pDropdownDiv = doc.createElement("div");
+  // pDropdownDiv.setAttribute("id", "pMyDropdown");
+  // pDropdownDiv.setAttribute("class", "pDropdown-content");
+  // pDropDiv.appendChild(pDropdownDiv);
+  // pMyDropdown.style.display = "none";
+
+  // let pMenuDiv = doc.createElement("div");
+  // pMenuDiv.setAttribute("class", "pMenu");
+  // pMenuDiv.setAttribute("id", "pMenu");
+  // pDropdownDiv.appendChild(pMenuDiv);
 }
 
 export function genTbl() {
