@@ -1,6 +1,6 @@
 /* @format */
 import { dropDisplay } from "./dropMenuMaker.js";
-import { tContainer, playerForms, playerObject } from "./tableMaker.js";
+import { tContainer, playerForms, playerArray } from "./tableMaker.js";
 
 export const modalBtn = document.getElementById("modalBtn");
 
@@ -177,8 +177,8 @@ export function addPlayer() {
     specialImage: document.getElementById("listImage1").src,
   };
 
-  playerObject.push(player);
-  console.warn("added", { playerObject });
+  playerArray.push(player);
+  console.warn("added", { playerArray });
 
   function modalFormReset() {
     let playerForm = document.getElementById("playerForm");
