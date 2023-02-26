@@ -19,20 +19,17 @@ export let players = [
 
 export const doc = document;
 
-export const playerArray = [];
+export const playerObject = [];
 
 export const tContainer = doc.getElementById("tContainer");
 
-// let createdList = new Set();
+let createdList = new Set();
 
 export function genTbl2() {
-  let tDiv = doc.createElement("div"); //"tableContainer in reference code"
-  tDiv.id = "tDiv";
+  let tDiv = doc.createElement("div");
   tDiv.setAttribute("class", "tDiv");
   tContainer.appendChild(tDiv);
-
   let table = doc.createElement("table");
-  table.classList.add("groupTable");
 
   let caption = doc.createElement("caption");
   caption.setAttribute("class", "caption");
@@ -44,8 +41,74 @@ export function genTbl2() {
 
   caption.appendChild(newText);
 
-  let tableBody = doc.createElement("tbody");
+  newText.addEventListener("keydown", editRelease);
 
+  let tableBody = doc.createElement("tbody");
+  table.setAttribute("id", Date.now());
+  table.setAttribute("class", "groupTable");
+
+  for (let i = 0; i < 5; i++) {
+    const row = doc.createElement("tr");
+
+    for (let j = 0; j < 3; j++) {
+      const cellId = "playerGroup" + [i] + [j];
+      let cell = doc.createElement("td");
+      cell.id = cellId;
+
+      if (j === 0) {
+        let playerBtn = doc.createElement("button");
+
+        playerBtn.id = "playerBtn" + i + j;
+        playerBtn.innerText = "Select Player";
+        playerBtn.setAttribute("type", "button");
+
+        cell.appendChild(playerBtn);
+        playerBtn.addEventListener("click", function () {
+          pMyDropdown.style.display = "block";
+
+          const currentButton = this;
+          console.log(currentButton);
+
+          for (let i = 0; i < playerObject.length; i++) {
+            let playerObjects = Object.values(playerObject[i]);
+            console.log(playerObjects);
+
+            if (!createdList.has(playerObjects[1].innerText)) {
+              let listyWisty = doc.createElement("li");
+              listyWisty.innerText = playerObjects[1];
+              createdList.add(playerObjects[1].innerText);
+              listyWisty.addEventListener("click", function () {
+                event.stopPropagation();
+                const location = currentButton;
+                let rows = location.parentNode.parentNode;
+                let tds = rows.getElementsByTagName("td");
+                let specialImage = document.createElement("img");
+                for (let j = 0; j < tds.length; j++) {
+                  let cellOne = tds[0];
+                  let cellTwo = tds[1];
+                  let cellThree = tds[2];
+
+                  specialImage.src = playerObjects[4];
+
+                  cellOne.innerText = playerObjects[1];
+                  cellTwo.innerText = playerObjects[2];
+                  cellThree.appendChild(specialImage);
+
+                  pMyDropdown.style.display = "none";
+                }
+              });
+
+              pMenuDiv.appendChild(listyWisty);
+            }
+          }
+
+          cell.appendChild(playerBtn);
+        });
+      }
+      row.appendChild(cell);
+    }
+    tableBody.appendChild(row);
+  }
   let tHead = table.createTHead();
   let tRow = tHead.insertRow();
 
@@ -65,76 +128,21 @@ export function genTbl2() {
   table.append(caption, tRow, tableBody);
   tDiv.appendChild(table);
 
-  for (let i = 0; i < 5; i++) {
-    const row = document.createElement("tr");
-    const cell1 = document.createElement("td");
-    const button = document.createElement("button");
-    button.classList.add("dropdown-btn");
-    button.textContent = "Button " + (i + 1);
-    cell1.appendChild(button);
-    const cell2 = document.createElement("td");
-    row.appendChild(cell1);
-    row.appendChild(cell2);
-    const cell3 = document.createElement("td");
-    row.appendChild(cell3);
-    table.appendChild(row);
-  }
+  let pDropDiv = doc.createElement("div");
+  pDropDiv.setAttribute("class", "pDropdown");
+  pDropDiv.setAttribute("id", "pDropdown");
+  tDiv.appendChild(pDropDiv);
 
-  tDiv.appendChild(table);
+  let pDropdownDiv = doc.createElement("div");
+  pDropdownDiv.setAttribute("id", "pMyDropdown");
+  pDropdownDiv.setAttribute("class", "pDropdown-content");
+  pDropDiv.appendChild(pDropdownDiv);
+  pMyDropdown.style.display = "none";
 
-  const pDropdownMenu = doc.createElement("div");
-  pDropdownMenu.classList.add("pDropdown-menu");
-  const ul = doc.createElement("ul");
-  pDropdownMenu.appendChild(ul);
-
-  for (let i = 0; i < playerArray.length; i++) {
-    const li = doc.createElement("li");
-    li.classList.add("cellFill");
-    li.setAttribute("data-name", playerArray[i].name);
-    li.setAttribute("data-charName", playerArray[i].CharName);
-    li.setAttribute("data-classSpec", playerArray[i].classSpec);
-    li.textContent = playerArray[i].name;
-    ul.appendChild(li);
-  }
-  tDiv.appendChild(pDropdownMenu);
-
-  // const currentRow = -1;
-
-  let dropdownBtns = tDiv.querySelectorAll(".dropdownBtn");
-  for (let i = 0; i < dropdownBtns.length; i++) {
-    dropdownBtns[i].addEventListener("click", function () {
-      currentRow = this.parentNode.parentNode.rowIndex;
-      showDropdownMenu(this, pDropdownMenu);
-    });
-  }
-  let fillCells = pDropdownMenu.querySelectorAll(".cellFill");
-  for (let i = 0; i < fillCells.length; i++) {
-    fillCells[i].addEventListener("click", function () {
-      let tableRows = table.querySelectorAll("table tr");
-      let tableCells = tableRows[currentRow].querySelectorAll("td");
-      tableCells[0].textContent = this.getAttribute("data-name");
-      tableCells[1].textContent = this.getAttribute("data-charName");
-      tableCells[2].textContent = this.getAttribute("data-classSpec");
-      hideDropdownMenu(pDropdownMenu);
-    });
-  }
-  const hideAllDropdownMenus = function () {
-    let dropdownMenus = document.querySelectorAll(".propdown-menu");
-    for (let i = 0; i < dropdownMenus.length; i++) {
-      dropdownMenus[i].style.display = "none";
-    }
-  };
-  const showDropdownMenu = function (button, pDropdownMenu) {
-    // hideAllDropdownMenus();
-    pDropdownMenu.style.display = "block";
-    let buttonPosition = button.getBoundingClientRect();
-    pDropdownMenu.style.top = buttonPosition.bottom + "px";
-    pDropdownMenu.style.left = buttonPosition.left + "px";
-  };
-
-  var hideDropdownMenu = function (pDropdownMenu) {
-    pDropdownMenu.style.display = "none";
-  };
+  let pMenuDiv = doc.createElement("div");
+  pMenuDiv.setAttribute("class", "pMenu");
+  pMenuDiv.setAttribute("id", "pMenu");
+  pDropdownDiv.appendChild(pMenuDiv);
 }
 
 export function genTbl() {
@@ -218,163 +226,73 @@ export function formHide(id) {
 }
 
 export function playerForms() {
-  let playerForm = document.getElementById("playerForm");
+  const playerForm = document.getElementById("playerForm");
   playerForm.setAttribute("method", "post");
-  playerForm.setAttribute("id", "playerForm");
 
-  let pN = document.createElement("input");
+  const pN = document.createElement("input");
   pN.setAttribute("id", "name");
   pN.setAttribute("type", "text");
   pN.setAttribute("placeholder", "Player Name");
 
-  let charName = document.createElement("input");
+  const charName = document.createElement("input");
   charName.setAttribute("id", "charName");
   charName.setAttribute("type", "text");
   charName.setAttribute("placeholder", "Character Name");
 
-  let alternateRole = document.createElement("input");
+  const alternateRole = document.createElement("input");
   alternateRole.setAttribute("id", "alternateRole");
   alternateRole.setAttribute("type", "text");
   alternateRole.setAttribute("placeholder", "Alternate Role (optional)");
 
-  document.getElementById("pF1").appendChild(pN);
-  document.getElementById("pF2").appendChild(charName);
-  document.getElementById("pF4").appendChild(alternateRole);
-  // document.getElementById("formP").appendChild(playerForm);
+  document.querySelector("#pF1").appendChild(pN);
+  document.querySelector("#pF2").appendChild(charName);
+  document.querySelector("#pF4").appendChild(alternateRole);
 
-  let dataBtn = document.createElement("button");
+  const dataBtn = document.createElement("button");
   dataBtn.setAttribute("type", "submit");
-  dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
-  document.getElementById("pF5").appendChild(dataBtn);
-  // dataBtn.addEventListener(
-  //   "click",
-  //   (e) => {
-  //     e.stopPropogation;
-  //     addPlayer();
-  //     formHide();
-  //   },
-  //   false
-  // );
+  dataBtn.setAttribute("id", "dataBtn");
+  dataBtn.textContent = "Save";
+  document.querySelector("#pF5").appendChild(dataBtn);
+  dataBtn.addEventListener("click", onSubmit);
+
+  function onSubmit(e) {
+    e.preventDefault();
+    addPlayer();
+    formHide();
+  }
 }
 
-export function consoleLogger() {
-  let playersList = Object.values(playerObject);
-  console.log(playersList);
-}
+// export function playerForms() {
+//   let playerForm = document.getElementById("playerForm");
+//   playerForm.setAttribute("method", "post");
+//   playerForm.setAttribute("id", "playerForm");
 
-// for (let i = 0; i < 5; i++) {
-//   const row = doc.createElement("tr");
+//   let pN = document.createElement("input");
+//   pN.setAttribute("id", "name");
+//   pN.setAttribute("type", "text");
+//   pN.setAttribute("placeholder", "Player Name");
 
-//   for (let j = 0; j < 3; j++) {
-//     const cellId = "playerGroup" + [i] + [j];
-//     let cell = doc.createElement("td");
-//     cell.id = cellId;
+//   let charName = document.createElement("input");
+//   charName.setAttribute("id", "charName");
+//   charName.setAttribute("type", "text");
+//   charName.setAttribute("placeholder", "Character Name");
 
-//     if (j === 0) {
-//       let playerBtn = doc.createElement("button");
-//       playerBtn.innerText = "Select Player";
-//       playerBtn.setAttribute("type", "button");
-//       playerBtn.setAttribute("class", "pDropdownBtn");
-//       cell.appendChild(playerBtn);
+//   let alternateRole = document.createElement("input");
+//   alternateRole.setAttribute("id", "alternateRole");
+//   alternateRole.setAttribute("type", "text");
+//   alternateRole.setAttribute("placeholder", "Alternate Role (optional)");
 
-//       let currentRow = -1;
+//   document.getElementById("pF1").appendChild(pN);
+//   document.getElementById("pF2").appendChild(charName);
+//   document.getElementById("pF4").appendChild(alternateRole);
 
-//       let dropdownBtns = doc.querySelectorAll(".pDropdownBtn");
-//       for (let i = 0; i < dropdownBtns.length; i++) {
-//         dropdownBtns[i].addEventListener("click", function () {
-//           currentRow = this.parentNode.parentNode.rowIndex;
-//           showDropdownMenu(this);
-//         });
-//       }
-//       let fillCells = doc.querySelectorAll("fill-cell");
-//       for (let i = 0; i < fillCells.length; i++) {
-//         fillCells[i].addEventListener("click", function () {
-//           let tableRows = doc.querySelectorAll("table tr");
-//           let tableCells = tableRows[currentRow].querySelectorAll("td");
-//           for (let i = 1; i < tableCells; i++) {
-//             tableCells[i].textContent = this.getAttribute("data-text");
-//           }
-//           hideDropdownMenu();
-//         });
-//       }
-
-//       function showDropdownMenu(button) {
-//         let dropdownMenu = doc.querySelector(".dropdown-menu");
-//         dropdownMenu.style.display = "block";
-//         let buttonPosition = button.getBoundingClientRect();
-//         dropdownMenu.style.top = buttonPosition.bottom + "px";
-//         dropdownMenu.style.left = buttonPosition.left + "px";
-//       }
-
-//       function hideDropdownMenu() {
-//         let dropdownMenu = doc.querySelector(".dropdown-menu");
-//         dropdownMenu.style.display = "none";
-//       }
-//       playerBtn.addEventListener("click", function () {
-//         pMyDropdown.style.display = "block";
-
-//         for (let i = 0; i < playerObject.length; i++) {
-//           let playerObjects = Object.values(playerObject[i]);
-
-//           if (!createdList.has(playerObjects[i].innerText)) {
-//             let listyWisty = doc.createElement("li");
-//             let rowId = event.currentTarget.parentNode.parentNode.id;
-//             playerBtn.setAttribute("data-row-id", rowId);
-//             listyWisty.innerText = playerObjects[1];
-//             listyWisty.id = "listyWisty" + i;
-//             createdList.add(playerObjects[1].innerText);
-
-//             listyWisty.addEventListener("click", function () {
-//               event.stopPropagation();
-
-//               const rows = document.getElementById(
-//                 playerBtn.getAttribute("data-row-id")
-//               );
-//               let tds = rows.getElementsByTagName("td");
-//               let specialImage = document.createElement("img");
-//               for (let j = 0; j < tds.length; j++) {
-//                 let cellOne = tds[0];
-//                 let cellTwo = tds[1];
-//                 let cellThree = tds[2];
-
-//                 specialImage.src = playerObjects[4];
-//                 cellOne.innerText = playerObjects[1];
-//                 cellTwo.innerText = playerObjects[2];
-//                 cellThree.appendChild(specialImage);
-
-//                 pMyDropdown.style.display = "none";
-//               }
-//             });
-
-//             pMenuDiv.appendChild(listyWisty);
-//           }
-//         }
-
-//         cell.appendChild(playerBtn);
-//       });
-//     }
-//     row.appendChild(cell);
-//   }
-//   tableBody.appendChild(row);
+//   let dataBtn = document.createElement("button");
+//   dataBtn.setAttribute("type", "submit");
+//   dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
+//   document.getElementById("pF5").appendChild(dataBtn);
 // }
 
-// let pDropDiv = doc.createElement("div");
-// pDropDiv.setAttribute("class", "pDropdown");
-// pDropDiv.setAttribute("id", "pDropdown");
-// tDiv.appendChild(pDropDiv);
-
-// let pDropdownDiv = doc.createElement("div");
-// pDropdownDiv.setAttribute("id", "pMyDropdown");
-// pDropdownDiv.setAttribute("class", "pDropdown-content");
-// pDropDiv.appendChild(pDropdownDiv);
-// pMyDropdown.style.display = "none";
-
-// let pMenuDiv = doc.createElement("div");
-// pMenuDiv.setAttribute("class", "pMenu");
-// pMenuDiv.setAttribute("id", "pMenu");
-// pDropdownDiv.appendChild(pMenuDiv);
+// export function consoleLogger() {
+//   let playersList = Object.values(playerObject);
+//   console.log(playersList);
 // }
-
-const pDropMenuDiv = doc.createElement("div");
-const pDropUl = doc.createElement("ul");
-pDropMenuDiv.appendChild(pDropUl);
