@@ -1,0 +1,134 @@
+/** @format */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #3751e4;
+  width: 99%;
+  height: 99%;
+}
+
+.navbar {
+  height: 100%;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.959);
+}
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.banner {
+  width: 100%;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: goldenrod;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(34, 32, 32);
+  padding: 0.2rem;
+  padding-right: 0.2rem;
+}
+
+.banner img {
+  object-fit: fill;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-style: solid;
+  border-color: rgb(19, 18, 18);
+}
+
+#contentContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  border-style: solid;
+  border-color: goldenrod;
+  border-top: 0.3rem;
+  background-color: #1c1c6e;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 15%;
+  row-gap: 10%;
+}
+
+.table {
+  border-collapse: collapse;
+  min-width: 30rem;
+  background-color: #292f33;
+  color: whitesmoke;
+  letter-spacing: 0.02rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: center;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: burlywood;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.table tr td {
+  border-bottom: 0.1rem solid burlywood;
+  border-top: 0.1rem solid burlywood;
+  border-left: none;
+  border-right: none;
+  padding: 1.6rem;
+}
+
+.dropdown-btn {
+  display: block;
+  padding: 5px 10px;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown-btn:hover {
+  background-color: #ddd;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f1f1f1;
+}

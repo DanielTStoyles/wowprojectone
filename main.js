@@ -14,7 +14,6 @@ import {
   // playerObjectData,
   // loadPlayer,
   // playerList,
-  consoleLogger,
   doc,
 } from "./tableMaker.js";
 
@@ -64,7 +63,7 @@ window.addPlayer = addPlayer;
 // window.loadPlayer = loadPlayer;
 window.dropBtn = dropBtn;
 // window.playerList = playerList;
-window.consoleLogger = consoleLogger;
+
 window.dropDisplay = dropDisplay;
 // window.classBtnStyle = classBtnStyle;
 window.pDropMenu = pDropMenu;
