@@ -163,7 +163,7 @@ li {
 }
 
 .tContainer {
-  position: relative;
+  position: absolute;
   display: flex;
   width: 100%;
   height: 100vh;
@@ -213,45 +213,62 @@ div.cloneForm {
 
 .modal {
   display: block;
-  position: absolute;
+  position: fixed;
   z-index: 1;
-  padding-top: 10px;
-  top: 10rem;
-  width: 70%;
-  height: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 50%;
   overflow: auto;
-  background-color: #20476d;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.55);
-
-  opacity: 0.9;
-  transform-origin: center;
-  transition: transform 0.8s ease-out, opacity 0.5s ease-out;
+  background-color: #0f5194;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 16px;
+  color: #333;
 }
 
 .modal-content {
   z-index: 1;
   display: flex;
-  font-size: x-large;
-  background-color: #20476d;
-  color: white;
-  margin: auto;
-  padding: 20px;
-  width: 80%;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  align-content: center;
+  background-color: #2a70b6;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 24px;
+  color: #333;
+  width: 80%;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
+
+/* .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+} */
 
 .close {
   position: absolute;
-  right: 22rem;
+  top: 3rem;
+  height: 2rem;
+  right: 40px;
+  background-color: transparent;
+  border: none;
   color: white;
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #888;
   text-decoration: none;
   cursor: pointer;
 }
@@ -288,4 +305,44 @@ div.formDiv {
   align-content: center;
   width: 6rem;
   height: 2rem;
+}
+
+.pageSelect {
+  background-color: #3498db;
+  border: none;
+  color: #fff;
+  width: 20rem;
+  height: 15rem;
+  padding: 30px 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 0 30rem;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.pageSelect:hover {
+  background-color: #2980b9;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+#outerButtonDiv {
+  position: absolute;
+  justify-self: center;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 75%;
+}
+
+#buttonDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

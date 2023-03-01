@@ -7,31 +7,32 @@ export const banner = document.getElementById("banner");
 export const specImages = banner.querySelectorAll("img");
 
 export function dropImages() {
+  const menu = document.getElementById("menu");
   for (let i = 0; i < specImages.length; i++) {
-    let item = specImages[i];
-    let listItem = document.createElement("li");
-    let listItemId = "listItem";
+    const item = specImages[i];
+    const listItemId = "listItem" + (i + 1);
+    let listItem = document.getElementById(listItemId);
 
-    listItem.setAttribute("class", "specList");
-    listItem.setAttribute("id", listItemId + (i + 1));
-
-    let listImage = document.createElement("img");
-    let listImageId = "listImage";
-    listImage.setAttribute("class", "listImage");
-    listImage.setAttribute("id", listImageId + (i + 1));
-    let id = listItem.id;
-    listImage.setAttribute("src", item.src);
-
-    listItem.appendChild(listImage);
-    document.getElementById("menu").appendChild(listItem);
-    listItem.addEventListener(
-      "click",
-      (e) => {
-        e.stopPropagation;
-        selectionImage(id);
-      },
-      false
-    );
+    if (!listItem) {
+      listItem = document.createElement("li");
+      listItem.setAttribute("class", "specList");
+      listItem.setAttribute("id", listItemId);
+      const listImage = document.createElement("img");
+      const listImageId = "listImage" + (i + 1);
+      listImage.setAttribute("class", "listImage");
+      listImage.setAttribute("id", listImageId);
+      listImage.setAttribute("src", item.src);
+      listItem.appendChild(listImage);
+      listItem.addEventListener(
+        "click",
+        (e) => {
+          e.stopPropagation;
+          selectionImage(listItemId);
+        },
+        false
+      );
+      menu.appendChild(listItem);
+    }
   }
 }
 

@@ -17,16 +17,7 @@ import {
   doc,
 } from "./tableMaker.js";
 
-import {
-  modalBtn,
-  span,
-  // modalButton,
-  // modalNone,
-  // hideModal,
-  modalMake,
-  addPlayer,
-  // classBtnStyle,
-} from "./modalWork.js";
+import { modalBtn, span, modalMake, addPlayer } from "./modalWork.js";
 
 import {
   banner,
