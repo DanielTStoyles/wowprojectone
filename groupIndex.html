@@ -53,7 +53,19 @@
       <img src="images/unholydk.png" />
       <img src="images/blooddk.png" />
     </div>
-    <div id="contentContainer"></div>
+    <div id="contentContainer">
+      <div class="cloneForm">
+        <form id="tblNumber">
+          <input id="userInput" type="number" autocomplete="off" />
+        </form>
+        <button
+          id="clones"
+          onclick="tblCloner(document.getElementById('userInput').value)"
+          type="submit"
+        >
+          Create New Group(s)
+        </button>
+    </div>
 
 
 </html>

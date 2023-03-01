@@ -200,13 +200,6 @@ a {
   color: hotpink;
 }
 
-div.cloneForm {
-  display: flex;
-  text-align: center;
-  position: absolute;
-  top: 1%;
-}
-
 #clones {
   height: fit-content;
   min-width: auto;
@@ -247,13 +240,6 @@ div.cloneForm {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-
-/* .modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-} */
 
 .close {
   position: absolute;

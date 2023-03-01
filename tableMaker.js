@@ -261,38 +261,3 @@ export function playerForms() {
     formHide();
   }
 }
-
-// export function playerForms() {
-//   let playerForm = document.getElementById("playerForm");
-//   playerForm.setAttribute("method", "post");
-//   playerForm.setAttribute("id", "playerForm");
-
-//   let pN = document.createElement("input");
-//   pN.setAttribute("id", "name");
-//   pN.setAttribute("type", "text");
-//   pN.setAttribute("placeholder", "Player Name");
-
-//   let charName = document.createElement("input");
-//   charName.setAttribute("id", "charName");
-//   charName.setAttribute("type", "text");
-//   charName.setAttribute("placeholder", "Character Name");
-
-//   let alternateRole = document.createElement("input");
-//   alternateRole.setAttribute("id", "alternateRole");
-//   alternateRole.setAttribute("type", "text");
-//   alternateRole.setAttribute("placeholder", "Alternate Role (optional)");
-
-//   document.getElementById("pF1").appendChild(pN);
-//   document.getElementById("pF2").appendChild(charName);
-//   document.getElementById("pF4").appendChild(alternateRole);
-
-//   let dataBtn = document.createElement("button");
-//   dataBtn.setAttribute("type", "submit");
-//   dataBtn.setAttribute("id", "dataBtn"), (dataBtn.textContent = "Save");
-//   document.getElementById("pF5").appendChild(dataBtn);
-// }
-
-// export function consoleLogger() {
-//   let playersList = Object.values(playerObject);
-//   console.log(playersList);
-// }
