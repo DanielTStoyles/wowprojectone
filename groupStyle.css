@@ -44,7 +44,7 @@ body {
 }
 
 #contentContainer {
-  position: relative;
+  position: absolute;
   display: flex;
   width: 100%;
   height: 100vh;
@@ -52,16 +52,24 @@ body {
   border-color: goldenrod;
   border-top: 0.3rem;
   background-color: #1c1c6e;
-  align-content: center;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  column-gap: 15%;
+  flex-direction: row;
+  column-gap: 10%;
   row-gap: 10%;
+  overflow-y: auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .table {
+  position: relative;
+  display: inline-block;
   border-collapse: collapse;
-  min-width: 30rem;
+  min-width: 10%;
+  max-width: 100%;
+  top: 20px;
   background-color: #292f33;
   color: whitesmoke;
   letter-spacing: 0.02rem;
@@ -71,13 +79,14 @@ body {
   border-style: solid;
   border-width: 0.1rem;
   border-color: burlywood;
+  overflow-y: auto;
 }
 
 .table th,
 .table td {
   padding: 10px;
-  text-align: left;
-  vertical-align: top;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .table th {
@@ -91,6 +100,11 @@ body {
   border-left: none;
   border-right: none;
   padding: 1.6rem;
+}
+
+.table img {
+  width: 4.5rem;
+  height: auto;
 }
 
 .dropdown-btn {
@@ -111,6 +125,8 @@ body {
   display: none;
   position: absolute;
   z-index: 1;
+  top: 100%;
+  left: 0%;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;

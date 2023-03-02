@@ -132,12 +132,14 @@ export function modalMake() {
 }
 
 export function addPlayer() {
+  const dropButn = document.getElementById("dropBtn");
+
   let player = {
     id: Date.now(),
     name: document.getElementById("name").value,
     CharName: document.getElementById("charName").value,
     classSpec: document.getElementById("alternateRole").value,
-    specialImage: document.getElementById("listImage1").src,
+    specialImage: dropButn.querySelector("img").src,
   };
 
   playerObject.push(player);

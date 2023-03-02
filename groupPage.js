@@ -19,9 +19,12 @@ function groupTblMake() {
     let table = document.createElement("table");
     table.classList.add("table");
 
+    const wowImg = document.createElement("img");
+    wowImg.src = "images/wowclassic.jpg";
+
     let headerRow = document.createElement("tr");
     let headerCell1 = document.createElement("th");
-    headerCell1.textContent = "button";
+    headerCell1.appendChild(wowImg);
     let headerCell2 = document.createElement("th");
     headerCell2.textContent = "Character Name";
     let headerCell3 = document.createElement("th");
@@ -39,7 +42,7 @@ function groupTblMake() {
       let cell1 = document.createElement("td");
       let button = document.createElement("button");
       button.classList.add("dropdown-btn");
-      button.textContent = "Button " + (i + 1);
+      button.textContent = "Choose Player";
       cell1.appendChild(button);
       let cell2 = document.createElement("td");
       row.appendChild(cell1);
@@ -53,18 +56,20 @@ function groupTblMake() {
 
     tableContainer.appendChild(table);
 
+    let playerObject = JSON.parse(localStorage.getItem("playerList"));
+
     let dropdownMenu = document.createElement("div");
     dropdownMenu.classList.add("dropdown-menu");
     let ul = document.createElement("ul");
     dropdownMenu.appendChild(ul);
 
-    for (let i = 0; i < myArray.length; i++) {
+    for (let i = 0; i < playerObject.length; i++) {
       let li = document.createElement("li");
       li.classList.add("fill-cell");
-      li.setAttribute("data-charName", myArray[i].Name);
-      li.setAttribute("data-classSpec", myArray[i].Class);
-      li.setAttribute("data-role", myArray[i].Role);
-      li.textContent = myArray[i].Name;
+      li.setAttribute("data-charName", playerObject[i].name);
+      li.setAttribute("data-classSpec", playerObject[i].classSpec);
+      li.setAttribute("data-role", playerObject[i].specialImage);
+      li.textContent = playerObject[i].name;
       ul.appendChild(li);
     }
 
@@ -87,7 +92,10 @@ function groupTblMake() {
         let tableCells = tableRows[currentRow].querySelectorAll("td");
         tableCells[1].textContent = this.getAttribute("data-charName");
         tableCells[2].textContent = this.getAttribute("data-classSpec");
-        tableCells[3].textContent = this.getAttribute("data-role");
+        tableCells[3].innerHTML =
+          '<img src="' +
+          this.getAttribute("data-role") +
+          '" alt="Class Spec Image">';
         hideDropdownMenu(dropdownMenu);
       });
     }
@@ -102,9 +110,14 @@ function groupTblMake() {
     let showDropdownMenu = function (button, dropdownMenu) {
       hideAllDropdownMenus();
       dropdownMenu.style.display = "block";
-      let buttonPosition = button.getBoundingClientRect();
-      dropdownMenu.style.top = buttonPosition.bottom + "px";
-      dropdownMenu.style.left = buttonPosition.left + "px";
+
+      let buttonRect = button.getBoundingClientRect();
+      let containerRect = button.offsetParent.getBoundingClientRect();
+      let top = buttonRect.top - containerRect.top + buttonRect.height;
+      let left = buttonRect.left - containerRect.left;
+
+      dropdownMenu.style.top = top + "px";
+      dropdownMenu.style.left = left + "px";
     };
 
     let hideDropdownMenu = function (dropdownMenu) {
@@ -113,10 +126,6 @@ function groupTblMake() {
   };
 
   createTable("table1");
-  // createTable("table2");
-  // createTable("table3");
-  // createTable("table4");
-  // createTable("table5");
 }
 
 function tblCloner() {
