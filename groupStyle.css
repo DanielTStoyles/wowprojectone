@@ -11,6 +11,9 @@ body {
   height: 99%;
 }
 
+.navContainer {
+  background-image: url("images/woopsie.jpg");
+}
 .navbar {
   height: 100%;
   width: 100%;
