@@ -10,7 +10,7 @@
     <script src="groupPage.js" defer></script>
     <style>
       body {
-        background-image: url("images/wotlk.jpg");
+        background-image: url("images/wotlk2.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         margin: 0;
@@ -64,7 +64,13 @@
     <div id="contentContainer">
       <div class="cloneForm">
         <form id="tblNumber">
-          <input id="userInput" type="number" autocomplete="off" />
+          <input
+            id="userInput"
+            type="text"
+            pattern="[0-9]"
+            inputmode="numeric"
+            autocomplete="off"
+          />
         </form>
         <button
           id="clones"

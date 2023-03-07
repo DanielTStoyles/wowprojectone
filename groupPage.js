@@ -19,6 +19,36 @@ function groupTblMake() {
     let table = document.createElement("table");
     table.classList.add("table");
 
+    let tableCaption = document.createElement("caption");
+    tableCaption.classList.add("caption");
+    tableCaption.textContent = "My Group Table";
+
+    let editIcon = document.createElement("img");
+    editIcon.classList.add("edit-icon");
+    editIcon.src = "images/edit-box-icon.png";
+    editIcon.alt = "Edit Icon";
+    editIcon.addEventListener("click", function () {
+      let captionInput = document.createElement("input");
+      captionInput.type = "text";
+      captionInput.value = tableCaption.textContent;
+      captionInput.classList.add("caption-input", "fas", "fas-edit");
+
+      captionInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          tableCaption.textContent = this.value;
+          this.blur();
+          tableCaption.appendChild(editIcon);
+        }
+      });
+
+      tableCaption.replaceWith(captionInput);
+      captionInput.focus();
+      captionInput.select();
+    });
+
+    tableCaption.appendChild(editIcon);
+    table.appendChild(tableCaption);
+
     const wowImg = document.createElement("img");
     wowImg.src = "images/wowclassic.jpg";
 
