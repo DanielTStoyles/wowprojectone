@@ -15,6 +15,7 @@ import {
   // loadPlayer,
   // playerList,
   doc,
+  playerWindow,
 } from "./tableMaker.js";
 
 import { modalBtn, span, modalMake, addPlayer } from "./modalWork.js";
@@ -59,3 +60,6 @@ window.dropDisplay = dropDisplay;
 // window.classBtnStyle = classBtnStyle;
 window.pDropMenu = pDropMenu;
 // window.pDropDisplay = pDropDisplay;
+window.playerWindow = playerWindow;
+
+playerWindow();
