@@ -261,3 +261,25 @@ export function playerForms() {
     formHide();
   }
 }
+
+export function playerWindow() {
+  const playerWindow = doc.createElement("div");
+  playerWindow.class = "playerWindow";
+  playerWindow.id = "playerWindow";
+  const titleText = doc.createTextNode("Player Profiles");
+  titleText.class = "titleText";
+  let listOfP = doc.createElement("ul");
+  playerWindow.appendChild(titleText);
+  playerWindow.appendChild(listOfP);
+
+  function makeList() {
+    let listOfPlayers = JSON.parse(localStorage.getItem("playerList"));
+    for (let i = 0; i < listOfPlayers.length; i++) {
+      const listItem = doc.createElement("li");
+      listItem.innerText = listOfPlayers[i].name;
+      listOfP.appendChild(listItem);
+    }
+  }
+  document.getElementById("tContainer").appendChild(playerWindow);
+  makeList();
+}
