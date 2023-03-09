@@ -266,8 +266,9 @@ export function playerWindow() {
   const playerWindow = doc.createElement("div");
   playerWindow.class = "playerWindow";
   playerWindow.id = "playerWindow";
-  const titleText = doc.createTextNode("Player Profiles");
+  const titleText = doc.createElement("p");
   titleText.class = "titleText";
+  titleText.innerText = "Saved Players";
   let listOfP = doc.createElement("ul");
   playerWindow.appendChild(titleText);
   playerWindow.appendChild(listOfP);
