@@ -208,7 +208,7 @@ caption,
   position: relative;
   font-size: 2rem;
   font-weight: bold;
-  justify-content: space-between;
+  justify-content: center;
   align-content: center;
   align-items: center;
   padding: 1rem;
@@ -238,6 +238,24 @@ caption,
   position: relative;
 }
 
+@keyframes wiggle {
+  0% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-50%) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-50%) rotate(-5deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+}
+
 .edit-icon:hover {
-  transform: rotate(10deg);
+  animation: wiggle 0.3s ease infinite;
 }

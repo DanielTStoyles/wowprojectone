@@ -37,8 +37,12 @@ function groupTblMake() {
         if (event.key === "Enter") {
           tableCaption.textContent = this.value;
           this.blur();
-          tableCaption.appendChild(editIcon);
         }
+      });
+
+      captionInput.addEventListener("blur", function () {
+        tableCaption.appendChild(editIcon);
+        this.replaceWith(tableCaption);
       });
 
       tableCaption.replaceWith(captionInput);
