@@ -67,6 +67,10 @@ body {
   padding-top: 2.5rem;
 }
 
+.table-container {
+  position: relative;
+}
+
 .table {
   position: relative;
   display: inline-block;
@@ -130,8 +134,6 @@ body {
   display: none;
   position: absolute;
   z-index: 1;
-  top: 100%;
-  left: 0%;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 4px;

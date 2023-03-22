@@ -11,9 +11,9 @@ const myArray = [
 const contentContainer = document.getElementById("contentContainer");
 
 function groupTblMake() {
-  let createTable = function (containerId) {
+  let createTable = function () {
     let tableContainer = document.createElement("div");
-    tableContainer.id = containerId;
+    tableContainer.classList.add("table-container");
     contentContainer.appendChild(tableContainer);
 
     let table = document.createElement("table");
@@ -92,6 +92,7 @@ function groupTblMake() {
     dropdownMenu.classList.add("dropdown-menu");
     let ul = document.createElement("ul");
     dropdownMenu.appendChild(ul);
+    console.log(dropdownMenu);
 
     for (let i = 0; i < playerObject.length; i++) {
       let li = document.createElement("li");
@@ -103,7 +104,7 @@ function groupTblMake() {
       ul.appendChild(li);
     }
 
-    contentContainer.appendChild(dropdownMenu);
+    tableContainer.appendChild(dropdownMenu);
 
     let currentRow = -1;
 
@@ -111,7 +112,7 @@ function groupTblMake() {
     for (let i = 0; i < dropdownBtns.length; i++) {
       dropdownBtns[i].addEventListener("click", function () {
         currentRow = this.parentNode.parentNode.rowIndex;
-        showDropdownMenu(this, dropdownMenu);
+        showDropdownMenu(this, dropdownMenu, tableContainer);
       });
     }
 
@@ -137,13 +138,13 @@ function groupTblMake() {
       }
     };
 
-    let showDropdownMenu = function (button, dropdownMenu) {
+    let showDropdownMenu = function (button, dropdownMenu, tableContainer) {
       hideAllDropdownMenus();
       dropdownMenu.style.display = "block";
 
       let buttonRect = button.getBoundingClientRect();
-      let containerRect = button.offsetParent.getBoundingClientRect();
-      let top = buttonRect.top - containerRect.top + buttonRect.height;
+      let containerRect = tableContainer.getBoundingClientRect();
+      let top = buttonRect.bottom - containerRect.top;
       let left = buttonRect.left - containerRect.left;
 
       dropdownMenu.style.top = top + "px";
