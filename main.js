@@ -1,19 +1,12 @@
 /* @format */
 
 import {
-  players,
-  // data,
   tContainer,
   genTbl2,
   genTbl,
   editRelease,
   editButton,
   tblCloner,
-  formHide,
-  playerForms,
-  // playerObjectData,
-  // loadPlayer,
-  // playerList,
   doc,
   playerWindow,
 } from "./tableMaker.js";
@@ -28,8 +21,6 @@ import {
   dropDisplay,
   selectionImage,
   dropBtn,
-  pDropMenu,
-  // pDropDisplay,
 } from "./dropMenuMaker.js";
 
 window.doc = doc;
@@ -39,27 +30,16 @@ window.editRelease = editRelease;
 window.editButton = editButton;
 window.tblCloner = tblCloner;
 modalBtn.onclick = modalMake;
-// window.dropDisplay = dropDisplay;
 window.dropMenu = dropMenu;
 window.dropImages = dropImages;
 window.specImages = specImages;
 window.banner = banner;
 window.selectionImage = selectionImage;
-window.players = players;
-// window.data = data;
 
 window.tContainer = tContainer;
 window.addPlayer = addPlayer;
-// window.playerForms = playerForms;
-// window.playerObjectData = playerObjectData;
-// window.loadPlayer = loadPlayer;
 window.dropBtn = dropBtn;
-// window.playerList = playerList;
-
 window.dropDisplay = dropDisplay;
-// window.classBtnStyle = classBtnStyle;
-window.pDropMenu = pDropMenu;
-// window.pDropDisplay = pDropDisplay;
 window.playerWindow = playerWindow;
 
 playerWindow();

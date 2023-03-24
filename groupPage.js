@@ -19,6 +19,8 @@ function groupTblMake() {
     let table = document.createElement("table");
     table.classList.add("table");
 
+    let captionDiv = document.createElement("div");
+    captionDiv.setAttribute("class", "captionDiv");
     let tableCaption = document.createElement("caption");
     tableCaption.classList.add("caption");
     tableCaption.textContent = "My Group Table";
@@ -51,7 +53,8 @@ function groupTblMake() {
     });
 
     tableCaption.appendChild(editIcon);
-    table.appendChild(tableCaption);
+    captionDiv.append(tableCaption);
+    table.appendChild(captionDiv);
 
     const wowImg = document.createElement("img");
     wowImg.src = "images/wowclassic.jpg";
@@ -60,11 +63,11 @@ function groupTblMake() {
     let headerCell1 = document.createElement("th");
     headerCell1.appendChild(wowImg);
     let headerCell2 = document.createElement("th");
-    headerCell2.textContent = "Character Name";
+    headerCell2.textContent = "Name";
     let headerCell3 = document.createElement("th");
-    headerCell3.textContent = "Class/Spec";
+    headerCell3.textContent = "Role";
     let headerCell4 = document.createElement("th");
-    headerCell4.textContent = "Role";
+    headerCell4.textContent = "Class";
     headerRow.appendChild(headerCell1);
     headerRow.appendChild(headerCell2);
     headerRow.appendChild(headerCell3);

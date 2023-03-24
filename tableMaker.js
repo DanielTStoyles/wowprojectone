@@ -1,21 +1,4 @@
 /* @format */
-import {
-  banner,
-  specImages,
-  dropImages,
-  dropMenu,
-  dropDisplay,
-  selectionImage,
-  pDropMenu,
-} from "./dropMenuMaker.js";
-
-export let players = [
-  { Name: "Wugz", Class: "druid", Role: "dps" },
-  { Name: "Jet", Class: "warrior", Role: "tank" },
-  { Name: "Ehm", Class: "mage", Role: "dps" },
-  { Name: "Jonald", Class: "mage", Role: "dps" },
-  { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
-];
 
 export const doc = document;
 

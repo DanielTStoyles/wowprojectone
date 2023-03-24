@@ -40,10 +40,6 @@ export function dropMenu() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
-export function pDropMenu() {
-  document.getElementById("pMyDropdown").classList.toggle("show");
-}
-
 export const dropDisplay = (event) => {
   if (!event.target.matches(".dropbtn")) {
     let dropdowns = document.getElementsByClassName("dropdown-content");
@@ -59,9 +55,34 @@ export const dropDisplay = (event) => {
 };
 
 export function selectionImage(id) {
-  document.getElementById("dropBtn").innerHTML =
-    document.getElementById(id).innerHTML;
-  document.getElementById("dropBtn").style.padding = "0px";
-  document.getElementById("dropBtn").style.backgroundColor = "#133c94";
-  document.getElementById("myDropdown").classList.toggle("show");
+  const listItem = document.getElementById(id);
+  const listImage = listItem.querySelector("img");
+  const imageUrl = listImage.getAttribute("src");
+  const imageWidth = listImage.clientWidth;
+  const imageHeight = listImage.clientHeight;
+
+  const scaleFactor = 1.4;
+  const scaledWidth = imageWidth * scaleFactor;
+  const scaledHeight = imageHeight * scaleFactor;
+
+  const dropBtn = document.getElementById("dropBtn");
+  dropBtn.innerHTML = "";
+  const newImage = document.createElement("img");
+  newImage.setAttribute("src", imageUrl);
+  newImage.style.width = scaledWidth + "px";
+  newImage.style.height = scaledHeight + "px";
+
+  newImage.addEventListener("click", function (event) {
+    if (event.target === newImage) {
+      dropMenu(event), dropImages();
+    }
+  });
+
+  dropBtn.appendChild(newImage);
+
+  dropBtn.style.backgroundColor = "transparent";
+  dropBtn.style.border = "none";
+  dropBtn.style.padding = "0px";
+
+  document.getElementById("myDropdown").classList.remove("show");
 }

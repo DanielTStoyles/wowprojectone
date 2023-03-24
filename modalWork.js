@@ -1,6 +1,6 @@
 /* @format */
-import { dropDisplay } from "./dropMenuMaker.js";
-import { tContainer, playerForms, playerObject } from "./tableMaker.js";
+// import { dropDisplay } from "./dropMenuMaker.js";
+import { tContainer, playerForms, playerObject, doc } from "./tableMaker.js";
 
 export const modalBtn = document.getElementById("modalBtn");
 
@@ -28,7 +28,7 @@ export function modalMake() {
     }
   });
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
+    if (event.key === "Escape" && tContainer.contains(modal)) {
       modalReset();
     }
   });
@@ -66,19 +66,13 @@ export function modalMake() {
   pN.setAttribute("type", "text");
   pN.setAttribute("placeholder", "Player Name");
 
-  let charName = document.createElement("input");
-  charName.setAttribute("id", "charName");
-  charName.setAttribute("type", "text");
-  charName.setAttribute("placeholder", "Character Name(s)");
-
   let alternateRole = document.createElement("input");
   alternateRole.setAttribute("id", "alternateRole");
   alternateRole.setAttribute("type", "text");
-  alternateRole.setAttribute("placeholder", "Alternate Role (optional)");
+  alternateRole.setAttribute("placeholder", "Role");
 
   document.getElementById("pF1").appendChild(pN);
-  document.getElementById("pF2").appendChild(charName);
-  document.getElementById("pF4").appendChild(alternateRole);
+  document.getElementById("pF2").appendChild(alternateRole);
 
   let dataBtn = document.createElement("button");
   dataBtn.setAttribute("type", "button");
@@ -88,37 +82,37 @@ export function modalMake() {
     if (event.target === dataBtn) {
       addPlayer();
       console.log(originalDropBtnStyle);
-      document.getElementById("listImage1").remove();
       classBtn.innerHTML = originalDropBtnStyle.innerHTML;
       classBtn.style.padding = originalDropBtnStyle.padding;
-      classBtn.backgroundColor = originalDropBtnStyle.backgroundColor;
+      classBtn.backgroundColor = classBtn.style.backgroundColor = "#632908b7";
     }
   });
 
+  let dropdownWrapper = doc.createElement("div");
+  document.getElementById("pF3").appendChild(dropdownWrapper);
   let classBtn = document.createElement("button");
   let textNode = document.createTextNode("Class/Spec");
   classBtn.setAttribute("id", "dropBtn");
   classBtn.setAttribute("class", "dropBtn");
   classBtn.setAttribute("type", "button");
   classBtn.appendChild(textNode);
-  document.getElementById("pF3").appendChild(classBtn);
+  dropdownWrapper.appendChild(classBtn);
 
   const originalDropBtnStyle = {
     innerHTML: classBtn.innerHTML,
     padding: (classBtn.style.padding = "16px"),
-    backgroundColor: (classBtn.style.backgroundColor = "rgb(90, 120, 139)"),
   };
 
   classBtn.addEventListener("click", function (event) {
     if (event.target === classBtn) {
-      dropMenu(), dropImages();
+      dropMenu(event), dropImages();
     }
   });
 
   let dropDiv = document.createElement("div");
   dropDiv.setAttribute("class", "dropdown");
   dropDiv.setAttribute("id", "dropdown");
-  document.getElementById("pF3").appendChild(dropDiv);
+  dropdownWrapper.appendChild(dropDiv);
 
   let dropdownDiv = document.createElement("div");
   dropdownDiv.setAttribute("id", "myDropdown");
@@ -137,7 +131,6 @@ export function addPlayer() {
   let player = {
     id: Date.now(),
     name: document.getElementById("name").value,
-    CharName: document.getElementById("charName").value,
     classSpec: document.getElementById("alternateRole").value,
     specialImage: dropButn.querySelector("img").src,
   };

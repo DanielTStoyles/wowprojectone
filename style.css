@@ -2,19 +2,29 @@
 
 html {
   font-size: 62.5%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #1c1c6e;
-  width: 99%;
-  height: 99%;
+  width: 100%;
+  min-height: 100%;
+  background-image: url("images/wotlk.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  color: rgba(255, 255, 255, 0.959);
 }
 .title {
   display: flex;
@@ -27,21 +37,19 @@ body {
 }
 
 .banner {
-  width: 100%;
+  width: calc(100% - 0.2rem);
   border-style: solid;
   border-width: 0.1rem;
   border-color: goldenrod;
   display: flex;
   justify-content: space-between;
   background-color: rgb(34, 32, 32);
-  padding: 0.2rem;
-  padding-right: 0.2rem;
 }
 
 .banner img {
-  object-fit: fill;
-  width: 4.8rem;
-  height: 4.8rem;
+  object-fit: contain;
+  width: 5rem;
+  height: 5rem;
   border-style: solid;
   border-color: rgb(19, 18, 18);
 }
@@ -77,28 +85,39 @@ body {
 }
 
 .dropBtn {
-  background-color: #5a788b;
+  background-color: #632908b7;
   color: white;
-  padding: 16px;
+  padding: 12px 16px;
   font-size: 16px;
+  font-family: Arial, sans-serif;
   border: none;
+  border-radius: 4px;
   cursor: pointer;
   z-index: 1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s, box-shadow 0.2s;
 }
 
-.dropbtn:focus {
+.dropBtn:hover {
+  background-color: #3c5973;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dropBtn:active {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.dropBtn:focus {
   background-color: #5a788b;
-  overflow-y: auto;
-  overflow-x: hidden;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.dropbtn:focus .dropdown-content {
+  display: block;
 }
 
 .dropdown {
-  display: inline-block;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
-.pDropdown {
   display: inline-block;
   overflow-x: hidden;
   overflow-y: auto;
@@ -119,31 +138,8 @@ body {
   z-index: 1;
 }
 
-.pDropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  border-style: inset;
-  border-color: goldenrod;
-  border-width: 0.3rem;
-  min-width: 5.5rem;
-  max-height: 28rem;
-  overflow-x: hidden;
-  overflow-y: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
 .menu {
   width: 1.5rem;
-}
-
-.pMenu {
-  width: 1.5rem;
-}
-
-.pDropdown-menu {
-  display: none;
 }
 
 .show {
@@ -158,31 +154,20 @@ body {
   height: fit-content;
 }
 
-li {
-  cursor: pointer;
-  color: black;
-  justify-content: center;
-  margin-bottom: 0.3rem;
-  text-align: justify;
-}
-
 .tContainer {
-  position: absolute;
   display: flex;
   width: 100%;
   height: 100vh;
   background-image: url("images/pexels-benjamin-suter-3617500.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  border-style: solid;
-  border-color: goldenrod;
-  border-top: 0.3rem;
   background-color: #1c1c6e;
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
   column-gap: 15%;
   row-gap: 10%;
+  flex: 1;
 }
 
 #selectionText {
@@ -202,10 +187,6 @@ li {
   height: 2rem;
 }
 
-a {
-  color: hotpink;
-}
-
 #clones {
   height: fit-content;
   min-width: auto;
@@ -221,12 +202,12 @@ a {
   width: 60%;
   height: 50%;
   overflow: auto;
-  background-color: #0f5194;
+  background-color: #134f95;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   padding: 20px;
   font-size: 16px;
-  color: #333;
+  color: #f2d271;
 }
 
 .modal-content {
@@ -235,16 +216,20 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #2a70b6;
+  background-image: linear-gradient(to bottom, #8b4513, #ffa07ada, #8b4513);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  padding: 20px;
-  font-size: 24px;
-  color: #333;
+  padding: 2rem;
+  font-size: 2.4rem;
+  font-family: "Cinzel", serif;
+  color: #f2d271;
   width: 80%;
+  height: 80%;
   margin: auto;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  border: 5px groove #ff9f33;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .close {
@@ -291,7 +276,7 @@ div.formDiv {
 #modalCaption {
   font-size: xx-large;
   font-weight: 200;
-  color: yellow;
+  color: rgb(59, 59, 55);
 }
 
 .playerBtn {
@@ -327,11 +312,11 @@ div.formDiv {
 #outerButtonDiv {
   position: absolute;
   justify-self: center;
-  top: 80%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 75%;
-  height: 75%;
+  height: 30%;
 }
 
 #buttonDiv {
@@ -365,7 +350,7 @@ ul {
   width: 100%;
 }
 
-li {
+#playerWindow li {
   font-size: 2rem;
   padding: 1rem;
   font-family: "Cinzel", serif;
@@ -378,3 +363,24 @@ li {
 li:last-child {
   border-bottom: none;
 }
+
+li {
+  font-size: 2rem;
+  font-family: "Cinzel", serif;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.3rem;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: black;
+  justify-content: center;
+  margin-bottom: 0.3rem;
+  text-align: justify;
+}
+
+/* * {
+  outline: 1px solid rgba(255, 0, 0, 0.5);
+} */
