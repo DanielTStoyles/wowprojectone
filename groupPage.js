@@ -19,9 +19,11 @@ function groupTblMake() {
     let table = document.createElement("table");
     table.classList.add("table");
 
-    let captionDiv = document.createElement("div");
-    captionDiv.setAttribute("class", "captionDiv");
-    let tableCaption = document.createElement("caption");
+    let tableCaption = document.createElement("div");
+
+    let tableCaptionWrapper = document.createElement("caption");
+    tableCaptionWrapper.classList.add("caption-wrapper");
+
     tableCaption.classList.add("caption");
     tableCaption.textContent = "My Group Table";
 
@@ -29,6 +31,8 @@ function groupTblMake() {
     editIcon.classList.add("edit-icon");
     editIcon.src = "images/edit-box-icon.png";
     editIcon.alt = "Edit Icon";
+    tableCaptionWrapper.appendChild(tableCaption);
+
     editIcon.addEventListener("click", function () {
       let captionInput = document.createElement("input");
       captionInput.type = "text";
@@ -53,8 +57,7 @@ function groupTblMake() {
     });
 
     tableCaption.appendChild(editIcon);
-    captionDiv.append(tableCaption);
-    table.appendChild(captionDiv);
+    table.appendChild(tableCaptionWrapper);
 
     const wowImg = document.createElement("img");
     wowImg.src = "images/wowclassic.jpg";
