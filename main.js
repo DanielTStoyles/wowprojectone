@@ -24,11 +24,11 @@ import {
 } from "./dropMenuMaker.js";
 
 window.doc = doc;
-window.genTbl2 = genTbl2;
-window.genTbl = genTbl;
-window.editRelease = editRelease;
-window.editButton = editButton;
-window.tblCloner = tblCloner;
+// window.genTbl2 = genTbl2;
+// window.genTbl = genTbl;
+// window.editRelease = editRelease;
+// window.editButton = editButton;
+// window.tblCloner = tblCloner;
 modalBtn.onclick = modalMake;
 window.dropMenu = dropMenu;
 window.dropImages = dropImages;
