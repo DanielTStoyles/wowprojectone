@@ -7,7 +7,9 @@
       <meta charset="UTF=8" />
       <title>Raid Roster</title>
       <link rel="stylesheet" href="groupStyle.css" type="text/css" />
-      <script src="groupPage.js" defer></script>
+
+      <script type="module" src="main.js" defer></script>
+      <script type="module" src="groupPage.js" defer></script>
     </head>
 
     <div class="navContainer">
@@ -64,12 +66,21 @@
         </form>
         <button
           id="clones"
-          onclick="tblCloner(document.getElementById('userInput').value)"
+          class="clones"
+          
           type="submit"
         >
           Create New Group(s)
         </button>
+
+        <button type="button" class="clones" id="modalBtn">
+          +Create New Player
+        </button>
       </div>
+
+
+          
+
     </div>
   </body>
 </html>

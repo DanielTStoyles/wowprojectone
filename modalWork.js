@@ -1,6 +1,10 @@
 /* @format */
-// import { dropDisplay } from "./dropMenuMaker.js";
-import { tContainer, playerForms, playerObject, doc } from "./tableMaker.js";
+import { contentContainer} from "./groupPage.js";
+
+
+export const doc = document;
+
+export const playerObject = [];
 
 export const modalBtn = document.getElementById("modalBtn");
 
@@ -10,14 +14,14 @@ export const focusColor = document.getElementById("focusColor");
 export function modalReset() {
   let modal = document.getElementById("myModal");
   modal.removeChild(document.getElementById("modalCont"));
-  tContainer.removeChild(modal);
+  contentContainer.removeChild(modal);
 }
 
 export function modalMake() {
   let modal = document.createElement("div");
   modal.id = "myModal";
   modal.className = "modal";
-  tContainer.appendChild(modal);
+  contentContainer.appendChild(modal);
   const close = document.createElement("span");
   close.innerHTML = "&times";
   close.className = "close";
@@ -28,7 +32,7 @@ export function modalMake() {
     }
   });
   document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape" && tContainer.contains(modal)) {
+    if (event.key === "Escape" && contentContainer.contains(modal)) {
       modalReset();
     }
   });

@@ -1,16 +1,6 @@
-/** @format */
+export const contentContainer = document.getElementById("contentContainer");
 
-const myArray = [
-  { Name: "Wugz", Class: "druid", Role: "dps" },
-  { Name: "Jet", Class: "warrior", Role: "tank" },
-  { Name: "Ehm", Class: "mage", Role: "dps" },
-  { Name: "Jonald", Class: "mage", Role: "dps" },
-  { Name: "Tehroller", Class: "Paladin", Spec: "Holy", Role: "heals" },
-];
-
-const contentContainer = document.getElementById("contentContainer");
-
-function groupTblMake() {
+export function groupTblMake() {
   let createTable = function () {
     let tableContainer = document.createElement("div");
     tableContainer.classList.add("table-container");
@@ -94,6 +84,8 @@ function groupTblMake() {
       table.appendChild(row);
     }
 
+
+
     tableContainer.appendChild(table);
 
     let playerObject = JSON.parse(localStorage.getItem("playerList"));
@@ -169,7 +161,7 @@ function groupTblMake() {
   createTable("table1");
 }
 
-function tblCloner() {
+export function tblCloner() {
   let userValue = document.getElementById("userInput").value;
   let i = 0;
   for (i = 0; i < userValue; i++) {
