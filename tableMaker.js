@@ -256,9 +256,11 @@ export function playerWindow() {
       listOfP.appendChild(listItem);
     }
   }
-  document.getElementById("contentContainer").appendChild(playerWindow);
+  document.getElementById("sidePanel").appendChild(playerWindow);
   makeList();
 }
+
+
 
 // export function groupTblMake() {
 //   let createTable = function () {

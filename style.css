@@ -337,7 +337,7 @@ div.formDiv {
   font-size: 2.5rem;
 }
 
-ul {
+#playerWindow.ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
