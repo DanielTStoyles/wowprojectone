@@ -169,3 +169,4 @@ export function tblCloner() {
   }
   document.getElementById("tblNumber").reset();
 }
+

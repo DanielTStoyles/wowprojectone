@@ -19,6 +19,20 @@ cloneButton.addEventListener("click", function() {
   tblCloner(document.getElementById("userInput").value);
 });
 
+const tabButton=document.getElementById("tabButton");
+tabButton.addEventListener("click", function () {
+  const sidePanel = document.getElementById("sidePanel");
+  const tabButton = document.getElementById("tabButton");
+  if (sidePanel.style.right === "0px") {
+    sidePanel.style.right = "-250px";
+    tabButton.style.right = "0px"; 
+  } else {
+    sidePanel.style.right = "0px";
+    tabButton.style.right = "250px"; 
+  }
+});
+
+
 window.doc = doc;
 modalBtn.onclick = modalMake;
 window.dropMenu = dropMenu;
