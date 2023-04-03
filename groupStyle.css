@@ -87,7 +87,6 @@ html {
   display: table;
   border-collapse: collapse;
   width: 100%;
-  top: 2rem;
   background-color: #292f33;
   color: whitesmoke;
   letter-spacing: 0.02rem;
@@ -586,11 +585,13 @@ margin: 3rem;
   }
 
   .cloneForm {
-    position: static;
+    position: relative;
     transform: none;
     justify-content: space-evenly;
-    margin-bottom: 15px;
+    margin-top: 1.5rem;
+    margin-bottom: 4rem;
   }
+  
 
   .mobileHide{
     display:none;
@@ -605,5 +606,37 @@ margin: 3rem;
   margin: 1rem;
 }
 
+#tabButton{
+  top: 1rem;
 
 }
+
+.table {
+   font-size: 1.4rem;
+   max-width: 95%;
+   align-self: center;
+
+}
+
+.table th,
+.table td {
+  padding: 5px;
+}
+
+.table tr td {
+  padding: 0.8rem;
+}
+
+.table img {
+  width: 3.5rem;
+}
+
+.caption-wrapper{
+
+  max-width: 90%;
+  
+}
+
+}
+
+
