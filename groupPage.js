@@ -2,6 +2,7 @@ export const contentContainer = document.getElementById("contentContainer");
 
 export function groupTblMake() {
   let createTable = function () {
+    // const contentWrapper=document.getElementById("contentWrapper");
     let tableContainer = document.createElement("div");
     tableContainer.classList.add("table-container");
     contentContainer.appendChild(tableContainer);

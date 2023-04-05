@@ -7,18 +7,20 @@ html {
   padding: 0;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 
   body {
     font-family: Arial, Helvetica, sans-serif;
     min-width: 100%;
-    min-height: 100vh;
+    max-height: 100vh;
     background-color: rgb(17, 16, 16);
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
   }
 
 
@@ -61,7 +63,7 @@ html {
   display: flex;
   flex: 1;
   min-width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 15.8rem);
   position: relative;
   background-color: transparent;
   justify-content: center;
@@ -70,23 +72,25 @@ html {
   flex-direction: row;
   column-gap: 10%;
   row-gap: 10%;
-  overflow-y: auto;
   box-sizing: border-box;
-  padding-top: 2.5rem;
+  overflow-y: auto;
 }
 
 .table-container {
   display: flex;
-  flex-direction: column;
   position: relative;
-  min-width: 24%;
+  flex-direction: column;
+  max-width: 22%;
+  flex-wrap: wrap;
+  margin: 1rem;
+  top:10rem;
 }
 
 .table {
   position: relative;
   display: table;
   border-collapse: collapse;
-  width: 100%;
+  min-width: 95%;
   background-color: #292f33;
   color: whitesmoke;
   letter-spacing: 0.02rem;
@@ -96,8 +100,8 @@ html {
   border-style: solid;
   border-width: 0.1rem;
   border-color: burlywood;
-  overflow-y: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  justify-content: center;
 }
 
 .table th,
@@ -137,6 +141,7 @@ html {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  z-index: 1000;
 }
 
 .dropdown-btn:hover {
@@ -197,7 +202,8 @@ div.cloneForm {
   top: 2rem; 
   left: 50%; 
   transform: translate(-50%, -50%);
-  width: 100%;
+  min-width: 100%;
+  z-index: 1000;
 }
 
 input[type="text"],
@@ -239,6 +245,7 @@ caption,
   cursor: text;
   border-radius: 1rem;
   margin-bottom: 0.5rem;
+  overflow-y: auto;
  
 }
 
@@ -504,10 +511,10 @@ margin: 3rem;
 
 #sidePanel {
   position: fixed;
-  top: 0;
+  top: 20rem;
   right: -50rem; 
   width: 25rem;
-  height: 100%;
+  max-height: 100%;
   background-image: url("images/vintage-grungy-textured-paper-background.jpg");
   background-repeat: repeat;
   background-color: #f1f1f1;
@@ -521,7 +528,7 @@ margin: 3rem;
 
 #tabButton {
   position: fixed;
-  top: 16.8rem;
+  top: 25rem;
   right: 0;
   background-color: #3751e4;
   color: #fff;
@@ -562,26 +569,25 @@ margin: 3rem;
 
     flex-wrap: wrap;
     max-width: 99%;
- 
   }
 
   .banner img {
-
     max-width: 3.6rem;
     height: auto;
- 
   }
 
   #contentContainer {
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     padding-top: 0;
     column-gap: 0;
     row-gap: 1.5rem;
+    min-height: calc(100vh - 18rem);
   }
 
   .table-container {
     min-width: 100%;
+    margin: 0;
   }
 
   .cloneForm {
@@ -616,6 +622,15 @@ margin: 3rem;
  .clones{
   padding: 0.5rem;
   font-size: 1.6rem;
+  margin-top: 1rem;
+ }
+
+ #clones{
+margin-right: 0.5rem;
+ }
+
+ #modalBtn{
+  margin-left: 0.5rem;
  }
 
 #tblNumber{
@@ -623,13 +638,12 @@ margin: 3rem;
 }
 
 #tabButton{
-  top: 1rem;
-
+display:none;
 }
 
 .table {
    font-size: 1.4rem;
-   max-width: 95%;
+   max-width: 50%;
    align-self: center;
 
 }
@@ -648,9 +662,23 @@ margin: 3rem;
 }
 
 .caption-wrapper{
-
   max-width: 90%;
-  
+  left:0.5rem;
+}
+
+#sidePanel{
+display:none;
+}
+
+#playerWindow{
+display:none;
+}
+
+#playerWindow p {
+font-size: 2.0rem;
+font-weight: bold;
+padding-left: 0.2rem;
+padding-right: 0.2rem;
 }
 
 }
