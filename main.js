@@ -55,3 +55,6 @@ window.dropBtn = dropBtn;
 window.tblCloner = tblCloner;
 
 playerWindow();
+
+
+

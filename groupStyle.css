@@ -388,6 +388,10 @@ caption,
   
 }
 
+#userInput{
+  border-radius: 0.5rem;
+}
+
 
 .dropBtn {
   background-color: #3d88ff;
