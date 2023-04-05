@@ -24,14 +24,14 @@ tabButton.addEventListener("click", function() {
   const sidePanel = document.getElementById("sidePanel");
   const tabButton = document.getElementById("tabButton");
   if (sidePanel.style.right === "0px") {
-    sidePanel.style.right = "-250px";
+    sidePanel.style.right = "-25rem";
     tabButton.style.right = "0px";
   } else {
     sidePanel.style.right = "0px";
     if (window.innerWidth <= 800) {
       tabButton.style.right = "calc(100% - 22rem)";
     } else {
-      tabButton.style.right = "250px";
+      tabButton.style.right = "25rem";
     }
   }
 });
