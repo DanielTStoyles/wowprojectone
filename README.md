@@ -19,7 +19,8 @@ To use the project, follow these steps:
     Fill in the player's name, role, and select an image of their class/spec.
     Click the "Save" button to add the player to the roster.
     Repeat steps 2-4 to add more players to the roster.
-    Once you have added all the players, you can organize them into groups of 5 by selecting their name from the dropdown menu displayed by clicking the "Choose     Player" button on the desired positions in the table.
+    Once you have added all the players, you can organize them into groups of 5 by 
+    selecting their name from the dropdown menu displayed by clicking the "Choose Player" button on the desired positions in the table.
     Exit the modal window either by clicking the x in the corner or pressing escape
 
 Features
