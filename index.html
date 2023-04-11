@@ -1,69 +1,90 @@
 <!-- @format -->
 
 <!DOCTYPE html>
-
 <html lang="en">
   <body id="focusColor">
     <head>
       <meta charset="UTF=8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Raid Roster</title>
-      <link
-        rel="stylesheet"
-        href="style.css"
-        type="text/css"
-        rel="import"
-        rel="mytabletemplate.html"
-      />
-      <script src="main.js" type="module" defer></script>
-      <script src="tableMaker.js" defer></script>
+      <link rel="stylesheet" href="groupStyle.css" type="text/css" />
+
+      <script type="module" src="main.js" defer></script>
+      <script type="module" src="groupPage.js" defer></script>
     </head>
-    <div>
+
+    <div class="navContainer">
       <div class="navbar">
         <p class="title">Raid Roster</p>
       </div>
     </div>
-    <div class="banner" id="banner">
-      <img src="images/catform.png" />
-      <img src="images/bearform.png" />
-      <img src="images/moonfire.png" />
-      <img src="images/HealingTouch.png" />
-      <img src="images/afflicitonlock.png" />
-      <img src="images/demonlock.png" />
-      <img src="images/destrolock.png" />
-      <img src="images/arcanemage.png" />
-      <img src="images/firemage.png" />
-      <img src="images/frostmage.png" />
-      <img src="images/armswarrior.png" />
-      <img src="images/furywarrior.png" />
-      <img src="images/protwarrior.png" />
-      <img src="images/combat.png" />
-      <img src="images/subtletyrogue.png" />
-      <img src="images/assasinationrogue.png" />
-      <img src="images/ProtPaladin.png" />
-      <img src="images/RetPaladin.png" />
-      <img src="images/holypaladin.png" />
-      <img src="images/HolyPriest.png" />
-      <img src="images/discpriest.png" />
-      <img src="images/shadowpriest.png" />
-      <img src="images/restoshaman.png" />
-      <img src="images/enhanceshaman.png" />
-      <img src="images/eleshaman.png" />
-      <img src="images/marksmanhunter.png" />
-      <img src="images/beasthunter.png" />
-      <img src="images/survivalhunter.png" />
-      <img src="images/frostdk.png" />
-      <img src="images/unholydk.png" />
-      <img src="images/blooddk.png" />
+    <div class="header">
+      <div class="banner" id="banner">
+        <img src="images/catform.png" />
+        <img class="mobileHide" src="images/bearform.png" />
+        <img class="mobileHide" src="images/moonfire.png" />
+        <img class="mobileHide" src="images/HealingTouch.png" />
+        <img class="mobileHide" src="images/afflicitonlock.png" />
+        <img src="images/demonlock.png" />
+        <img class="mobileHide" src="images/destrolock.png" />
+        <img class="mobileHide" src="images/arcanemage.png" />
+        <img class="mobileHide1" src="images/firemage.png" />
+        <img class="mobileHide" src="images/frostmage.png" />
+        <img class="mobileHide" src="images/armswarrior.png" />
+        <img class="mobileHide2" src="images/furywarrior.png" />
+        <img src="images/protwarrior.png" />
+        <img class="mobileHide" src="images/combat.png" />
+        <img src="images/subtletyrogue.png" />
+        <img class="mobileHide3" src="images/assasinationrogue.png" />
+        <img class="mobileHide" src="images/ProtPaladin.png" />
+        <img  src="images/RetPaladin.png" />
+        <img class="mobileHide" src="images/holypaladin.png" />
+        <img class="mobileHide" src="images/HolyPriest.png" />
+        <img class="mobileHide" src="images/discpriest.png" />
+        <img class="mobileHide" src="images/shadowpriest.png" />
+        <img class="mobileHide" src="images/restoshaman.png" />
+        <img class="mobileHide" src="images/enhanceshaman.png" />
+        <img class="mobileHide4" src="images/eleshaman.png" />
+        <img src="images/marksmanhunter.png" />
+        <img class="mobileHide" src="images/beasthunter.png" />
+        <img class="mobileHide" src="images/survivalhunter.png" />
+        <img class="mobileHide" src="images/frostdk.png" />
+        <img class="mobileHide" src="images/unholydk.png" />
+        <img src="images/blooddk.png" />
+      </div>
     </div>
 
-    <div class="tContainer" id="tContainer"></div>
-    <div id="outerButtonDiv">
-      <div id="buttonDiv">
-        <button type="button" class="pageSelect" id="modalBtn">
-          +Create New Player
+    <div id="contentContainer">
+
+
+      
+      <div class="cloneForm">
+        <button
+          id="modalBtn"
+          class="clones"
+          type="submit"
+        >
+        +Create New Player
+
         </button>
-        <button type="button" class="pageSelect">Create Roster</button>
+        <form id="tblNumber">
+          <input
+            id="userInput"s
+            type="text"
+            pattern="[0-9]"
+            inputmode="numeric"
+            autocomplete="off"
+            placeholder="Enter # of Tables Here"
+          />
+        </form>
+
+        <button type="button" class="clones" id="clones">
+          Create New Group(s)
+        </button>
       </div>
+
+      <button type="button" id="tabButton">Saved Players &#8594</button>
+<div id="sidePanel"></div>
     </div>
   </body>
 </html>
